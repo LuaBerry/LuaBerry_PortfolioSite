@@ -26,7 +26,8 @@ a {
     top: 0px;
     left: 0px;
 
-    background-color: lightcoral;
+    background-color: #ddd;
+    color: black;
     height: 100%;
     width: 280px;
     padding: 25px;
@@ -35,7 +36,6 @@ a {
 .profile {
     display: flex;
     justify-content: center;
-    
 }
 
 .profile_outline{
@@ -57,19 +57,22 @@ a {
 .sidebar ul li {
     list-style: none;
     padding: 5px 0;
-    transition: transform 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .sidebar ul li:hover {
-    color: red;
+    color: #D90D58
 }
 
-.edit{
-    width: 5em;
-    background-color: lightpink;
-    border-radius: 5px;
-    border: 0px;
+.sidebar_line {
+    width: 200px;
+    margin: 0;
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid black;
 }
+
+/* Main contents */
 
 .contents {
     width: calc(100% - 290px);
@@ -87,7 +90,8 @@ a {
     width: 100%;
     height: 160px;
     text-align: center;
-    background-color: lightgray;
+    background-color: gray;
+    color: white;
     padding-top: 5px;
     margin-left: 0;
 }
@@ -101,7 +105,7 @@ a {
 #name hr{
     width: 10em;
     border: 0;
-    border-top: 2px solid black
+    border-top: 2px solid white
 }
 
 #name h3{
@@ -121,6 +125,7 @@ a {
     font-size: 28px;
     font-weight: 400;
     margin-bottom: 12px;
+    color: #D90D58;
 }
 
 .subhead::after{
@@ -141,18 +146,12 @@ a {
 
 #references span{
     display: block;
-    margin-bottom: 500px;
+    margin-bottom: 150px;
 }
 
-.sidebar_line {
-    width: 200px;
-    margin: 0;
-    height: 1px;
-    border: 0;
-    border-bottom: 1px solid black;
-}
 
-@media (max-width: 700px) {
+/* mobile */
+@media screen and (max-width: 767px) {
     body {
         margin: 0;
     }
