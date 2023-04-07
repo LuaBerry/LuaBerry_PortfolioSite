@@ -138,6 +138,7 @@ a {
 
 #name .bg{
     background: linear-gradient(to right, #D90D58, #1EB7D9);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
