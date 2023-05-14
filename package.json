@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon",
         "start": "node build/init.js",
-        "build:server": "babel src -d build"
+        "build": "babel src -d build"
     },
     "keywords": [],
     "author": "",
