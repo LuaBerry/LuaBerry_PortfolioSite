@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Baskin</title>
-    <link rel="stylesheet" href="./resumeStyle.css?v=1.2">
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="./index.html">
-                    <img src="./img/logo.png" alt="logo" height="50px">
-                </a>
-            </div>
-            <ul>
-                <li><a href="./portfolio.html">
-                    Portfolio
-                </a></li>
-                <li>
-                    Projects
-                </li>
-                <li><a href="./index.html">
-                    Resume
-                </a></li>
-            </ul>
-        </nav>
-        <main>
-            <div class="sidebar">
+extends base.pug
+
+block head
+    link(rel="stylesheet", href="/assets/css/resumeStyle.css")
+
+block content
+    <div class="sidebar">
                 <div class="profile">
                     <div class="profile_outline">
                         <img src="./img/profile.jpg" alt="Profile Image">
@@ -156,9 +132,3 @@
                 </div>
             </article>
         </main>
-        <footer>
-            <small>Copyright &copy by Baskin All Right</small>
-        </footer>
-    </div>
-</body>
-</html>
