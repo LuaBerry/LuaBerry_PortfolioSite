@@ -1,14 +1,9 @@
 extends base.pug
 
 block head
-    link(rel="stylesheet", href="/assets/css/indexStyle.css")
+    link(rel="stylesheet", href="/assets/css/sidebarStyle.css")
 
 block content
-    br
-    h3
-        a(href="https://github.com/Baskin-Lazpberry/FullStack-YouTube_Clone") Wetube
-        br
-    small 2023.04
-    br
-    br
-    br
+    include partials/sidebar.pug
+    article.contents
+        h1 Portfolio

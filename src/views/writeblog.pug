@@ -1,0 +1,20 @@
+extends base.pug
+
+block head
+    link(rel="stylesheet", href="/assets/css/indexStyle.css")
+
+block content
+    form(method="post")
+        label(for="title") Title
+        br
+        input(name="title", placeholder="Title")
+        br
+        label(for="article") Article
+        br
+        textarea(name="article", placeholder="Article")
+        br
+        label(for="hashtags") Hashtags (divide with #)
+        br
+        input(name="hashtags", placeholder="Hashtags")
+        br
+        input(type="submit", value="Post") 

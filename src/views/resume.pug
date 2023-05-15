@@ -1,48 +1,11 @@
 extends base.pug
 
 block head
+    link(rel="stylesheet", href="/assets/css/sidebarStyle.css")
     link(rel="stylesheet", href="/assets/css/resumeStyle.css")
 
 block content
-    div.sidebar
-        div.profile
-            div.profile_outline
-                img(src="assets/img/profile.jpg" alt="Profile Image")
-        div.contact
-            h3 CONTACT
-            hr.sidebar_line
-            ul
-                li
-                    a(href="mailto:jeong.i.yeo.kr@gmail.com")
-                        img(src="/assets/img/mail_logo.svg" alt="phone_logo" height="20")
-                        span jeong.i.yeo.kr@gmail.com
-                li
-                    a(href="tel:(+82)10-9367-8253")
-                        img(src="/assets/img/phone_logo.svg" alt="phone_logo" height="20")
-                        span (+82)10-9367-8253
-                li
-                    a(href="https://goo.gl/maps/hA1XZBdaGZewab567")
-                        img(src="/assets/img/maps_logo.svg" alt="phone_logo" height="20")
-                        span Seoul, Korea
-                li
-                    a(href="https://www.linkedin.com/in/ji-yeo/")
-                        img(src="/assets/img/linkedin_logo.svg" alt="linkedin_logo" height="20")
-                        span linkedin.com/in/ji-yeo/
-                br
-        div.index
-            h3 INDEX
-            hr.sidebar_line
-            ul
-                li
-                    a(href="#name") Personal Identification
-                li
-                    a(href="#education") Education
-                li
-                    a(href="#experience") Experience
-                li
-                    a(href="#skills") Skills
-                li
-                    a(href="#references") References
+    include partials/sidebar.pug
     article.contents
         div#name
             div.bg
