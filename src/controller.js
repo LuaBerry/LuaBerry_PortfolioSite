@@ -19,10 +19,10 @@ export const resume = (req, res) => {
 };
 
 export const blog = async (req, res) => {
-    const posts = await Post.find({});
+    //const posts = await Post.find({});
     return res.render("blog.pug", { pageTitle: "Blog", 
     index: ["Personal Identification", "Education", "Experience", "Skills", "References"],
-    posts,});
+    posts: [],});
 }
 
 export const getWriteBlog = (req, res) => {
@@ -30,6 +30,7 @@ export const getWriteBlog = (req, res) => {
 }
 
 export const postWriteBlog = async (req, res) => {
+    return res.redirect("/blog");
     const {title, body} = req.body;
     const hashtags = req.body.hashtags ? req.body.hashtags.split("#").slice(1) : [];
     await Post.create({
