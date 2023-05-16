@@ -7,14 +7,14 @@ block content
     form(method="post")
         label(for="title") Title
         br
-        input(name="title", placeholder="Title")
+        input(name="title", placeholder="Title", required)
         br
-        label(for="article") Article
+        label(for="body") Body
         br
-        textarea(name="article", placeholder="Article")
+        textarea(name="body", placeholder="Body", required)
         br
         label(for="hashtags") Hashtags (divide with #)
         br
-        input(name="hashtags", placeholder="Hashtags")
+        input(name="hashtags", placeholder="#Hashtags#Blogs")
         br
         input(type="submit", value="Post") 

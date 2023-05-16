@@ -5,4 +5,9 @@ block head
 block content 
     article.contents
         h1 Blogs
+        each post in posts
+            h3
+                a(href="/blog/"+post._id)=post.title
+        else
+            h3 No post is posted yet.
         a(href="/blog/write") Write new &rarr;

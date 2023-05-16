@@ -1,3 +1,6 @@
+import "dotenv/config";
+import "./db";
+import "./Post";
 import app from "./server";
 
 const PORT = 8000;
