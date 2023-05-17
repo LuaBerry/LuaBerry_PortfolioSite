@@ -10,4 +10,5 @@ block content
                 a(href="/blog/"+post._id)=post.title
         else
             h3 No post is posted yet.
-        a(href="/blog/write") Write new &rarr;
+        if loggedIn
+            a(href="/blog/write") Write new &rarr;

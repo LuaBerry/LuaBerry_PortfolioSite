@@ -15,6 +15,5 @@ block content
         br
         label(for="hashtags") Hashtags (divide with #)
         br
-        input(name="hashtags", placeholder="#Hashtags#Blogs", value=post.hashtags)
-        br
+        input(name="hashtags", placeholder="#Hashtags#Blogs", value=post.hashtags.map(element => ("#" + element)).join(''))
         input(type="submit", value="Post") 

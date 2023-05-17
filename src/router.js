@@ -1,5 +1,7 @@
 import express from "express";
-import { blog, deletePost, getUpdatePost, getWritePost, home, portfolio, postUpdatePost, postWritePost, projects, resume, viewPost, writeBlog } from "./controller";
+import { blog, deletePost, getLogin, getUpdatePost, getWritePost, home, portfolio, postLogin, postUpdatePost, postWritePost, projects, resume, viewPost, writeBlog } from "./controller";
+import { privatePageMiddleware } from "./middleware";
+
 
 const router = express.Router();
 
@@ -8,10 +10,11 @@ router.get("/resume", resume);
 router.get("/projects", projects);
 
 router.get("/blog", blog);
-router.route("/blog/write").get(getWritePost).post(postWritePost);
+router.route("/blog/write").all(privatePageMiddleware).get(getWritePost).post(postWritePost);
 router.get("/blog/:id", viewPost);
-router.get("/blog/:id/delete", deletePost);
-router.route("/blog/:id/update").get(getUpdatePost).post(postUpdatePost);
+router.get("/blog/:id/delete", privatePageMiddleware,deletePost);
+router.route("/blog/:id/update").all(privatePageMiddleware).get(getUpdatePost).post(postUpdatePost);
+router.route("/login").get(getLogin).post(postLogin);
 
 //router.get("/portfolio", portfolio);
 

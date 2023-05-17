@@ -9,9 +9,10 @@ block content
     each hashtag in post.hashtags
         li=hashtag
     br
-    a(href=`./${post._id}/delete`) Remove the post &rarr;
-    br
-    a(href=`./${post._id}/update`) Update the post &rarr;
-    br
+    if loggedIn
+        a(href=`./${post._id}/delete`) Remove the post &rarr;
+        br
+        a(href=`./${post._id}/update`) Update the post &rarr;
+        br
     a(href="/blog") Back to the lists &rarr;
     br

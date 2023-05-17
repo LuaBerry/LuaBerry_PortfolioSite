@@ -59,13 +59,27 @@ export const getUpdatePost = async (req, res) => {
 
 export const postUpdatePost = async (req, res) => {
     const {title, body} = req.body;
+    const {id} = req.params
     const hashtags = req.body.hashtags ? req.body.hashtags.split("#").slice(1) : [];
-    await Post.create({
+    await Post.findByIdAndUpdate(id, {
         title,
         body,
         hashtags,
     });
     return res.redirect("/blog");
+}
+
+export const getLogin = (req, res) => {
+    return res.render("login.pug", { pageTitle: "Login", });
+}
+
+export const postLogin = (req, res) => {
+    const {code} = req.body;
+    if(code === process.env.CODE) {
+        req.session.loggedIn = true;
+        console.log("Hello!");
+    }
+    return res.redirect("/");
 }
 
 export const viewPost = async (req, res) => {
