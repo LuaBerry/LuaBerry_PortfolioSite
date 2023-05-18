@@ -59,7 +59,7 @@ export const getUpdatePost = async (req, res) => {
 
 export const postUpdatePost = async (req, res) => {
     const {title, body} = req.body;
-    const {id} = req.params
+    const {id} = req.params;
     const hashtags = req.body.hashtags ? req.body.hashtags.split("#").slice(1) : [];
     await Post.findByIdAndUpdate(id, {
         title,

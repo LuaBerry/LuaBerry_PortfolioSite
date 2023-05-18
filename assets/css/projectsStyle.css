@@ -1,4 +1,4 @@
-/* Resume stylesheet */
+/* Project stylesheet */
 /* Version 1.2 */
 
 /* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
@@ -29,12 +29,13 @@ h1, .index h3, .contact h3{
 .box {
     width: 100%;
     margin: 0 0;
+    margin-bottom: 20px;
     padding: 20px;
     border: 1px solid;
 }
 
 h2.title a {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .italic {

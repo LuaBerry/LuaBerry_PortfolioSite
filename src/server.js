@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import router from "./router";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middleware";
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.DB_LINK})
 }))
 app.use(localsMiddleware);
 

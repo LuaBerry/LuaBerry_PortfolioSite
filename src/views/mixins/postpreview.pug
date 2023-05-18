@@ -1,0 +1,8 @@
+mixin postPreview(post)
+    div.post
+        small.createdAt=post.createdAt.toDateString()
+        h2.title
+            a(href="/blog/" + post._id)=post.title
+        p.body=post.body.slice(0, 80) + ((post.body.length > 80) ? "..." : "")
+        if post.hashtags[0]
+            small.hashtag="#"+post.hashtags[0]
