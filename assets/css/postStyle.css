@@ -36,7 +36,7 @@ main {
 .post {
     width:100%;
     padding: 20px;
-    border: 1px solid;
+    border: 1px solid #999999;
     margin-bottom: 20px;
 }
 

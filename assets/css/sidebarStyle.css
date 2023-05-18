@@ -27,7 +27,7 @@ main {
 
 .sidebar {
     background-color: #f5f5f5;
-    border-right: 1px solid;
+    border-right: 1px solid #999999;
     color: black;
     width: 280px;
     padding: 25px;
@@ -115,7 +115,7 @@ main {
         position:static;
         width: 100%;
         border:0;
-        border-top: 1px solid;
+        border-top: 1px solid #bbbbbb;
         order: 1;
     }
     .index {
