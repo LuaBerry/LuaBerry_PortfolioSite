@@ -13,6 +13,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({extended:true}));
 app.use(session({
     secret: process.env.COOKIE_SECRET,
+    cookie: { maxAge: 1000 * 60 * 10 },
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.DB_LINK})

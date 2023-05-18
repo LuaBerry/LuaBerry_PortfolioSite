@@ -79,7 +79,7 @@ export const postLogin = (req, res) => {
         req.session.loggedIn = true;
         console.log("Hello!");
     }
-    return res.redirect("/");
+    return res.redirect("/blog");
 }
 
 export const viewPost = async (req, res) => {
