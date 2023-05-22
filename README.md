@@ -1,5 +1,6 @@
 # Baskin's page
 
-Portfolio and Resume
+Portfolio website
+Blog, Project, Resume
 
 Website Link - https://baskin-lazpberry.github.io/
