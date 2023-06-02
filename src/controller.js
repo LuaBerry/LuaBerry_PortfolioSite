@@ -15,7 +15,7 @@ export const projects = (req, res) => {
 };
 export const resume = (req, res) => {
     return res.render("resume.pug", { pageTitle: "Resume", 
-    index: ["Personal Identification", "Education", "Experience", "Skills", "References"],});
+    index: ["About Me", "Education", "Experience", "Skills", "References"],});
 };
 
 export const blog = async (req, res) => {
