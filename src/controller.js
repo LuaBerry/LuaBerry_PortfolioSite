@@ -4,11 +4,6 @@ export const home = (req, res) => {
     return res.render("home.pug", { pageTitle: "Home", });
 };
 
-export const portfolio = (req, res) => {
-    return res.render("portfolio.pug", { pageTitle: "Portfolio", 
-    index: []});
-};
-
 export const projects = (req, res) => {
     return res.render("projects.pug", { pageTitle: "Projects", 
     index: []});
