@@ -14,10 +14,13 @@ export const resume = (req, res) => {
 };
 
 export const blog = async (req, res) => {
+    /*
     const posts = await Post.find({});
     return res.render("blog.pug", { pageTitle: "Blog", 
     index: ["Personal Identification", "Education", "Experience", "Skills", "References"],
     posts,});
+    */
+    return res.redirect("https://luaberry.tistory.com/");
 }
 
 export const getWritePost = (req, res) => {

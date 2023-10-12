@@ -10,11 +10,13 @@ router.get("/resume", resume);
 router.get("/projects", projects);
 
 router.get("/blog", blog);
+/*
 router.route("/blog/write").all(privatePageMiddleware).get(getWritePost).post(postWritePost);
 router.get("/blog/:id", viewPost);
 router.get("/blog/:id/delete", privatePageMiddleware,deletePost);
 router.route("/blog/:id/update").all(privatePageMiddleware).get(getUpdatePost).post(postUpdatePost);
 router.route("/login").get(getLogin).post(postLogin);
+*/
 
 //router.get("/portfolio", portfolio);
 
