@@ -43,7 +43,7 @@ video {
 
 .overlay {
     position: absolute;
-    top: 71px;
+    top: 71.5px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -53,7 +53,7 @@ video {
 }
 
 .home-content {
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     top: 150px;
@@ -69,7 +69,18 @@ video {
 }
 
 @media screen and (max-width: 767px) {
-    .banner {
-        font-size: 6vw
+    .home-content h1 {
+        font-size: 50px;
+    }
+    .home-content {
+        top: 100px;
+    }
+    video {
+        top:131.5px;
+        height:300px;
+    }
+    .overlay {
+        top:131.5px;
+        height:300px;
     }
 }
