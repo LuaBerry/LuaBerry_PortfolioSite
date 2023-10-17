@@ -68,6 +68,10 @@ video {
     line-height: 1.1;
 }
 
+div.blank {
+    margin-bottom: 900px;
+}
+
 @media screen and (max-width: 767px) {
     .home-content h1 {
         font-size: 50px;
@@ -82,5 +86,8 @@ video {
     .overlay {
         top:131.5px;
         height:300px;
+    }
+    div.blank {
+        margin-bottom: 700px;
     }
 }
