@@ -3,7 +3,7 @@ import morgan from "morgan";
 import router from "./router";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import { localsMiddleware } from "./middleware";
+import { cacheMiddleware, localsMiddleware } from "./middleware";
 
 const app = express();
 
@@ -21,6 +21,6 @@ app.use(session({
 app.use(localsMiddleware);
 
 app.use("/", router);
-app.use("/assets", express.static("assets"));
+app.use("/assets", cacheMiddleware, express.static("assets"));
 
 export default app;
