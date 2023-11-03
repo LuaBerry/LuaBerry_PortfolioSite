@@ -1,4 +1,5 @@
 import Post from "./Post";
+import Chat from "./Chat";
 
 export const home = (req, res) => {
     return res.render("home.pug", { pageTitle: "Home", });
@@ -12,6 +13,18 @@ export const resume = (req, res) => {
     return res.render("resume.pug", { pageTitle: "Resume", 
     index: ["About Me", "Education", "Experience", "Skills", "References"],});
 };
+
+export const chat = async (req, res) => {
+    const chats = await Chat.find({});
+    return res.render("chat.pug", { pageTitle: "Chat", chats});
+}
+export const postChat = async (req,res) => {
+    const {text} = req.body;
+    await Chat.create({
+        text,
+    });
+    return res.redirect("/chat");
+}
 
 export const blog = async (req, res) => {
     /*
