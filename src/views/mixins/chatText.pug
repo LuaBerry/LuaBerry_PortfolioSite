@@ -1,4 +1,4 @@
 mixin chatText(chat)
     div.chat
-        small.time=chat.sentAt
-        p.body=chat.text
+        small.time=chat.sentAt.toTimeString("hh:mm").split(' ')[0]
+        p.text=chat.name + ": " + chat.text

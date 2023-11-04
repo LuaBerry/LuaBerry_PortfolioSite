@@ -1,10 +1,13 @@
 extends base.pug
 include mixins/chatText.pug
 
+block head
+    link(rel="stylesheet", href="/assets/css/chatStyle.css")
+
 block content 
-    each chat in chats
-        +chatText(chat)
-    
-    form(method="POST")
-        input(name="text", ,required)
-        input(type="submit", value="Send")
+    div.chatbox
+        each chat in chats
+            +chatText(chat)
+        form(method="POST")
+            input(name="text", placeholder=name,required)
+            input(type="submit", value="Send")

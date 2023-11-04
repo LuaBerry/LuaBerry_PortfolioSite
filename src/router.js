@@ -1,5 +1,5 @@
 import express from "express";
-import { blog, chat, deletePost, getLogin, getUpdatePost, getWritePost, home, portfolio, postLogin, postUpdatePost, postWritePost, postChat, projects, resume, viewPost, writeBlog } from "./controller";
+import { blog, chat, home, postChat, projects, resume, } from "./controller";
 import { privatePageMiddleware } from "./middleware";
 
 
