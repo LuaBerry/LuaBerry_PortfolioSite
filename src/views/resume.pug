@@ -7,11 +7,14 @@ block head
 block content
     include partials/sidebar.pug
     article.contents
+
         div#name
             div.bg
                 h1 YEO, JEONG IN
                 hr
                 h3 Hanyang University Student
+        a(href="./resumeKR")
+            small 한국어 버전은 이쪽으로 &rarr;
         div#personal_info
             h3.subhead About Me
             span
@@ -33,9 +36,15 @@ block content
             h3.subhead Experience
             span 
                 | OOPArts
-                li Game Dev Society
-                li 2020~2021 
+                li Game Dev Society 
                     span.accent President
+                li Swift COVID response with Online Game Dev tutoring &amp; Showcase
+                li 2020~2021 
+                br
+                | Game Outsourcing Project: "Hidden World"
+                li Unity Marine tourism app with AR navigation &amp; real-time marine life models
+                li Animation, AR, Optimization
+                li 2020.11~2021.01
                 br
                 | KATUSA
                 li Korean Augmentation To the 

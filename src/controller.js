@@ -12,14 +12,27 @@ export const resume = (req, res) => {
     return res.render("resume.pug", { pageTitle: "Resume", 
     index: ["About Me", "Education", "Experience", "Skills", "References"],});
 };
+export const resumeKR = (req, res) => {
+    return res.render("resumeKR.pug", { pageTitle: "ResumeKR", 
+    index: ["About Me", "Education", "Experience", "Skills", "References"],});
+};
+export const chat = async (req, res) => {
+    if(!req.session.name)
+        req.session.name = makeName();
+    const chats = await Chat.find({});
+    return res.render("chat.pug", { pageTitle: "Chat", chats, name: req.session.name});
+}
+export const postChat = async (req,res) => {
+    const {text} = req.body;
+    const {name} = req.session;
+    await Chat.create({
+        name,
+        text,
+    });
+    return res.redirect("/chat");
+}
 
 export const blog = async (req, res) => {
-    /*
-    const posts = await Post.find({});
-    return res.render("blog.pug", { pageTitle: "Blog", 
-    index: ["Personal Identification", "Education", "Experience", "Skills", "References"],
-    posts,});
-    */
     return res.redirect("https://luaberry.tistory.com/");
 }
 
