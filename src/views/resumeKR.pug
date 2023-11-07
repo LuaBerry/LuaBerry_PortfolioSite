@@ -1,0 +1,81 @@
+extends base.pug
+
+block head
+    link(rel="stylesheet", href="/assets/css/sidebarStyle.css")
+    link(rel="stylesheet", href="/assets/css/resumeStyle.css")
+
+block content
+    include partials/sidebar.pug
+    article.contents
+        div#name
+            div.bg
+                h1 여정인
+                hr
+                h3 한양대학교 학부생
+        div#personal_info
+            h3.subhead About Me
+            span
+                | 저는 한양대학교 2학년
+                span.accent 컴퓨터 소프트웨어 학부
+                | 에서 재학중입니다.
+                br
+                | 제 시야를 넓히고 기술을 연마할 기회를 찾고 있습니다.
+        div#education
+            h3.subhead Education
+            span
+                | 한양대학교 학부생
+                li 
+                    span.accent 컴퓨터소프트웨어학부 
+                    | 학사과정
+                li 학점 3.5/ 4.5 (90.0 / 100)
+        div#experience
+            h3.subhead Experience
+            span 
+                | 오파츠 (OOPArts)
+                li 게임 개발 동아리 
+                    span.accent 회장
+                li 2020~2021, 2023 
+                    br
+                    
+                br
+                | 카투사 (KATUSA)
+                li 2021.06 - 2022.12
+        div#skills
+            h3.subhead Certification
+            span 
+                | 토익 (TOEIC)
+                li 2020.07
+                li 950/990
+                br
+                | SQL 개발자 (SQLD)
+                li SQL Developer
+                li 2023.04
+            h3.subhead Technical Skills
+            span
+                | 중급
+                li C#
+                li Python
+                br
+                | 초급
+                li C, C++
+                li JavaScript
+                li SQL
+                br
+            h3.subhead Language
+            span
+                | 한국어
+                li 원어민
+                br 
+                | 영어
+                li 고급
+                li 제한적으로 업무 의사소통 가능
+                br
+                | 일본어
+                li 초급
+                li 단독 여행 가능
+                br 
+                | 프랑스어
+                li 기초 의사소통 가능
+        div#references
+            h3.subheadReferences
+                span 
