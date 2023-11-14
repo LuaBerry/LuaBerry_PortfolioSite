@@ -1,5 +1,5 @@
-import Post from "./Post";
 import Chat from "./Chat";
+import Post from "./Post";
 import makeName from "./randomName";
 
 export const home = (req, res) => {
@@ -19,7 +19,7 @@ export const chat = async (req, res) => {
     if(!req.session.name)
         req.session.name = makeName();
     const chats = await Chat.find({});
-    return res.render("chat.pug", { pageTitle: "Chat", chats, name: req.session.name});
+    return res.render("chat.pug", { pageTitle: "Chat", chats, session: req.session});
 }
 export const postChat = async (req,res) => {
     const {text} = req.body;
@@ -28,6 +28,18 @@ export const postChat = async (req,res) => {
         name,
         text,
     });
+    return res.redirect("/chat");
+}
+
+export const jsonChat = async (req, res) => {
+    const chats = await Chat.find({});
+    return res.json(chats)
+}
+
+export const removeChat = async (req, res) => {
+    const {id} = req.params;
+    console.log(id);
+    await Chat.findByIdAndDelete(id)
     return res.redirect("/chat");
 }
 
