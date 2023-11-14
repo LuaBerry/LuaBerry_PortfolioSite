@@ -4,34 +4,19 @@ import makeName from "./randomName";
 
 export const home = (req, res) => {
     return res.render("home.pug", { pageTitle: "Home", });
-};
+}
 
 export const projects = (req, res) => {
     return res.render("projects.pug", { pageTitle: "Projects", 
     index: []});
-};
+}
 export const resume = (req, res) => {
     return res.render("resume.pug", { pageTitle: "Resume", 
     index: ["About Me", "Education", "Experience", "Skills", "References"],});
-};
+}
 export const resumeKR = (req, res) => {
     return res.render("resumeKR.pug", { pageTitle: "ResumeKR", 
     index: ["About Me", "Education", "Experience", "Skills", "References"],});
-};
-export const chat = async (req, res) => {
-    if(!req.session.name)
-        req.session.name = makeName();
-    const chats = await Chat.find({});
-    return res.render("chat.pug", { pageTitle: "Chat", chats, name: req.session.name});
-}
-export const postChat = async (req,res) => {
-    const {text} = req.body;
-    const {name} = req.session;
-    await Chat.create({
-        name,
-        text,
-    });
-    return res.redirect("/chat");
 }
 
 export const chat = async (req, res) => {
