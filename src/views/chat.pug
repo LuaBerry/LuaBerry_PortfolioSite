@@ -3,7 +3,7 @@ include mixins/chatText.pug
 
 block head
     link(rel="stylesheet", href="/assets/css/chatStyle.css")
-    //- script(src="/assets/script/chatSync.js") 
+    
 
 block content
     div.mainBox
@@ -11,6 +11,8 @@ block content
             each chat in chats
                 +chatText(chat)
         form.inputBox(method="POST")
-            //- input#refresh(type="button", value="\u27f3")
+            input#refresh(type="button", value="\u27f3")
             input.text(name="text", placeholder=session.name, required, autofocus)
             input(type="submit", value="Send")
+    
+    script(src="/assets/script/chatSync.js") 
