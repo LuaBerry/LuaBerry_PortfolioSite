@@ -61,7 +61,6 @@ function postNewChat(text) {
     }
     appendChat(chat);
     
-    length += 1;
     chatLists.scrollTop = chatLists.scrollHeight;
     xhttp.onreadystatechange = () => {
         //When GET request is complete and status is 200.
@@ -97,7 +96,7 @@ function appendChat(chat) {
     spanText.classList.add("text");
     spanText.innerText = chat.name + ": " + chat.text;
     divChat.appendChild(spanText);
-    if (username == chat.name) {
+    if ((username == chat.name) && chat._id) {
         formRemove = document.createElement("form");
         formRemove.setAttribute("action", `/chat/${chat._id}/remove`);
         formRemove.setAttribute("method", "get");
