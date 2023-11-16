@@ -1,7 +1,7 @@
 refreshBtn = document.getElementById("refresh");
 refreshBtn.addEventListener("click", getCurrentChat);
 
-setInterval(getCurrentChat, 6000);
+var chatSync = setInterval(getCurrentChat, 6000);
 
 chatLists = document.querySelector(".chatLists");
 var length = parseInt(chatLists.dataset.len);
@@ -38,6 +38,7 @@ function getCurrentChat() {
 formInputBox = document.querySelector(".inputBox");
 formInputBox.addEventListener("submit", (event) => {
     event.preventDefault();
+    clearInterval(chatSync);
     inputText = formInputBox.querySelector("#text");
     text = inputText.value;
     postNewChat(text);
@@ -59,14 +60,17 @@ function postNewChat(text) {
         text: text,
     }
     appendChat(chat);
+    
     length += 1;
     chatLists.scrollTop = chatLists.scrollHeight;
     xhttp.onreadystatechange = () => {
         //When GET request is complete and status is 200.
         if (xhttp.readyState == 4) {
-            if(xhttp.status == 200)
+            if(xhttp.status == 200){
                 console.log("Post complete!");
-            else{
+                chatSync = setInterval(getCurrentChat, 6000);
+            }
+            else {
                 console.log("Post fail!");
             }
         }
