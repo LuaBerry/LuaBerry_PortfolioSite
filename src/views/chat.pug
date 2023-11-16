@@ -2,7 +2,7 @@ extends base.pug
 include mixins/chatText.pug
 
 block head
-    link(rel="stylesheet", href="/assets/css/chatStyle.css?1.1")
+    link(rel="stylesheet", href="/assets/css/chatStyle.css?1.2")
     
 
 block content
@@ -15,4 +15,4 @@ block content
             input#text(name="text", placeholder=session.name, required, autofocus)
             input(type="submit", value="Send")
     
-    script(src="/assets/script/chatSync.js?1.5")
+    script(src="/assets/script/chatSync.js?1.6")
