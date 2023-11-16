@@ -4,6 +4,7 @@ setInterval(getCurrentChat, 2000);
 chatLists = document.querySelector(".chatLists");
 var length = chatLists.dataset.len;
 var user = chatLists.dataset.user;
+chatLists.scrollTo(0, chatLists.scrollHeight);
 function getCurrentChat() {
     var xhttp = new XMLHttpRequest();
     //GET request: json data from chat DB
@@ -25,6 +26,7 @@ function getCurrentChat() {
             res.forEach(element => {
                 appendChat(element);
             });
+            chatLists.scrollTo(0, chatLists.scrollHeight);
         }
     }
 }
