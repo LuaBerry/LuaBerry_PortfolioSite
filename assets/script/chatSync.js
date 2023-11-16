@@ -1,10 +1,10 @@
 refreshBtn = document.getElementById("refresh");
 refreshBtn.addEventListener("click", getCurrentChat);
 
-setInterval(getCurrentChat, 5000);
+setInterval(getCurrentChat, 6000);
 
 chatLists = document.querySelector(".chatLists");
-var length = chatLists.dataset.len;
+var length = parseInt(chatLists.dataset.len);
 var user = chatLists.dataset.user;
 chatLists.scrollTop = chatLists.scrollHeight;
 
@@ -20,8 +20,9 @@ function getCurrentChat() {
         //When GET request is complete and status is 200.
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             var res = xhttp.response;
-            if(res.length !== parseInt(length))
+            if(res.length !== length)
             {
+                length = res.length;
                 console.log("200!");
                 chatLists.innerHTML = "";
                 res.forEach(element => {
