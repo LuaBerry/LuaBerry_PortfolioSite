@@ -7,7 +7,7 @@ block head
 
 block content
     div.mainBox
-        div.chatLists
+        div.chatLists(data-len=chats.length, data-user=session.name)
             each chat in chats
                 +chatText(chat)
         form.inputBox(method="POST")

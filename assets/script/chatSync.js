@@ -1,8 +1,9 @@
 refreshBtn = document.getElementById("refresh");
 refreshBtn.addEventListener("click", getCurrentChat);
-
+setInterval(getCurrentChat, 2000);
 chatLists = document.querySelector(".chatLists");
-
+var length = chatLists.dataset.len;
+var user = chatLists.dataset.user;
 function getCurrentChat() {
     var xhttp = new XMLHttpRequest();
     //GET request: json data from chat DB
@@ -12,29 +13,33 @@ function getCurrentChat() {
     xhttp.onreadystatechange = () => {
         //When GET request is complete and status is 200.
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            console.log("Fetch complete!");
             var res = xhttp.response;
-            console.log(res);
+            chatLists.innerHTML = "";
+            temp = res.length;
+            //res = res.slice(length);
+            length = temp;
             
-            appendNewChats(res);
+            //appendNewChats(res);
             
             //For test
             res.forEach(element => {
-                console.log(element);
                 appendChat(element);
             });
         }
     }
 }
 
+
+
 function appendNewChats(chats) {
     //call appendNewChat for each element in array.
     //to-do: Check all chat list, and find new chat.
-    //to-do: 
+    var newChats;
+    newChats.forEach(e => {
+        appendChat(e);
+    });
 }
 
-
-chatLists = document.querySelector(".chatLists");
 
 function appendChat(chat) {
     divChatBox = document.createElement("div");
@@ -54,6 +59,18 @@ function appendChat(chat) {
     spanText.classList.add("text");
     spanText.innerText = chat.name + ": " + chat.text;
     divChat.appendChild(spanText);
-    
-    chatLists.insertAdjacentElement( 'beforeend', divChatBox);
+    if (user == chat.name) {
+        formRemove = document.createElement("form");
+        formRemove.setAttribute("action", `/chat/${chat._id}/remove`);
+        formRemove.setAttribute("method", "get");
+
+        inputSubmit = document.createElement("input");
+        inputSubmit.setAttribute("type", "submit");
+        inputSubmit.setAttribute("value", "X");
+
+        formRemove.appendChild(inputSubmit);
+        divChat.appendChild(formRemove);
+    }
+    chatLists.insertAdjacentElement('beforeend', divChatBox);
 }
+
