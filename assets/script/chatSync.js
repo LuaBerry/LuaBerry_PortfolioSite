@@ -5,7 +5,7 @@ setInterval(getCurrentChat, 6000);
 
 chatLists = document.querySelector(".chatLists");
 var length = parseInt(chatLists.dataset.len);
-var user = chatLists.dataset.user;
+var username = chatLists.dataset.user;
 chatLists.scrollTop = chatLists.scrollHeight;
 
 function getCurrentChat() {
@@ -35,6 +35,45 @@ function getCurrentChat() {
     }
 }
 
+formInputBox = document.querySelector(".inputBox");
+formInputBox.addEventListener("submit", (event) => {
+    event.preventDefault();
+    inputText = formInputBox.querySelector("#text");
+    text = inputText.value;
+    postNewChat(text);
+    inputText.value = '';
+})
+
+
+
+function postNewChat(text) {
+    console.log(text);
+    var xhttp = new XMLHttpRequest();
+    //GET request: json data from chat DB
+    xhttp.open("POST", "/chat", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(`text=${text}`);
+    chat = {
+        name: username,
+        sentAt: new Date(),
+        text: text,
+    }
+    appendChat(chat);
+    length += 1;
+    chatLists.scrollTop = chatLists.scrollHeight;
+    xhttp.onreadystatechange = () => {
+        //When GET request is complete and status is 200.
+        if (xhttp.readyState == 4) {
+            if(xhttp.status == 200)
+                console.log("Post complete!");
+            else{
+                console.log("Post fail!");
+            }
+        }
+    }
+}
+
+
 
 function appendChat(chat) {
     divChatBox = document.createElement("div");
@@ -54,7 +93,7 @@ function appendChat(chat) {
     spanText.classList.add("text");
     spanText.innerText = chat.name + ": " + chat.text;
     divChat.appendChild(spanText);
-    if (user == chat.name) {
+    if (username == chat.name) {
         formRemove = document.createElement("form");
         formRemove.setAttribute("action", `/chat/${chat._id}/remove`);
         formRemove.setAttribute("method", "get");

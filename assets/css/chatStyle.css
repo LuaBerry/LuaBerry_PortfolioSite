@@ -53,12 +53,13 @@ h1, h2, p {
     width: calc(100%);
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 .inputBox :first-child {
     width: 10%;
 }
 
-.inputBox .text {
+.inputBox #text {
     width: 80%;
 }
 
@@ -69,5 +70,16 @@ h1, h2, p {
 @media screen and (max-width: 767px) {
     .banner {
         font-size: 6vw
+    }
+    .inputBox :first-child {
+        width: 10%;
+    }
+    
+    .inputBox #text {
+        width: 60%;
+    }
+    
+    .inputBox :last-child {
+        width: 20%;
     }
 }
