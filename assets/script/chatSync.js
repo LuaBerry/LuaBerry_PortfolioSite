@@ -1,45 +1,37 @@
 refreshBtn = document.getElementById("refresh");
 refreshBtn.addEventListener("click", getCurrentChat);
-setInterval(getCurrentChat, 2000);
+
+setInterval(getCurrentChat, 5000);
+
 chatLists = document.querySelector(".chatLists");
 var length = chatLists.dataset.len;
 var user = chatLists.dataset.user;
-chatLists.scrollTo(0, chatLists.scrollHeight);
+chatLists.scrollTop = chatLists.scrollHeight;
+
 function getCurrentChat() {
     var xhttp = new XMLHttpRequest();
+
     //GET request: json data from chat DB
     xhttp.open("GET", "/chat/json", true);
+    
     xhttp.send();
     xhttp.responseType = 'json';
     xhttp.onreadystatechange = () => {
         //When GET request is complete and status is 200.
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             var res = xhttp.response;
-            chatLists.innerHTML = "";
-            temp = res.length;
-            //res = res.slice(length);
-            length = temp;
-            
-            //appendNewChats(res);
-            
-            //For test
-            res.forEach(element => {
-                appendChat(element);
-            });
-            chatLists.scrollTo(0, chatLists.scrollHeight);
+            if(res.length !== parseInt(length))
+            {
+                console.log("200!");
+                chatLists.innerHTML = "";
+                res.forEach(element => {
+                    appendChat(element);
+                });
+                chatLists.scrollTop = chatLists.scrollHeight;
+            }
+            console.log("304!");
         }
     }
-}
-
-
-
-function appendNewChats(chats) {
-    //call appendNewChat for each element in array.
-    //to-do: Check all chat list, and find new chat.
-    var newChats;
-    newChats.forEach(e => {
-        appendChat(e);
-    });
 }
 
 
