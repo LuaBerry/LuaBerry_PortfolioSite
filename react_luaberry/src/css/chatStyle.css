@@ -1,0 +1,85 @@
+/* Blog stylesheet */
+/* Version 1.1 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, h2, p {
+    font-family: Helvetica, sans-serif;
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+.mainBox {
+    width: 80%;
+    margin: 20px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid gray;
+}
+
+.chatLists {
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    border: 2px solid gray;
+    overflow:scroll;
+    scroll-snap-align: end;
+}
+
+.chatBox {
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.chat {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inputBox{
+    width: calc(100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.inputBox :first-child {
+    width: 10%;
+}
+
+.inputBox #text {
+    width: 80%;
+}
+
+.inputBox :last-child {
+    width: 20%;
+}
+
+@media screen and (max-width: 767px) {
+    .banner {
+        font-size: 6vw
+    }
+    .inputBox :first-child {
+        width: 10%;
+    }
+    
+    .inputBox #text {
+        width: 60%;
+    }
+    
+    .inputBox :last-child {
+        width: 20%;
+    }
+}

@@ -1,0 +1,77 @@
+/* Project stylesheet */
+/* Version 1.2 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, .index h3, .contact h3{
+    font-family: Helvetica, sans-serif
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+.contents {
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.box {
+    width: 100%;
+    margin: 0 0;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #999999;
+}
+
+h2.title a {
+    font-size: 24px;
+}
+
+.italic {
+    font-style:italic;
+}
+
+.box ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+.box ul li {
+    padding: 0 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+.box ul li:first-child {
+    margin-left: 0;
+}
+
+.gray {
+    color:#aaaaaa;
+}
+
+.accent {
+    color:#D90D58;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+    .contents {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,63 @@
+/* PostView stylesheet */
+/* Version 1.2 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, h2, p {
+    font-family: Helvetica, sans-serif;
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contents {
+    width:80%;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post {
+    width:100%;
+    padding: 20px;
+    border: 1px solid #999999;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.hashtags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+.hashtags li {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin: 0 5px;
+}
+
+.hashtags li:first-child {
+    margin-left: 0;
+}

@@ -1,18 +1,17 @@
 import Chat from "./Chat";
 import Post from "./Post";
 import makeName from "./randomName";
+import path from "path";
 
 export const home = (req, res) => {
-    return res.render("home.pug", { pageTitle: "Home", });
+    return res.send(path.join(__dirname), '../build/index.html');
 }
 
 export const projects = (req, res) => {
-    return res.render("projects.pug", { pageTitle: "Projects", 
-    index: []});
+    return res.send(path.join(__dirname), '../build/projects.html');
 }
 export const resume = (req, res) => {
-    return res.render("resume.pug", { pageTitle: "Resume", 
-    index: ["About Me", "Education", "Experience", "Skills", "References"],});
+    return res.send(path.join(__dirname), '../build/resume.html');
 }
 export const resumeKR = (req, res) => {
     return res.render("resumeKR.pug", { pageTitle: "ResumeKR", 
@@ -20,10 +19,7 @@ export const resumeKR = (req, res) => {
 }
 
 export const chat = async (req, res) => {
-    if(!req.session.name)
-        req.session.name = makeName();
-    const chats = await Chat.find({});
-    return res.render("chat.pug", { pageTitle: "Chat", chats, session: req.session});
+    return res.send(path.join(__dirname), '../build/chats.html');
 }
 export const postChat = async (req,res) => {
     const {text} = req.body;
@@ -62,10 +58,4 @@ export const postLogin = (req, res) => {
         console.log("Hello!");
     }
     return res.redirect("/blog");
-}
-
-export const viewPost = async (req, res) => {
-    const {id} = req.params;
-    const post = await Post.findById(id);
-    return res.render("viewblog.pug", { pageTitle: "Blog", post});
 }
