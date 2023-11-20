@@ -108,7 +108,7 @@ section.resume {
 
 /* mobile */
 @media screen and (max-width: 767px) {
-    main {
+    section.resume {
         flex-direction: column;
     }
     .sidebar {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Head = (pageTitle) => {
+const Head = ({pageTitle}) => {
     return (
         <head>
         <meta charSet="UTF-8" />
