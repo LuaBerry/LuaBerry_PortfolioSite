@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import '../css/resumeStyle.css';
 
-const Resume = () => {
+const ResumePage = () => {
     return (
         <section className='resume'>
             <Sidebar />
@@ -32,79 +32,69 @@ const Resume = () => {
                         Hanyang University
                         <br />
                         <span className="italic">Undergraduate Student</span>
-                        <ul>
-                            <li>Bachelor of Science in <span className="accent">Computer Science</span></li>
-                            <li>Total GPA of 3.5/4.5 (90.0/100)</li>
-                        </ul>
+                        <li>Bachelor of Science in <span className="accent">Computer Science</span></li>
+                        <li>Total GPA of 3.5/4.5 (90.0/100)</li>
+
                     </span>
                 </div>
                 <div id="experience">
                     <h3 className="subhead">Experience</h3>
                     <span>
                         OOPArts
-                        <ul>
-                            <li>Game Dev Society <span className="accent">President</span></li>
-                            <li>Swift COVID response with Online Game Dev tutoring &amp; Showcase</li>
-                            <li>2020~2021</li>
-                            <li>Game Outsourcing Project: "Hidden World"</li>
-                            <li>Unity Marine tourism app with AR navigation &amp; real-time marine life models</li>
-                            <li>Animation, AR, Optimization</li>
-                            <li>2020.11~2021.01</li>
-                            <li>KATUSA <span className="accent">Korean Augmentation To the US Army</span></li>
-                            <li>2021.06 - 2022.12</li>
-                        </ul>
+                        <li>Game Dev Society <span className="accent">President</span></li>
+                        <li>Swift COVID response with Online Game Dev tutoring &amp; Showcase</li>
+                        <li>2020~2021</li>
+                        <br/>
+                        Game Outsourcing Project: "Hidden World"
+                        <li>Unity Marine tourism app with AR navigation &amp; real-time marine life models</li>
+                        <li>Animation, AR, Optimization</li>
+                        <li>2020.11~2021.01</li>
+                        <br/>
+                        KATUSA
+                        <li>Korean Augmentation To the <span className="accent">US Army</span></li>
+                        <li>2021.06 - 2022.12</li>
                     </span>
                 </div>
                 <div id="skills">
                     <h3 className="subhead">Certification</h3>
                     <span>
                         TOEIC
-                        <ul>
-                            <li>Test of English</li>
-                            <li>2020.07</li>
-                            <li>950/990</li>
-                        </ul>
+                        <li>Test of English</li>
+                        <li>2020.07</li>
+                        <li>950/990</li>
+                        <br/>
                         SQLD
-                        <ul>
-                            <li>SQL Developer</li>
-                            <li>2023.04</li>
-                        </ul>
+                        <li>SQL Developer</li>
+                        <li>2023.04</li>
                     </span>
                     <h3 className="subhead">Technical Skills</h3>
                     <span>
                         Intermediate
-                        <ul>
-                            <li>C#</li>
-                            <li>Python</li>
-                        </ul>
+                        <li>C#</li>
+                        <li>Python</li>
+                        <br/>
                         Elementary
-                        <ul>
-                            <li>C, C++</li>
-                            <li>JavaScript</li>
-                            <li>SQL</li>
-                        </ul>
+                        <li>C, C++</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
                     </span>
                     <h3 className="subhead">Language</h3>
                     <span>
                         Korean
-                        <ul>
-                            <li>Native</li>
-                        </ul>
+                        <li>Native</li>
+                        <br/>
                         English
-                        <ul>
-                            <li>Intermediate (B2~C1)</li>
-                            <li>Limited working proficiency</li>
-                        </ul>
+                        <li>Intermediate (B2~C1)</li>
+                        <li>Limited working proficiency</li>
+                        <br/>
                         Japanese
-                        <ul>
-                            <li>Elementary (A2)</li>
-                            <li>Able to travel alone</li>
-                        </ul>
+                        <li>Elementary (A2)</li>
+                        <li>Able to travel alone</li>
+                        <br/>
                         French
-                        <ul>
-                            <li>Beginner (A1)</li>
-                            <li>Basic communication</li>
-                        </ul>
+                        <li>Beginner (A1)</li>
+                        <li>Basic communication</li>
+                        <br/>
                     </span>
                 </div>
                 <div id="references">
@@ -117,4 +107,4 @@ const Resume = () => {
     );
 };
 
-export default Resume;
+export default ResumePage;

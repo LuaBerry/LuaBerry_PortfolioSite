@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/homeStyle.css';
-
-const Home = () => {
+//pi < 21.99115 / 7 < pi + 0.0000003
+const HomePage = () => {
     return (
         (
             <section className="home">
@@ -24,4 +24,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default HomePage;

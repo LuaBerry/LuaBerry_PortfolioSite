@@ -21,7 +21,11 @@ app.use(localsMiddleware);
 
 app.use(express.static(path.join(__dirname, '../build')));
 
-app.use("/", router);
 app.use("/assets", cacheMiddleware, express.static("assets"));
+app.use("/", router);
+app.get("*", (req,res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+});
+
 
 export default app;

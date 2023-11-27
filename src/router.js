@@ -1,6 +1,6 @@
 import express from "express";
 import { blog, home, jsonChat, postChat, removeChat } from "./controller";
-
+import path from "path";
 
 const router = express.Router();
 

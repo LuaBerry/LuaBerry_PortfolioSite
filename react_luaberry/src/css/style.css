@@ -27,7 +27,6 @@ html {
 a {
     color: inherit;
     text-decoration: inherit;
-
     transition: all 0.2s ease-in-out;
 }
 

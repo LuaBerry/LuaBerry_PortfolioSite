@@ -1,7 +1,7 @@
 import React from "react";
 import Project from "../components/Project";
 import "../css/projectsStyle.css";
-const Projects = () => {
+const ProjectsPage = () => {
     return (
         <section className="projects">
             <Project title="Wetube"
@@ -23,4 +23,4 @@ const Projects = () => {
     );
 }
 
-export default Projects;
+export default ProjectsPage;

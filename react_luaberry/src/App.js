@@ -1,27 +1,27 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import './css/style.css';
-import Chat from './routes/Chat';
-import Home from './routes/Home';
-import Projects from './routes/Projects';
-import Resume from './routes/Resume';
-import ResumeKR from './routes/ResumeKR';
+import ChatPage from './routes/ChatPage';
+import HomePage from './routes/HomePage';
+import ProjectsPage from './routes/ProjectsPage';
+import ResumePage from './routes/ResumePage';
+import ResumeKRPage from './routes/ResumeKRPage';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route exact path = "/" element = {<Home/>}/>
-        <Route path="/resume" element = {<Resume/>}/>
-        <Route path="/resumekr" element = {<ResumeKR/>}/>
-        <Route path="/projects" element = {<Projects/>}/>
-        <Route path="/chat" element = {<Chat/>}/>
+        <Route exact path = "/" element = {<HomePage/>}/>
+        <Route path="/resume" element = {<ResumePage/>}/>
+        <Route path="/resumekr" element = {<ResumeKRPage/>}/>
+        <Route path="/projects" element = {<ProjectsPage/>}/>
+        <Route path="/chat" element = {<ChatPage/>}/>
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
 
   )
 }
