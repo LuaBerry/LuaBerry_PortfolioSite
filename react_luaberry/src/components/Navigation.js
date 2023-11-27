@@ -14,6 +14,7 @@ const Navigation = () => {
                     <ul>
                         <li><Link to="/resume">Resume</Link></li>
                         <li><Link to="/projects">Projects</Link></li>
+                        <li><Link to="/chat">Chat</Link></li>
                         <li><a href="https://luaberry.tistory.com/" target="_blank" rel="noopener noreferrer">
                             Blog<i className="fa fa-external-link" style={{ fontSize: '10px' }}></i>
                         </a></li>

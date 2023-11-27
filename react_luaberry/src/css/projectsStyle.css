@@ -18,7 +18,7 @@ h1, .index h3, .contact h3{
 /* ======================= Main Contents =======================*/
 /* =============================================================*/
 
-.contents {
+.projects {
     padding:20px;
     display: flex;
     flex-direction: column;
@@ -69,7 +69,7 @@ h2.title a {
 
 /* mobile */
 @media screen and (max-width: 767px) {
-    .contents {
+    .projects {
         position: static;
         width: 100%;
         height: 100%;

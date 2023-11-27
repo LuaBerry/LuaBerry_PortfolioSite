@@ -7,3 +7,5 @@ const Chat = () => {
     </section>
     )
 }
+
+export default Chat;

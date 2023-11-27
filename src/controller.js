@@ -1,22 +1,20 @@
-import Chat from "./Chat";
-import Post from "./Post";
-import makeName from "./randomName";
 import path from "path";
+import Chat from "./Chat";
 
 export const home = (req, res) => {
     return res.send(path.join(__dirname), '../build/index.html');
 }
 
-export const projects = (req, res) => {
-    return res.send(path.join(__dirname), '../build/projects.html');
-}
-export const resume = (req, res) => {
-    return res.send(path.join(__dirname), '../build/resume.html');
-}
-export const resumeKR = (req, res) => {
-    return res.render("resumeKR.pug", { pageTitle: "ResumeKR", 
-    index: ["About Me", "Education", "Experience", "Skills", "References"],});
-}
+// export const projects = (req, res) => {
+//     return res.send(path.join(__dirname), '../build/projects.html');
+// }
+// export const resume = (req, res) => {
+//     return res.send(path.join(__dirname), '../build/resume.html');
+// }
+// export const resumeKR = (req, res) => {
+//     return res.render("resumeKR.pug", { pageTitle: "ResumeKR", 
+//     index: ["About Me", "Education", "Experience", "Skills", "References"],});
+// }
 
 export const chat = async (req, res) => {
     return res.send(path.join(__dirname), '../build/chats.html');

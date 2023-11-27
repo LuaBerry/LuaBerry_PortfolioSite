@@ -1,8 +1,11 @@
 import React from "react";
 
-const footer = () => {
+const Footer = () => {
     return (
-        <>
-        </>
+        <footer>
+            <small>Copyright &copy; by LuaBerry All Right</small>
+        </footer>
     )
 }
+
+export default Footer;
