@@ -8,8 +8,10 @@ import makeName from "../randomName";
 const ChatPage = () => {
     const [chats, setChats] = useState([]);
     const chatListRef = useRef(null);
+
     if(!window.sessionStorage.getItem("name"))
         window.sessionStorage.setItem("name", makeName());
+
     useEffect(() => {
         const getChat = async ()=> {
             const {data} = await axios.get("/chat/json");
@@ -21,9 +23,11 @@ const ChatPage = () => {
         const getChatInterval = setInterval(getChat, 4000);
         return () => clearInterval(getChatInterval);
     }, [])
+
     useEffect(() => {
         chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
     }, [chats])
+
     return (
         <section id='chat'>
             <div ref={chatListRef} className="chatLists">
@@ -34,7 +38,7 @@ const ChatPage = () => {
                 })
             }
             </div>
-            <PostChat setChats={setChats}/>
+            <PostChat chats={chats} setChats={setChats}/>
         </section>
     )
 }
