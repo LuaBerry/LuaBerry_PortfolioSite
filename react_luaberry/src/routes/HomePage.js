@@ -6,10 +6,10 @@ const HomePage = () => {
         (
             <section className="home">
                 <video
-                    autoPlay
-                    loop
-                    muted
-                    playsinline
+                    autoPlay={true}
+                    loop={true}
+                    muted={true}
+                    playsinline={true}
                     disablePictureInPicture="true"
                     poster="/assets/img/PR_vid_poster.webp">
                     <source src="/assets/video/PR_vid_opt.mp4" type="video/mp4" />
