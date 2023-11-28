@@ -8,16 +8,13 @@ import PostChat from "../components/PostChat";
 const ChatPage = () => {
     const [chats, setChats] = useState([]);
     const chatListRef = useRef(null);
-    var prevChat = [];
     if(!window.sessionStorage.getItem("name"))
         window.sessionStorage.setItem("name", makeName());
     useEffect(() => {
         const getChat = async ()=> {
             const {data} = await axios.get("/chat/json");
-            if((prevChat.toString()) != (data.toString())) {
+            if((chats.toString()) !== (data.toString())) {
                 setChats(data);
-                prevChat = data;
-                console.log(prevChat, data);
             }
         };
         getChat();
