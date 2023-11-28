@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios"
-import '../css/chatStyle.css'
-import makeName from "../randomName";
+import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
 import ChatComponent from "../components/ChatComponent";
 import PostChat from "../components/PostChat";
+import '../css/chatStyle.css';
+import makeName from "../randomName";
 
 const ChatPage = () => {
     const [chats, setChats] = useState([]);
@@ -30,11 +30,11 @@ const ChatPage = () => {
             {
                 chats.map(
                 (chat) => {
-                return (<ChatComponent chat={chat} />);
+                return (<ChatComponent chat={chat} setChats={setChats}/>);
                 })
             }
             </div>
-            <PostChat chats={chats} setChats={setChats}/>
+            <PostChat setChats={setChats}/>
         </section>
     )
 }

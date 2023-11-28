@@ -1,17 +1,17 @@
-import React from "react";
-import qs from 'qs';
 import axios from 'axios';
+import qs from 'qs';
+import React from "react";
 
-const postChat = ({chats, setChats}) => {
+const postChat = ({setChats}) => {
     return (
-        <form action="/chat" className="inputBox" method="POST" 
+        <form className="inputBox" method="POST"
             onSubmit={async (event) => {
             event.preventDefault();
-            await postNewChat(event.target.text.value);
-            const { data } = await axios.get("/chat/json");
-            console.log(data);
-            setChats(data);
+            const text = event.target.text.value;
             event.target.text.value = "";
+            await postNewChat(text);
+            const { data } = await axios.get("/chat/json");
+            setChats(data);
         }}
         >
             <input id="refresh" type="button" value={"\u27f3"}/>
