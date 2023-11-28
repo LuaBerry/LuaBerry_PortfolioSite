@@ -9,10 +9,11 @@ const HomePage = () => {
                     autoPlay={true}
                     loop={true}
                     muted={true}
-                    playsinline={true}
+                    playsInline
                     disablePictureInPicture="true"
                     poster="/assets/img/PR_vid_poster.webp">
-                    <source src="/assets/video/PR_vid_opt.mp4" type="video/mp4" />
+                    <source src="/assets/video/PR_vid_1920.webm" type="video/webm" />
+                    <source src="/assets/video/PR_vid_1920.mp4" type="video/mp4" />
                 </video>
                 <div className='overlay' />
                 <div className='home-content'>
