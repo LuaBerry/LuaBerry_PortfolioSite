@@ -14,9 +14,9 @@ const ChatComponent = ({chat, setChats})=> {
                 (
                     <form method="POST" onSubmit={async (event) => {
                         event.preventDefault();
-                        await axios.get(`/chat/${chat._id}/remove`);
                         if(thisChat.current.dataset.id == chat._id)
                             thisChat.current.style.display = "none";
+                        await axios.get(`/chat/${chat._id}/remove`);
                         const { data } = await axios.get("/chat/json");
                         setChats(data);
                     }} >
