@@ -28,13 +28,17 @@ const ChatPage = () => {
         chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
     }, [chats])
 
+    const handleRemove = (chatId) => {
+        setChats((prevChat) => prevChat.filter((chat) => chat._id != chatId));
+    }
+
     return (
         <section id='chat'>
             <div ref={chatListRef} className="chatLists">
             {
                 chats.map(
                 (chat) => {
-                return (<ChatComponent chat={chat} setChats={setChats}/>);
+                return (<ChatComponent key={chat._id} chat={chat} setChats={setChats} onRemove={handleRemove}/>);
                 })
             }
             </div>
