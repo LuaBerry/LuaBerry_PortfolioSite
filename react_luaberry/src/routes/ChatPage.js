@@ -8,6 +8,7 @@ import makeName from "../randomName";
 const ChatPage = () => {
     const [chats, setChats] = useState([]);
     const chatListRef = useRef(null);
+    const prevChatRef = useRef([]);
 
     if(!window.sessionStorage.getItem("name"))
         window.sessionStorage.setItem("name", makeName());
@@ -15,8 +16,11 @@ const ChatPage = () => {
     useEffect(() => {
         const getChat = async ()=> {
             const {data} = await axios.get("/chat/json");
-            if((chats.toString()) !== (data.toString())) {
+            console.log(prevChatRef.current, data);
+            if((prevChatRef.current.toString()) !== (data.toString())) {
+                console.log("!==");
                 setChats(data);
+                prevChatRef.current = data;
             }
         };
         getChat();
@@ -26,6 +30,7 @@ const ChatPage = () => {
 
     useEffect(() => {
         chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
+        
     }, [chats])
 
     const handleRemove = (chatId) => {
