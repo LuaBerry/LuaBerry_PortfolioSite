@@ -19,6 +19,11 @@ const ProjectsPage = () => {
             description="Side Scroll RPG with Unreal Engine 4"
             skills={["Unreal Engine 4", "Blueprint", "Cinematics"]}
             time="2022.04" />
+            <Project title="Blender Donut"
+            link="https://github.com/Baskin-Lazpberry/UE4-SideScrollGame"
+            description="Modeling Donut with Blender3"
+            skills={["Blender 4", "3D Modeling"]}
+            time="2022.04" />
         </section>
     );
 }
