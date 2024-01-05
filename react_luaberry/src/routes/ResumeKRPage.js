@@ -21,17 +21,19 @@ const ResumeKRPage = () => {
                 <div id="personal_info">
                     <h3 className="subhead">About Me</h3>
                     <span className='lang-kr'>
-                        한양대학교 <span className="accent lang-kr">컴퓨터 소프트웨어 학부</span> 2학년생 입니다.
+                        한양대학교 <span className="accent lang-kr">컴퓨터 소프트웨어 학부</span> 3학년생 입니다.
                         <br />
                         제 시야를 넓히고 개발 기술을 연마할 기회를 찾고 있습니다.
                     </span>
+                    <h4>Field of Interest</h4>
+                    <li>Cloud Computing</li>
                 </div>
                 <div id="education">
                     <h3 className="subhead">Education</h3>
                     <span className='lang-kr'>
                         한양대학교 학부생
                         <li className='lang-kr'>컴퓨터 소프트웨어학부</li>
-                        <li className='lang-kr'>학점 3.5/4.5 (90.0/100)</li>
+                        <li className='lang-kr'>학점 3.68/4.5 (91.8/100)</li>
                     </span>
                 </div>
                 <div id="experience">
@@ -39,7 +41,7 @@ const ResumeKRPage = () => {
                     <span className='lang-kr'>
                     오파츠 OOPArts
                     <li className='lang-kr'>게임 개발 동아리 <span className="accent">회장</span></li>
-                    <li className='lang-kr'>코로나 상황 대응 - 온래안 개발 수업 및 멘토링 &amp; 게임 발표회</li>
+                    <li className='lang-kr'>코로나 상황 대응 - 온라인 개발 수업 및 멘토링 &amp; 게임 발표회</li>
                     <li>2020~2021</li>
                     <br/>
                     게임 외주 개발: "Hidden World"
