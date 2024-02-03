@@ -43,15 +43,15 @@ const ResumeKRPage = () => {
                     오파츠 OOPArts
                     <li className='lang-kr'>게임 개발 동아리 <span className="accent lang-kr">회장</span></li>
                     <li className='lang-kr'>코로나 상황 대응 - 온라인 개발 수업 및 멘토링 &amp; 게임 발표회</li>
-                    <li>2020~2021</li>
+                    <li>2020 ~ 2021</li>
                     <br/>
                     게임 외주 개발: "Hidden World"
                     <li className='lang-kr'>AR 네비게이션 &amp; 해양 생물 모델등을 제공하는 유니티 해양관광 앱</li>
                     <li className='lang-kr'>애니메이션, AR, 최적화</li>
-                    <li>2020.11~2021.01</li>
+                    <li>2020.11 ~ 2021.01</li>
                     <br/>
                     카투사 (KATUSA)
-                    <li>2021.06 - 2022.12</li>
+                    <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
                 <div id="skills">

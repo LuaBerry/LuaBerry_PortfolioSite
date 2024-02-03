@@ -49,8 +49,9 @@ const Sidebar = () => (
                 <li>About Me</li>
                 <li>Education</li>
                 <li>Experience</li>
-                <li>Skills</li>
-                <li>References</li>
+                <li>Certification</li>
+                <li>Technical Skills</li>
+                <li>Language</li>
             </ul>
         </div>
     </div>

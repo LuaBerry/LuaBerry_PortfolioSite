@@ -46,16 +46,16 @@ const ResumePage = () => {
                         OOPArts
                         <li>Game Dev Society <span className="accent">President</span></li>
                         <li>Swift COVID response with Online Game Dev tutoring &amp; Showcase</li>
-                        <li>2020~2021</li>
+                        <li>2020 ~ 2021</li>
                         <br/>
                         Game Outsourcing Project: "Hidden World"
                         <li>Unity Marine tourism app with AR navigation &amp; real-time marine life models</li>
                         <li>Animation, AR, Optimization</li>
-                        <li>2020.11~2021.01</li>
+                        <li>2020.11 ~ 2021.01</li>
                         <br/>
                         KATUSA
                         <li>Korean Augmentation To the <span className="accent">US Army</span></li>
-                        <li>2021.06 - 2022.12</li>
+                        <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
                 <div id="skills">
