@@ -1,5 +1,3 @@
 /node_modules
-/legacy
 /.env
-/server.*
 /react_luaberry/node_modules

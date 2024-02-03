@@ -13,7 +13,6 @@ function getCurrentChat() {
 
     //GET request: json data from chat DB
     xhttp.open("GET", "/chat/json", true);
-    
     xhttp.send();
     xhttp.responseType = 'json';
     xhttp.onreadystatechange = () => {

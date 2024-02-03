@@ -30,9 +30,8 @@ const ChatPage = () => {
 
     useEffect(() => {
         chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
-        
     }, [chats])
-
+    
     const handleRemove = (chatId) => {
         setChats((prevChat) => prevChat.filter((chat) => chat._id != chatId));
     }
@@ -43,7 +42,8 @@ const ChatPage = () => {
             {
                 chats.map(
                 (chat) => {
-                return (<ChatComponent key={chat._id} chat={chat} setChats={setChats} onRemove={handleRemove}/>);
+                return (<ChatComponent key={chat._id} chat={chat}
+                    setChats={setChats} onRemove={handleRemove}/>);
                 })
             }
             </div>

@@ -15,9 +15,10 @@ const ResumePage = () => {
                         <h3>Hanyang University Student</h3>
                     </div>
                 </div>
-                <Link to="/resumekr">
-                    <small>한국어 버전은 이쪽으로 →</small>
+                <Link to="/resumekr" className="langLink">
+                    <small className="gray lang-kr">한국어 버전은 이쪽으로 →</small>
                 </Link>
+                <hr className="titleLine"/>
                 <div id="personal_info">
                     <h3 className="subhead">About Me</h3>
                     <span>
@@ -25,6 +26,8 @@ const ResumePage = () => {
                         <br />
                         I am looking for an opportunity to practice my skills and broaden my horizons.
                     </span>
+                    <h4 className="subsubhead">Field of Interest</h4>
+                    <li>Cloud Computing</li>
                 </div>
                 <div id="education">
                     <h3 className="subhead">Education</h3>
@@ -33,7 +36,7 @@ const ResumePage = () => {
                         <br />
                         <span className="italic">Undergraduate Student</span>
                         <li>Bachelor of Science in <span className="accent">Computer Science</span></li>
-                        <li>Total GPA of 3.68/4.5 (91.8/100)</li>
+                        <li>Total GPA of 3.6.8/4.5 (91.8/100)</li>
 
                     </span>
                 </div>

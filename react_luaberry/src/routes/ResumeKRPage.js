@@ -15,9 +15,10 @@ const ResumeKRPage = () => {
                         <h3 className='lang-kr'>한양대학교 학부생</h3>
                     </div>
                 </div>
-                <Link to="/resume">
-                    <small>For English version →</small>
+                <Link to="/resume" className="langLink">
+                    <small className="gray">For English version →</small>
                 </Link>
+                <hr className="titleLine"/>
                 <div id="personal_info">
                     <h3 className="subhead">About Me</h3>
                     <span className='lang-kr'>
@@ -25,8 +26,8 @@ const ResumeKRPage = () => {
                         <br />
                         제 시야를 넓히고 개발 기술을 연마할 기회를 찾고 있습니다.
                     </span>
-                    <h4>Field of Interest</h4>
-                    <li>Cloud Computing</li>
+                    <h4 className="subsubhead">Field of Interest</h4>
+                    <li className="lang-kr">클라우드 컴퓨팅</li>
                 </div>
                 <div id="education">
                     <h3 className="subhead">Education</h3>
