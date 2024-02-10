@@ -24,7 +24,7 @@ const ResumeKRPage = () => {
                     <span className='lang-kr'>
                         한양대학교 <span className="accent lang-kr">컴퓨터 소프트웨어 학부</span> 3학년생 입니다.
                         <br />
-                        제 시야를 넓히고 개발 기술을 연마할 기회를 찾고 있습니다.
+                        카투사에서 복무 후 미국에서 일하고 싶다는 열망이 생겨 학사 졸업 후 미국 석사를 계획하고 있습니다.
                     </span>
                     <h4 className="subsubhead">Field of Interest</h4>
                     <li className="lang-kr">클라우드 컴퓨팅</li>
@@ -43,7 +43,7 @@ const ResumeKRPage = () => {
                     오파츠 OOPArts
                     <li className='lang-kr'>게임 개발 동아리 <span className="accent lang-kr">회장</span></li>
                     <li className='lang-kr'>코로나 상황 대응 - 온라인 개발 수업 및 멘토링 &amp; 게임 발표회</li>
-                    <li>2020 ~ 2021</li>
+                    <li>2020.01 ~ 2021.05</li>
                     <br/>
                     게임 외주 개발: "Hidden World"
                     <li className='lang-kr'>AR 네비게이션 &amp; 해양 생물 모델등을 제공하는 유니티 해양관광 앱</li>
@@ -81,12 +81,12 @@ const ResumeKRPage = () => {
                         <li className='lang-kr'>원어민</li>
                         <br/>
                         영어
-                        <li className='lang-kr'>고급 (B2~C1)</li>
-                        <li className='lang-kr'>제한적으로 업무 의사소통 가능</li>
+                        <li className='lang-kr'>고급 (C1)</li>
+                        <li className='lang-kr'>업무 의사소통 가능</li>
                         <br/>
                         일본어
                         <li className='lang-kr'>초급 (A2)</li>
-                        <li className='lang-kr'>단독 여행 가능</li>
+                        <li className='lang-kr'>여행 가능</li>
                         <br/>
                         프랑스어
                         <li className='lang-kr'>초보 (A1)</li>

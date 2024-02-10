@@ -24,7 +24,9 @@ const ResumePage = () => {
                     <span>
                         Junior in <span className="accent">Computer Science</span> at Hanyang University.
                         <br />
-                        I am looking for an opportunity to practice my skills and broaden my horizons.
+                        After my military service with US Army, I am determined to pursue a career in the United States.
+                        <br />
+                        Therefore, I aspire Master's degree in the US after my graduation.
                     </span>
                     <h4 className="subsubhead">Field of Interest</h4>
                     <li>Cloud Computing</li>
@@ -46,7 +48,7 @@ const ResumePage = () => {
                         OOPArts
                         <li>Game Dev Society <span className="accent">President</span></li>
                         <li>Swift COVID response with Online Game Dev tutoring &amp; Showcase</li>
-                        <li>2020 ~ 2021</li>
+                        <li>2020.01 ~ 2021.05</li>
                         <br/>
                         Game Outsourcing Project: "Hidden World"
                         <li>Unity Marine tourism app with AR navigation &amp; real-time marine life models</li>
@@ -87,16 +89,16 @@ const ResumePage = () => {
                         <li>Native</li>
                         <br/>
                         English
-                        <li>Intermediate (B2~C1)</li>
-                        <li>Limited working proficiency</li>
+                        <li>Intermediate (C1)</li>
+                        <li>Professional proficiency</li>
                         <br/>
                         Japanese
                         <li>Elementary (A2)</li>
-                        <li>Able to travel alone</li>
+                        <li>Elementary proficiency</li>
                         <br/>
                         French
                         <li>Beginner (A1)</li>
-                        <li>Basic communication</li>
+                        <li>Memorized proficiency</li>
                         <br/>
                     </span>
                 </div>

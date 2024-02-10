@@ -22,7 +22,7 @@ const Sidebar = () => (
                     </a>
                 </li>
                 <li>
-                    <a href="https://goo.gl/maps/hA1XZBdaGZewab567">
+                    <a href="https://maps.app.goo.gl/5qvtu3m7u9amZ4Z3A">
                         <FontAwesomeIcon icon={faMap} fixedWidth />
                         <span> Seoul, Korea</span>
                     </a>
