@@ -34,7 +34,7 @@ const ResumeKRPage = () => {
                     <span className='lang-kr'>
                         한양대학교 학부생
                         <li className='lang-kr'>컴퓨터 소프트웨어학부</li>
-                        <li className='lang-kr'>학점 3.68/4.5 (91.8/100)</li>
+                        <li className='lang-kr'>학점 3.74/4.5 (91.8/100)</li>
                     </span>
                 </div>
                 <div id="experience">
