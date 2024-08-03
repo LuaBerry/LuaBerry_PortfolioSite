@@ -8,7 +8,7 @@ const Sidebar = () => (
     <div className="sidebar">
         <div className="profile">
             <div className="profile_outline">
-                <img src="assets/img/profile2.webp" alt="Profile Image" />
+                <img src="assets/img/profile3.webp" alt="Profile Image" />
             </div>
         </div>
         <div className="contact">
