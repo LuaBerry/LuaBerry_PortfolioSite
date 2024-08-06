@@ -42,7 +42,7 @@ const Sidebar = () => (
                 <br />
             </ul>
         </div>
-        <div className="index">
+        {/* <div className="index">
             <h3>INDEX</h3>
             <hr className="sidebar_line" />
             <ul>
@@ -53,7 +53,7 @@ const Sidebar = () => (
                 <li>Technical Skills</li>
                 <li>Language</li>
             </ul>
-        </div>
+        </div> */}
     </div>
 );
 
