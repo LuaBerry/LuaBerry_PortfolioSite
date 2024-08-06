@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon",
         "start": "node build/init.js",
-        "build": "babel src -d build",
+        "build": "react-scripts build&&babel src -d build",
         "reactbuild": "react-scripts build",
         "reactstart": "react-scripts start",
         "reacttest": "react-scripts test",
