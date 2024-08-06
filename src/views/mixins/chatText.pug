@@ -1,8 +1,0 @@
-mixin chatText(chat)
-    div.chatBox
-        small.time=chat.sentAt.toTimeString("hh:mm").split(' ')[0]
-        div.chat
-            span.text=chat.name + ": " + chat.text
-            if session.name == chat.name
-                form(action=`/chat/${chat._id}/remove`, method="get")
-                    input(type="submit", value="X")

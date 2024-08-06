@@ -1,4 +1,5 @@
 {
-    "watch": ["./src", "./react_luaberry/src"],
-    "exec": "cd ./react_luaberry&&npm run build&&cd ..&&babel-node src/init.js"
+    "watch": ["./src"],
+    "exec": "react-scripts build&&babel-node src/init.js",
+    "ext": "css, js, json"
 }

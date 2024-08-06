@@ -1,6 +1,5 @@
 import express from "express";
 import morgan from "morgan";
-import router from "./router";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import { cacheMiddleware, localsMiddleware } from "./middleware";
@@ -22,7 +21,6 @@ app.use(localsMiddleware);
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.use("/assets", cacheMiddleware, express.static("assets"));
-app.use("/", router);
 app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 });

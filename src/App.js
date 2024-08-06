@@ -3,11 +3,11 @@ import './App.css';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import './css/style.css';
-import ChatPage from './routes/ChatPage';
 import HomePage from './routes/HomePage';
 import ProjectsPage from './routes/ProjectsPage';
 import ResumePage from './routes/ResumePage';
 import ResumeKRPage from './routes/ResumeKRPage';
+import InsightsPage from './routes/InsightsPage';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/resume" element = {<ResumePage/>}/>
         <Route path="/resumekr" element = {<ResumeKRPage/>}/>
         <Route path="/projects" element = {<ProjectsPage/>}/>
-        <Route path="/chat" element = {<ChatPage/>}/>
+        <Route path="/insights" element = {<InsightsPage/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>
