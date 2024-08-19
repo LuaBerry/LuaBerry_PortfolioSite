@@ -28,8 +28,8 @@ const ResumePage = () => {
                         <br />
                         Therefore, I aspire Master's degree in the US after my graduation.
                     </span>
-                    <h4 className="subsubhead">Field of Interest</h4>
-                    <li>Cloud Computing</li>
+                    {/* <h4 className="subsubhead">Field of Interest</h4>
+                    <li>Cloud Computing</li> */}
                 </div>
                 <div id="education">
                     <h3 className="subhead">Education</h3>

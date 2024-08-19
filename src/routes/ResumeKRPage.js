@@ -26,8 +26,8 @@ const ResumeKRPage = () => {
                         <br />
                         카투사에서 복무 후 미국에서 일하고 싶다는 열망이 생겨 학사 졸업 후 미국 석사를 계획하고 있습니다.
                     </span>
-                    <h4 className="subsubhead">Field of Interest</h4>
-                    <li className="lang-kr">클라우드 컴퓨팅</li>
+                    {/* <h4 className="subsubhead">Field of Interest</h4>
+                    <li className="lang-kr">클라우드 컴퓨팅</li> */}
                 </div>
                 <div id="education">
                     <h3 className="subhead">Education</h3>
