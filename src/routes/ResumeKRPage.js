@@ -46,7 +46,7 @@ const ResumeKRPage = () => {
                     <li>2020.01 ~ 2021.05</li>
                     <br/>
                     게임 외주 개발: "Hidden World"
-                    <li className='lang-kr'>AR 네비게이션 &amp; 해양 생물 모델등을 제공하는 유니티 해양관광 앱</li>
+                    <li className='lang-kr'>유니티 해양관광 앱 - AR 네비게이션 &amp; 해양 생물 3D 애니메이션</li>
                     <li className='lang-kr'>애니메이션, AR, 최적화</li>
                     <li>2020.11 ~ 2021.01</li>
                     <br/>
@@ -66,14 +66,17 @@ const ResumeKRPage = () => {
                     </span>
                     <h3 className="subhead">Technical Skills</h3>
                     <span className='lang-kr'>
-                        중급
+                        고급 (실무 경험)
+                        <li>Unity Engine</li>
                         <li>C#</li>
-                        <li>Python</li>
                         <br/>
-                        초급
-                        <li>C, C++</li>
-                        <li>JavaScript</li>
-                        <li>SQL</li>
+                        중급 (개인 프로젝트 경험)
+                        <li>React.js, Express.js, Node.js, MongoDB</li>
+                        <li>Unreal Engine, Blender 3D</li>
+                        <li>C, C++, JavaScript, Python</li>
+                        {/* <br/>
+                        초급 (이론 지식)
+                        <li>SQL</li> */}
                     </span>
                     <h3 className="subhead">Language</h3>
                     <span className='lang-kr'>
@@ -84,20 +87,15 @@ const ResumeKRPage = () => {
                         <li className='lang-kr'>고급 (C1)</li>
                         <li className='lang-kr'>업무 의사소통 가능</li>
                         <br/>
-                        일본어
-                        <li className='lang-kr'>초급 (A2)</li>
-                        <li className='lang-kr'>여행 가능</li>
-                        <br/>
-                        프랑스어
-                        <li className='lang-kr'>초보 (A1)</li>
-                        <li className='lang-kr'>기초 의사소통 가능</li>
                     </span>
                 </div>
-                <div id="references">
-                    <h3 className="subheadReferences">
+                {/* <div id="references">
+                    <h3 className="subhead">References</h3>
                         <span></span>
-                    </h3>
-                </div>
+                </div> */}
+                <br/>
+                <br/>
+                <br/>
             </article>
         </section>
     );

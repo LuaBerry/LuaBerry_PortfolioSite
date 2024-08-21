@@ -47,16 +47,17 @@ const ResumePage = () => {
                     <span>
                         OOPArts
                         <li>Game Dev Society <span className="accent">President</span></li>
-                        <li>Swift COVID response with Online Game Dev tutoring &amp; Showcase</li>
+                        <li>Swift COVID response with online tutoring &amp; showcase</li>
                         <li>2020.01 ~ 2021.05</li>
                         <br/>
                         Game Outsourcing Project: "Hidden World"
-                        <li>Unity Marine tourism app with AR navigation &amp; real-time marine life models</li>
+                        <li>Unity marine tourism app with AR navigation &amp; animated 3D models</li>
                         <li>Animation, AR, Optimization</li>
                         <li>2020.11 ~ 2021.01</li>
                         <br/>
                         KATUSA
                         <li>Korean Augmentation To the <span className="accent">US Army</span></li>
+                        <li>Streamlined conventional workflow & automated error-prone process</li>
                         <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
@@ -74,14 +75,17 @@ const ResumePage = () => {
                     </span>
                     <h3 className="subhead">Technical Skills</h3>
                     <span>
-                        Intermediate
+                        Advanced (Professional experience)
+                        <li>Unity Engine</li>
                         <li>C#</li>
-                        <li>Python</li>
                         <br/>
-                        Elementary
-                        <li>C, C++</li>
-                        <li>JavaScript</li>
-                        <li>SQL</li>
+                        Intermediate (Personal project experience)
+                        <li>React.js, Express.js, Node.js, MongoDB</li>
+                        <li>Unreal Engine, Blender 3D</li>
+                        <li>C, C++, JavaScript, Python</li>
+                        {/* <br/>
+                        Novice (Theoretical knowledge)
+                        <li>SQL</li> */}
                     </span>
                     <h3 className="subhead">Language</h3>
                     <span>
@@ -89,24 +93,18 @@ const ResumePage = () => {
                         <li>Native</li>
                         <br/>
                         English
-                        <li>Intermediate (C1)</li>
+                        <li>Advanced (C1)</li>
                         <li>Professional proficiency</li>
-                        <br/>
-                        Japanese
-                        <li>Elementary (A2)</li>
-                        <li>Elementary proficiency</li>
-                        <br/>
-                        French
-                        <li>Beginner (A1)</li>
-                        <li>Memorized proficiency</li>
                         <br/>
                     </span>
                 </div>
-                <div id="references">
-                    <h3 className="subheadReferences">
+                {/* <div id="references">
+                    <h3 className="subhead">References</h3>
                         <span></span>
-                    </h3>
-                </div>
+                </div> */}
+                <br/>
+                <br/>
+                <br/>
             </article>
         </section>
     );
