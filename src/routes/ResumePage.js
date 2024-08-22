@@ -57,7 +57,7 @@ const ResumePage = () => {
                         <br/>
                         KATUSA
                         <li>Korean Augmentation To the <span className="accent">US Army</span></li>
-                        <li>Streamlined conventional workflow & automated error-prone process</li>
+                        <li>S1 Personnel clerk: Streamlined conventional workflow & automated error-prone process</li>
                         <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
