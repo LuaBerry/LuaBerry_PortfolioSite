@@ -1,24 +1,25 @@
-import React from "react";
-import Project from "../components/Project";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import ProjectComp from "../components/ProjectComp";
 import "../css/projectsStyle.css";
 const ProjectsPage = () => {
+    const [projects, setProjects] = useState([]);
+    useEffect(() => {
+        const getProjects = async () => {
+            const {data} = await axios.get("/projects/json");
+            setProjects(data);
+        };
+        getProjects();
+    }, [])
     return (
         <section className="projects">
-            <Project title="Wetube"
-            link="https://github.com/Baskin-Lazpberry/FullStack-YouTube_Clone"
-            description="Youtube clone coding"
-            skills={["MongoDB", "Express", "Pug", "Node.js"]}
-            time="2023.05" />
-            <Project title="Movie Ratings"
-            link="https://github.com/LuaBerry/React-MovieReviewWebsite"
-            description="Movie Review Website with React"
-            skills={["React.js"]}
-            time="2022.05" />
-            <Project title="Side Scroll Game"
-            link="https://github.com/Baskin-Lazpberry/UE4-SideScrollGame"
-            description="Side Scroll RPG with Unreal Engine 4"
-            skills={["Unreal Engine 4", "Blueprint", "Cinematics"]}
-            time="2022.04" />
+            {
+                projects.map(
+                    (project) => {
+                        return (<ProjectComp project={project} />);
+                    }
+                )
+            }
         </section>
     );
 }

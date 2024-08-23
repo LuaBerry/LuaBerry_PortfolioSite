@@ -82,6 +82,7 @@ nav {
 nav ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -111,5 +112,7 @@ footer {
     }
     nav ul {
         padding-left: 0;
+        justify-content: center;
+
     }
 }

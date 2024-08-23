@@ -1,9 +1,10 @@
-import express from "express";
-import morgan from "morgan";
-import session from "express-session";
 import MongoStore from "connect-mongo";
-import { cacheMiddleware, localsMiddleware } from "./middleware";
+import express from "express";
+import session from "express-session";
+import morgan from "morgan";
 import path from "path";
+import Project from "./Project";
+import { cacheMiddleware, localsMiddleware } from "./middleware";
 
 const app = express();
 
@@ -20,6 +21,10 @@ app.use(localsMiddleware);
 
 app.use(express.static(path.join(__dirname, '../build')));
 
+app.get("/projects/json", async (req, res) => {
+    const projects = await Project.find({}).sort([['time', -1]]);
+    return res.json(projects);
+})
 app.use("/assets", cacheMiddleware, express.static("assets"));
 app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))

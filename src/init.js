@@ -1,5 +1,6 @@
 import "dotenv/config";
 import "./Chat";
+import "./Project";
 import "./db";
 import app from "./server";
 

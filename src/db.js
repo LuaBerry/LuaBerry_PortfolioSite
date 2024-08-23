@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.DB_LINK);
+mongoose.connect(process.env.DB_LINK, {dbName:"portfolio"});
 
 const db = mongoose.connection;
 
