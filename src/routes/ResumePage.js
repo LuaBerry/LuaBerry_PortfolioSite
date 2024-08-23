@@ -50,14 +50,9 @@ const ResumePage = () => {
                         <li>Swift COVID response with online tutoring &amp; showcase</li>
                         <li>2020.01 ~ 2021.05</li>
                         <br/>
-                        Game Outsourcing Project: "Hidden World"
-                        <li>Unity marine tourism app with AR navigation &amp; animated 3D models</li>
-                        <li>Animation, AR, Optimization</li>
-                        <li>2020.11 ~ 2021.01</li>
-                        <br/>
                         KATUSA
                         <li>Korean Augmentation To the <span className="accent">US Army</span></li>
-                        <li>S1 Personnel clerk: Streamlined conventional workflow & automated error-prone process</li>
+                        <li>S1 Personnel Clerk: Streamlined conventional workflow & automated error-prone process</li>
                         <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>

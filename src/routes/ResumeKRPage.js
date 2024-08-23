@@ -45,11 +45,6 @@ const ResumeKRPage = () => {
                     <li className='lang-kr'>코로나 상황 대응 - 온라인 개발 수업 및 멘토링 &amp; 게임 발표회</li>
                     <li>2020.01 ~ 2021.05</li>
                     <br/>
-                    게임 외주 개발: "Hidden World"
-                    <li className='lang-kr'>유니티 해양관광 앱 - AR 네비게이션 &amp; 해양 생물 3D 애니메이션</li>
-                    <li className='lang-kr'>애니메이션, AR, 최적화</li>
-                    <li>2020.11 ~ 2021.01</li>
-                    <br/>
                     카투사 (KATUSA)
                     <li>2021.06 ~ 2022.12</li>
                     </span>
