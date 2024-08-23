@@ -61,16 +61,16 @@ const ResumeKRPage = () => {
                     </span>
                     <h3 className="subhead">Technical Skills</h3>
                     <span className='lang-kr'>
-                        고급 (실무 경험)
+                        중급 (짧은 실무 경험)
                         <li>Unity Engine</li>
                         <li>C#</li>
                         <br/>
-                        중급 (개인 프로젝트 경험)
+                        초급 (개인 프로젝트 경험)
                         <li>React.js, Express.js, Node.js, MongoDB</li>
                         <li>Unreal Engine, Blender 3D</li>
                         <li>C, C++, JavaScript, Python</li>
                         {/* <br/>
-                        초급 (이론 지식)
+                        기초 (이론 지식)
                         <li>SQL</li> */}
                     </span>
                     <h3 className="subhead">Language</h3>

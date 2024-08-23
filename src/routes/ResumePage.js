@@ -70,11 +70,11 @@ const ResumePage = () => {
                     </span>
                     <h3 className="subhead">Technical Skills</h3>
                     <span>
-                        Advanced (Professional experience)
+                        Competent (Short professional experience)
                         <li>Unity Engine</li>
                         <li>C#</li>
                         <br/>
-                        Intermediate (Personal project experience)
+                        Familiar (Personal project experience)
                         <li>React.js, Express.js, Node.js, MongoDB</li>
                         <li>Unreal Engine, Blender 3D</li>
                         <li>C, C++, JavaScript, Python</li>
