@@ -1,8 +1,8 @@
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faMap } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import '../css/sidebarStyle.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faMap } from "@fortawesome/free-regular-svg-icons"
-import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"
+import '../css/sidebarStyle.css';
 
 const Sidebar = () => (
     <div className="sidebar">
@@ -22,19 +22,19 @@ const Sidebar = () => (
                     </a>
                 </li>
                 <li>
-                    <a href="https://maps.app.goo.gl/5qvtu3m7u9amZ4Z3A">
+                    <a href="https://maps.app.goo.gl/5qvtu3m7u9amZ4Z3A" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faMap} fixedWidth />
                         <span> Seoul, Korea</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/ji-yeo/">
+                    <a href="https://www.linkedin.com/in/ji-yeo/" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faLinkedinIn} fixedWidth/>
                         <span> linkedin.com/in/ji-yeo</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/LuaBerry">
+                    <a href="https://github.com/LuaBerry" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faGithub} fixedWidth/>
                         <span> github.com/LuaBerry</span>
                     </a>

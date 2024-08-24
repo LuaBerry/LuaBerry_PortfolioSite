@@ -38,7 +38,7 @@ h1, .index h3, .contact h3{
     border: 1px solid #999999;
 }
 
-h2.title a {
+h2.title, h2.title a {
     font-size: 24px;
 }
 

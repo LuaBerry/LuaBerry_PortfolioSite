@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import '../css/resumeStyle.css';
 
@@ -11,10 +10,10 @@ const InsightsPage = () => {
                 <div id="interests">
                     <h3 className="subhead">Interests</h3>
                     <span>
-                        I used to be a hardcore video gamer but now I mostly stick to playing short chess games, though I still enjoy watching gameplays.<br/>
-                        These days, I spend most of my free time reading books or watching documentary style videos on YouTube or Netflix.<br/>
-                        I always listen to music. Usually classical, but occasionally I enjoy hip hop, EDM, or whatever music is trending.<br/>
-                        I also like to host parties whenever I have a good reason. I cook various dishes with my own twists. It's really rewarding when my friends experience new flavors through my dishes.
+                        I used to be a hardcore gamer but now I only play occasionally, although I still enjoy watching gameplays.<br/>
+                        These days, I read books or watch documentaries on YouTube or Netflix.<br/>
+                        I always have music playing - usually classical, but sometimes hip hop, EDM, or whatever trending.<br/>
+                        I also like to party and cook for my friends. It's really rewarding when my friends find new flavors through my dishes.
                     </span>
                 </div>
                 <div id="passions">
@@ -30,31 +29,28 @@ const InsightsPage = () => {
                     <h3 className="subhead">Life Motto</h3>
                     <span>
                         My motto is: "Live like a child, with steadfastness and a sense of wonder."<br/>
-                        Purity towards humanity and nature is what I value the most.<br/>
-                        Sadly, It tends to dissipate as we grow. We witness human cruelty, selfishness, detestability, and become habituated to the magic of nature. Those who maintain their purity may be seen as "naive and ignorant".<br/>
-                        Despite those experiences and sarcasm they may bring, one must strive to preserve their purity.<br/>
-                        It is the basis, the fuel, the virtue of a thriving human society, and the key to appreciating the beauty of life.
+                        Purity towards the humanity and the nature is what I value the most.<br/>
                     </span>
                 </div>
                 <div id="Favorites">
                     <h3 className="subhead">Favorites</h3>
                     <span>
                         <h4>Classical music</h4>
-                        When I listen to classical music, I like to visualize the pieces. Each time I do, different images emerge. I think that's the true beauty of music.<br/>
-                        I also cherish the pinnacle of instrumental technique, exemplified by the mastery of virtuosos like paganini.<br/>
-                        My favorite composers are Debussy, Tchaikovsky, Ravel, Bach, Mozart.<br/>
-                        And My favorite pieces are
-                        <li>"Prelude: A l'apres midi d'une faune" by Debussy</li> 
-                        <li>"Goldberg Variations" by Bach.</li>
-                        <li>"Gaspard de la nuit: Ondine" by Ravel</li>
-                        <h4>Cuisine</h4>
-                        My signature dish is Braised pork jowl with Poutine mashed potatoes.<br/>
-                        I prioritize aroma over taste. So I enjoy experimenting with Italian, Japanese cuisine.<br/>
-                        But considering the taste-to-effort efficiency, American or Korean dishes are the best for parties.
+                        Composers:
+                        <li>Claude Debussy</li>
+                        <li>Pyotr Tchaikovsky</li>
+                        <li>Maurice Ravel</li>
+                        <li>J.S. Bach</li>
+                        <li>W.A. Mozart</li>
+                        Pieces:
+                        <li><a href="https://youtu.be/Y9iDOt2WbjY?feature=shared&t=37" target="_blank" rel="noopener noreferrer">"Prelude: A l'apres midi d'une faune" by Debussy</a></li>
+                        <li><a href="https://youtu.be/LcJBKZqb-68?feature=shared" target="_blank" rel="noopener noreferrer">"Goldberg Variations" by Bach</a></li>
+                        <li><a href="https://youtu.be/n_yIgrkSNzE?feature=shared" target="_blank" rel="noopener noreferrer">"Gaspard de la nuit: Ondine" by Ravel</a></li>
                         <h4>Books</h4>
-                        Herztöne by Martin schlesche - The best catholic book that led me back to the cathedrale.<br/>
-                        Principles by Ray dalio - Personal development book that has profoundly shaped my disposition and impacted me the most.<br/>
-                        라틴어 수업 by 한동일 - The first liberal arts book that truly impressed me, it helped me through a tough time during military boot camp.
+                        <li>Herztöne by Martin schlesche</li>
+                        <li>Principles by Ray dalio</li>
+                        <li>라틴어 수업 by 한동일</li>
+                        <br/>
                     </span>
                     {/* <h3 className="subhead">Life Experiences</h3>
                     <span>

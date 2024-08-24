@@ -4,9 +4,15 @@ const ProjectComp = ({project}) => {
     return (
         <div className="box">
             <h2 className="title">
-                <a href={project.link}>
-                    {project.title}
-                </a>
+                {
+                    (project.link !== "") ? (
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          {project.title}
+                        </a>
+                        ) : (
+                        project.title
+                        )
+                }
             </h2>
             <p className="description">{project.description}</p>
             <img className="thumbnail" src={project.image}></img>
