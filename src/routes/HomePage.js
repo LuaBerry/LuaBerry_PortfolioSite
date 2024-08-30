@@ -5,7 +5,7 @@ const HomePage = () => {
     return (
         (
             <section className="home">
-                <video
+                {/* <video
                     autoPlay={true}
                     loop={true}
                     muted={true}
@@ -14,7 +14,8 @@ const HomePage = () => {
                     poster="/assets/img/PR_vid_poster.webp">
                     <source src="/assets/video/PR_vid_1920.webm" type="video/webm" />
                     <source src="/assets/video/PR_vid_1920.mp4" type="video/mp4" />
-                </video>
+                </video> */}
+                <img className="video" src="/assets/img/leo01.png"/>
                 <div className='overlay' />
                 <div className='home-content'>
                     <h1>LuaBerry</h1>

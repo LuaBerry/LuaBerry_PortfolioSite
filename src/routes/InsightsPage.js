@@ -40,8 +40,6 @@ const InsightsPage = () => {
                         <li>Claude Debussy</li>
                         <li>Pyotr Tchaikovsky</li>
                         <li>Maurice Ravel</li>
-                        <li>J.S. Bach</li>
-                        <li>W.A. Mozart</li>
                         Pieces:
                         <li><a href="https://youtu.be/Y9iDOt2WbjY?feature=shared&t=37" target="_blank" rel="noopener noreferrer">"Prelude: A l'apres midi d'une faune" by Debussy</a></li>
                         <li><a href="https://youtu.be/LcJBKZqb-68?feature=shared" target="_blank" rel="noopener noreferrer">"Goldberg Variations" by Bach</a></li>
@@ -51,6 +49,11 @@ const InsightsPage = () => {
                         <li>Principles by Ray dalio</li>
                         <li>라틴어 수업 by 한동일</li>
                         <br/>
+                        <h4>Games</h4>
+                        <li>Lost Ark</li> (used to be) Founder of Rank 7 Guild
+                        <li>Sound Voltex</li> 2500+ credit ($1,000)
+                        <li>Battlefield</li> 14 year Fan
+                        
                     </span>
                     {/* <h3 className="subhead">Life Experiences</h3>
                     <span>
