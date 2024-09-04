@@ -27,10 +27,8 @@ const HomePage = () => {
         const handleScroll = (event) => {
             event.preventDefault();
             if(curInterRef.current) return;
-            console.log(event.deltaY);
             setMenu((prevMenu) => {
                 if(event.deltaY > 0) {
-                    console.log("HERE!");
                     return (prevMenu < 3) ? prevMenu + 1 : 3
                 } else {
                     return (prevMenu > 0) ? prevMenu - 1 : 0
@@ -58,10 +56,48 @@ const HomePage = () => {
         (
             <section className="home">
                 <img className="video" src={`/assets/anim/leojpg/${frame}.jpg`}/>
-                <a className="menu" href={`/${menuText[menu].toLowerCase()}`}>{menuText[menu]}</a>
+                <ul className="menu">
+                    <li className={(menu === 0) ? "lightaccent" : "lightgray"}><a href='/resume'>Resume</a></li>
+                    <li className={(menu === 1) ? "lightaccent" : "lightgray"}><a href='/insights'>Insights</a></li>
+                    <li className={(menu === 2) ? "lightaccent" : "lightgray"}><a href='/projects'>Projects</a></li>
+                    <li className={(menu === 3) ? "lightaccent" : "lightgray"}><a href='/blog'>Blog</a></li>
+                </ul>
+                <div className="overview">
+                    <Overview menu={menu}/>
+                </div>
             </section>
         )
     );
+}
+
+const Overview = ({menu}) => {
+    if (menu == 0) return <ResumeOverview/>;
+    else if (menu == 1) return <InsightsOverview/>;
+    else if (menu == 2) return <projectsOverview/>;
+    else if (menu == 3) return <BlogOverview/>;
+}
+
+const ResumeOverview = () => {
+    <div className="resumeoverview">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+}
+
+const InsightsOverview = () => {
+    
+}
+
+const projectsOverview = () => {
+    
+}
+
+const BlogOverview = () => {
+    
 }
 
 export default HomePage;

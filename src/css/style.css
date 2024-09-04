@@ -51,6 +51,11 @@ small {
     color:#D90D58;
 }
 
+.inactive *{
+    display: none;
+    background-color: #00000000;
+}
+
 /* =============================================================*/
 /* ========================= Main part =========================*/
 /* =============================================================*/
@@ -73,6 +78,24 @@ nav {
     padding: 10px 0;
     border-bottom: 1px solid #bbbbbb;
 }
+
+.homenav {
+    background-color: #00000000;
+    border-bottom: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height:100px;
+    padding-top: 20px;
+}
+.homenav .logo {
+    height: 100%;
+    padding-left: 20px;
+}
+.homenav .logo a img {
+    height: 80px;
+}
+
 
 .logo {
     height: 50px;

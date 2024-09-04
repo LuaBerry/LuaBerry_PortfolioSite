@@ -14,9 +14,24 @@
     font-family: Helvetica, sans-serif;
 }
 
+.lightaccent {
+    color:#ffffff;
+}
+
+.lightgray {
+    color:#bbbbbb;
+}
+
 /* =============================================================*/
 /* ======================= Main Contents =======================*/
 /* =============================================================*/
+
+.home {
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 .banner {
     display: flex;
@@ -43,33 +58,38 @@
     z-index: -1;
 }
 
-header, header * {
-    background-color:#00000000;
-}
-
-nav {
-    border-bottom: 0;
-}
-
 .menu {
-    position:absolute;
-    display: inline-block;
-    top : 40%;
-    right: 200px;
-    width:calc(100% - 200px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width:400px;
+    margin: 0;
+    padding-left: 0;
+
     text-align: center;
     text-transform: uppercase;
     font-size: 85px;
     line-height: 1.1;
     color: #ffffff;
+
+    list-style: none;
 }
 
-header, .foot {
-    display: none;
+.menu li a {
+    font-size: 22px;
 }
 
-div.blank {
-    margin-bottom: 900px;
+.resumeoverview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px)
+}
+
+.resumeoverview div {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(43, 43, 43, 0.735);
 }
 
 @media screen and (max-width: 767px) {
