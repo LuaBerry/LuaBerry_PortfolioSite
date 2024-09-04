@@ -24,7 +24,7 @@ const ResumeKRPage = () => {
                     <span className='lang-kr'>
                         한양대학교 <span className="accent lang-kr">컴퓨터 소프트웨어 학부</span> 3학년생 입니다.
                         <br />
-                        카투사에서 복무 후 미국에서 일하고 싶다는 열망이 생겨 학사 졸업 후 미국 석사를 계획하고 있습니다.
+                        카투사 복무 후 미국에서 일하고 싶다는 열망이 생겨 학사 졸업 후 미국 석사를 계획하고 있습니다.
                     </span>
                     {/* <h4 className="subsubhead">Field of Interest</h4>
                     <li className="lang-kr">클라우드 컴퓨팅</li> */}
@@ -34,7 +34,7 @@ const ResumeKRPage = () => {
                     <span className='lang-kr'>
                         한양대학교 학부생
                         <li className='lang-kr'>컴퓨터 소프트웨어학부</li>
-                        <li className='lang-kr'>학점 3.74/4.5 (91.8/100)</li>
+                        <li className='lang-kr'>현재 학점 3.74/4.5 (91.8/100)</li>
                     </span>
                 </div>
                 <div id="experience">
@@ -46,16 +46,13 @@ const ResumeKRPage = () => {
                     <li>2020.01 ~ 2021.05</li>
                     <br/>
                     카투사 (KATUSA)
+                    <li className='lang-kr'>S1 인사과: 작업 프로세스 자동화</li>
                     <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
                 <div id="skills">
                     <h3 className="subhead">Certification</h3>
                     <span className='lang-kr'>
-                        토익 (TOEIC)
-                        <li>2020.07</li>
-                        <li>950/990</li>
-                        <br/>
                         SQL 개발자 (SQLD)
                         <li>2023.04</li>
                     </span>
@@ -69,9 +66,6 @@ const ResumeKRPage = () => {
                         <li>React.js, Express.js, Node.js, MongoDB</li>
                         <li>Unreal Engine, Blender 3D</li>
                         <li>C, C++, JavaScript, Python</li>
-                        {/* <br/>
-                        기초 (이론 지식)
-                        <li>SQL</li> */}
                     </span>
                     <h3 className="subhead">Language</h3>
                     <span className='lang-kr'>
@@ -81,6 +75,7 @@ const ResumeKRPage = () => {
                         영어
                         <li className='lang-kr'>고급 (C1)</li>
                         <li className='lang-kr'>업무 의사소통 가능</li>
+                        <li>GRE V:153 Q:169 AW:TBD</li>
                         <br/>
                     </span>
                 </div>

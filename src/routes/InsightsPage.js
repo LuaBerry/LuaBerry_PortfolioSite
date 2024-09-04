@@ -10,7 +10,7 @@ const InsightsPage = () => {
                 <div id="interests">
                     <h3 className="subhead">Interests</h3>
                     <span>
-                        I used to be a hardcore gamer but now I only play occasionally, although I still enjoy watching gameplays.<br/>
+                        I used to be a hardcore gamer but now I only enjoy watching gameplays.<br/>
                         These days, I read books or watch documentaries on YouTube or Netflix.<br/>
                         I always have music playing - usually classical, but sometimes hip hop, EDM, or whatever trending.<br/>
                         I also like to party and cook for my friends. It's really rewarding when my friends find new flavors through my dishes.
@@ -20,15 +20,15 @@ const InsightsPage = () => {
                     <h3 className="subhead">Passions</h3>
                     <span>
                         I am an encyclopedic learner, eager to explore all kinds of new knowledge.<br/>
-                        I am mainly intrigued by Physics, Astronomy, Philosophy, Theology, Medicine and Foreign languages.<br/>
-                        I learn these things through YouTube videos, books and when necessary, academic papers.<br/>
-                        I also enjoy sharing these knowledge with my friends and family. I get excited when I can correct psuedoscience or misconception.
+                        I am mainly intrigued by Physics, Philosophy, Theology, Medicine and Foreign languages.<br/>
+                        I learn these things through YouTube videos, books and occasionally academic papers.<br/>
+                        I also enjoy sharing these knowledge with my friends and family, mostly to correct psuedoscience or misconception.
                     </span>
                 </div>
                 <div id="motto">
                     <h3 className="subhead">Life Motto</h3>
                     <span>
-                        My motto is: "Live like a child, with steadfastness and a sense of wonder."<br/>
+                        My motto is: "Live like a child, with resilience and a sense of wonder."<br/>
                         Purity towards the humanity and the nature is what I value the most.<br/>
                     </span>
                 </div>
@@ -40,8 +40,6 @@ const InsightsPage = () => {
                         <li>Claude Debussy</li>
                         <li>Pyotr Tchaikovsky</li>
                         <li>Maurice Ravel</li>
-                        <li>J.S. Bach</li>
-                        <li>W.A. Mozart</li>
                         Pieces:
                         <li><a href="https://youtu.be/Y9iDOt2WbjY?feature=shared&t=37" target="_blank" rel="noopener noreferrer">"Prelude: A l'apres midi d'une faune" by Debussy</a></li>
                         <li><a href="https://youtu.be/LcJBKZqb-68?feature=shared" target="_blank" rel="noopener noreferrer">"Goldberg Variations" by Bach</a></li>

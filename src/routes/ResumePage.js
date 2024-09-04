@@ -22,11 +22,11 @@ const ResumePage = () => {
                 <div id="personal_info">
                     <h3 className="subhead">About Me</h3>
                     <span>
-                        Junior in <span className="accent">Computer Science</span> at Hanyang University.
+                        Junior student in <span className="accent">Computer Science</span> at Hanyang University.
                         <br />
-                        After my military service with US Army, I am determined to pursue a career in the United States.
+                        After my military service with the US Army, I aspire to work in the United States.
                         <br />
-                        Therefore, I aspire Master's degree in the US after my graduation.
+                        Therefore, I am committed to pursuing a CS Master's degree in the US after I graduate.
                     </span>
                     {/* <h4 className="subsubhead">Field of Interest</h4>
                     <li>Cloud Computing</li> */}
@@ -38,7 +38,7 @@ const ResumePage = () => {
                         <br />
                         <span className="italic">Undergraduate Student</span>
                         <li>Bachelor of Science in <span className="accent">Computer Science</span></li>
-                        <li>Total GPA of 3.52/4.0</li>
+                        <li>Current Total GPA of 3.52/4.0</li>
 
                     </span>
                 </div>
@@ -52,18 +52,13 @@ const ResumePage = () => {
                         <br/>
                         KATUSA
                         <li>Korean Augmentation To the <span className="accent">US Army</span></li>
-                        <li>S1 Personnel Clerk: Streamlined conventional workflow & automated error-prone process</li>
+                        <li>S1 Personnel Clerk: Automated conventional error-prone process</li>
                         <li>2021.06 ~ 2022.12</li>
                     </span>
                 </div>
                 <div id="skills">
                     <h3 className="subhead">Certification</h3>
                     <span>
-                        TOEIC
-                        <li>Test of English</li>
-                        <li>2020.07</li>
-                        <li>950/990</li>
-                        <br/>
                         SQLD
                         <li>SQL Developer</li>
                         <li>2023.04</li>
@@ -78,9 +73,6 @@ const ResumePage = () => {
                         <li>React.js, Express.js, Node.js, MongoDB</li>
                         <li>Unreal Engine, Blender 3D</li>
                         <li>C, C++, JavaScript, Python</li>
-                        {/* <br/>
-                        Novice (Theoretical knowledge)
-                        <li>SQL</li> */}
                     </span>
                     <h3 className="subhead">Language</h3>
                     <span>
@@ -90,6 +82,7 @@ const ResumePage = () => {
                         English
                         <li>Advanced (C1)</li>
                         <li>Professional proficiency</li>
+                        <li>GRE V:153 Q:169 AW:TBD</li>
                         <br/>
                     </span>
                 </div>
