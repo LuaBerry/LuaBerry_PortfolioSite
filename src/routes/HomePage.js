@@ -23,7 +23,6 @@ const HomePage = () => {
     }, [curInter]);
 
     useEffect(()=> {
-        console.log(`/assets/anim/${frame.toString().padStart(4, '0')}.png`);
         const handleScroll = (event) => {
             event.preventDefault();
             if(curInterRef.current) return;
@@ -73,31 +72,94 @@ const HomePage = () => {
 const Overview = ({menu}) => {
     if (menu == 0) return <ResumeOverview/>;
     else if (menu == 1) return <InsightsOverview/>;
-    else if (menu == 2) return <projectsOverview/>;
+    else if (menu == 2) return <ProjectsOverview/>;
     else if (menu == 3) return <BlogOverview/>;
 }
 
 const ResumeOverview = () => {
-    <div className="resumeoverview">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    return (
+    <>
+        <div className="resumeimg">
+            <img src="assets/img/profile.webp">
+            </img>
+            <div className="overlay"/>
+            <div className="text">
+                <h1>LUABERRY</h1>
+            </div>
+        </div>
+        <div className="resumeoverview">
+            <div>
+                <img></img>
+                <span>Grade</span>
+                <h1>Junior</h1>
+            </div>
+            <div>
+                <img></img>
+                <span>Interest</span>
+                <h1>Cloud</h1>
+            </div>
+            <div>
+                <img></img>
+                <span>Weekly Commit</span>
+                <h1>12</h1>
+            </div>
+        </div>
+        <hr/>
+        <div className="resumeoverview">
+            <div>
+                <span>Repositories</span>
+                <h1>33</h1>
+            </div>
+            <div>
+                <span>GPA</span>
+                <h1>3.52/4.0</h1>
+            </div>
+            <div>
+                <span>Further</span>
+                <h1>Click Here</h1>
+            </div>
+        </div>
+    </>
+    )
 }
 
 const InsightsOverview = () => {
-    
+    return (
+        <div className="insightsoverview">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    )
 }
 
-const projectsOverview = () => {
-    
+const ProjectsOverview = () => {
+    return (
+        <div className="projectsoverview">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    )
 }
 
 const BlogOverview = () => {
-    
+    return (
+        <div className="blogoverview">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    )
 }
 
 export default HomePage;
