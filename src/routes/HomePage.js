@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import '../css/homeStyle.css';
+import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
 const menuText = [
-    "Resume", "Insights", "Projects", "Blog"
+    "resume", "insights", "projects", "blog"
 ]
 
 const HomePage = () => {
@@ -21,8 +21,9 @@ const HomePage = () => {
     useEffect(() => {
     curInterRef.current = curInter;
     }, [curInter]);
-
+    
     useEffect(()=> {
+        document.body.style.overflowX = "hidden";
         const handleScroll = (event) => {
             event.preventDefault();
             if(curInterRef.current) return;
@@ -33,52 +34,67 @@ const HomePage = () => {
                     return (prevMenu > 0) ? prevMenu - 1 : 0
                 }
             })
-            const interval = setInterval(() => {
-                setFrame((prevFrame) => {
-                    if(prevFrame === (menuRef.current * 12)) {
-                        setCurInter(null);
-                        clearInterval(interval);
-                        return prevFrame;
-                    } else {
-                        return prevFrame + ((menuRef.current * 12 - prevFrame) >= 0 ? 1 : -1);
-                    }
-                });
-            }, 40);
-            setCurInter(interval);
         }
         window.addEventListener('wheel', handleScroll, {passive: false});
         return () => {
             window.removeEventListener('wheel', handleScroll);
+            document.body.style.overflowX = "auto";
         }
     }, []);
+
+    useEffect(()=> {
+        const interval = setInterval(() => {
+            setFrame((prevFrame) => {
+                if(prevFrame === (menuRef.current * 12)) {
+                    setCurInter(null);
+                    clearInterval(interval);
+                    return prevFrame;
+                } else {
+                    return prevFrame + ((menuRef.current * 12 - prevFrame) >= 0 ? 1 : -1);
+                }
+            });
+        }, 30);
+        setCurInter(interval);
+        return () => clearInterval(interval); 
+    }, [menu]);
     return (
         (
             <section className="home">
                 <img className="video" src={`/assets/anim/leojpg/${frame}.jpg`}/>
                 <ul className="menu">
-                    <li className={(menu === 0) ? "lightaccent" : "lightgray"}><a href='/resume'>Resume</a></li>
-                    <li className={(menu === 1) ? "lightaccent" : "lightgray"}><a href='/insights'>Insights</a></li>
-                    <li className={(menu === 2) ? "lightaccent" : "lightgray"}><a href='/projects'>Projects</a></li>
-                    <li className={(menu === 3) ? "lightaccent" : "lightgray"}><a href='/blog'>Blog</a></li>
+                    <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
+                        ? "lightaccent" : "lightgray"}>Resume</button></li>
+                    <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
+                        ? "lightaccent" : "lightgray"}>Insights</button></li>
+                    <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
+                        ? "lightaccent" : "lightgray"}>Projects</button></li>
+                    <li><button onClick={()=>{setMenu(3);}} className={(menu === 3) 
+                        ? "lightaccent" : "lightgray"}>Link</button></li>
                 </ul>
-                <div className="overview">
-                    <Overview menu={menu}/>
-                </div>
+                <Overviews menu={menu} frame={frame}/>
+                <a className="pagelink" href={`/${menuText[menu]}`}>
+                <div><span>&rsaquo;</span></div>
+                Click Here for detail &rarr;
+                </a>
             </section>
         )
     );
 }
 
-const Overview = ({menu}) => {
-    if (menu == 0) return <ResumeOverview/>;
-    else if (menu == 1) return <InsightsOverview/>;
-    else if (menu == 2) return <ProjectsOverview/>;
-    else if (menu == 3) return <BlogOverview/>;
+const Overviews = ({menu, frame}) => {
+    return (
+    <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw + ${(menu * 30)}px))`}}>
+        <ResumeUI></ResumeUI>
+        <InsightsUI></InsightsUI>
+        <ProjectsUI></ProjectsUI>
+        <LinkUI></LinkUI>
+    </div>
+    )
 }
 
-const ResumeOverview = () => {
+const ResumeUI = () => {
     return (
-    <>
+    <div className="resumeui">
         <div className="resumeimg">
             <img src="assets/img/profile.webp">
             </img>
@@ -87,7 +103,7 @@ const ResumeOverview = () => {
                 <h1>LUABERRY</h1>
             </div>
         </div>
-        <div className="resumeoverview">
+        <div className="resumesummary">
             <div>
                 <img></img>
                 <span>Grade</span>
@@ -105,7 +121,7 @@ const ResumeOverview = () => {
             </div>
         </div>
         <hr/>
-        <div className="resumeoverview">
+        <div className="resumesummary">
             <div>
                 <span>Repositories</span>
                 <h1>33</h1>
@@ -119,45 +135,61 @@ const ResumeOverview = () => {
                 <h1>Click Here</h1>
             </div>
         </div>
-    </>
+    </div>
     )
 }
 
-const InsightsOverview = () => {
+const InsightsUI = () => {
     return (
-        <div className="insightsoverview">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+    <div className="insightsui">
+        <div className="question">
+            <h1>My Favorite classics are...</h1>
         </div>
-    )
-}
-
-const ProjectsOverview = () => {
-    return (
-        <div className="projectsoverview">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <hr/>
+        <div className="answers">
+            <h1>Prelude: A l'apres midi d'une faune</h1>
         </div>
+    </div>
     )
 }
 
-const BlogOverview = () => {
+const ProjectsUI = () => {
     return (
-        <div className="blogoverview">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+    <div className="projectsui">
+        <img src="/assets/img/wetubeOpt.jpg?v=1"></img>
+        <div className="overlay"></div>
+        <div className="projecttype">
+            <span className="web bar" style={{width:`calc(${4/5} * 100% - 20px)`}}>WEB</span>
+            <span className="game bar" style={{width:`calc(${1/5} * 100% - 20px)`}}>GAME</span>
+            {/* <span className="cloud bar" style={{width:`calc(${0/5} * 100% -60px)`}}>CLOUD</span> */}
+        </div>
+        <hr/>
+        <div className="projecttype">
+            {/* <span className="company bar" style={{width:`calc(${0/5} * 100%)`}}>COMPANY</span> */}
+            <span className="commission bar" style={{width:`calc(${1/5} * 100% - 20px)`}}>COMMISSION</span>
+            <span className="personal bar" style={{width:`calc(${4/5} * 100% - 20px)`}}>PERSONAL</span>
+        </div>
+    </div>
+    )
+}
+
+const LinkUI = () => {
+    return (
+        <div className="linkui">
+            <div>
+                <img></img>
+                <span>Blog</span>
+                <h1>자기계발소</h1>
+            </div>
+            <div>
+                <img></img>
+                <span>YouTube</span>
+                <h1>LUABERRY</h1>
+            </div>
+            <div>
+                <span>Further</span>
+                <h1>Click Here</h1>
+            </div>
         </div>
     )
 }
