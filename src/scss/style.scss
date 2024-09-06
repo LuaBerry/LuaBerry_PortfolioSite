@@ -1,5 +1,5 @@
 /* Base stylesheet */
-/* Version 1.2 */
+/* Version 2.0 */
 
 /* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
 
@@ -60,43 +60,6 @@ small {
 /* ========================= Main part =========================*/
 /* =============================================================*/
 
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-    ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        li {
-            list-style: none;
-            padding: 0 10px;
-        }
-    }
-}
-
-.defnav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: white;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-.homenav {
-    background-color: #00000000;
-    border-bottom: none;
-}
-
-.logo {
-    height: 50px;
-    padding-left: 10px;
-}
-
 main {
     width: 100%;
 }
@@ -107,19 +70,4 @@ footer {
     height: 150%;
     background-color: lightgray;
     padding: 10px;
-}
-
-@media screen and (max-width: 767px) {
-    nav {
-        flex-direction: column;
-    }
-    .logo {
-        padding: 0;
-        margin-bottom: 10px;
-    }
-    nav ul {
-        padding-left: 0;
-        justify-content: center;
-
-    }
 }

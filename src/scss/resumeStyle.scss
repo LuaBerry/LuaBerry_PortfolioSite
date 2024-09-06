@@ -1,5 +1,5 @@
 /* Resume stylesheet */
-/* Version 1.2 */
+/* Version 2.0 */
 
 /* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
 
@@ -41,36 +41,31 @@ h1, .index h3, .contact h3{
     color: white;
     padding-top: 5px;
     margin-left: 0;
-}
-
-#name h1{
-    font-size: 36px;
-    margin: 15px 0px 12px;
-    font-weight: 600;
-}
-
-#name h1.lang-kr{
-    font-size: 36px;
-    margin: 15px 0px 8px;
-    font-weight: 600;
-}
-
-#name .bg{
-    background: linear-gradient(to right, #D90D58, #1EB7D9);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#name hr{
-    width: 10em;
-    border: 0;
-    border-top: 1px solid darkgray
-}
-
-#name h3{
-    font-weight: 400;
-    margin: 12px 0px 15px;
+    h1{
+        font-size: 36px;
+        margin: 15px 0px 12px;
+        font-weight: 600;
+        .lang-kr{
+            font-size: 36px;
+            margin: 15px 0px 8px;
+            font-weight: 600;
+        }
+    }
+    .bg{
+        background: linear-gradient(to right, #D90D58, #1EB7D9);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    hr{
+        width: 10em;
+        border: 0;
+        border-top: 1px solid darkgray
+    }
+    h3{
+        font-weight: 400;
+        margin: 12px 0px 15px;
+    }
 }
 
 #personal_info, #education, #experience, #skills, #references {
@@ -112,10 +107,6 @@ hr.titleLine {
     border-bottom: 1px solid black;
 }
 
-.italic {
-    font-style:italic;
-}
-
 .contents div {
     margin-left: 10px;
 }
@@ -123,14 +114,6 @@ hr.titleLine {
 #references span{
     display: block;
     margin-bottom: 150px;
-}
-
-.gray {
-    color:#555555;
-}
-
-.accent {
-    color:#D90D58;
 }
 
 footer {
