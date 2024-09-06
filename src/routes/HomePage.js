@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
+import axios from "axios";
 //pi < 21.99115 / 7 < pi + 0.0000003
 
 const menuText = [
@@ -10,6 +11,10 @@ const HomePage = () => {
     const [frame, setFrame] = useState(0);
     const [menu, setMenu] = useState(0);
     const [curInter, setCurInter] = useState(null);
+
+    const [commit, setCommit] = useState(0);
+    const [repo, setRepo] = useState(0);
+    const [codeTime, setCodeTime] = useState(0);
 
     const menuRef = useRef(menu);
     const curInterRef = useRef(curInter);
@@ -22,17 +27,38 @@ const HomePage = () => {
     curInterRef.current = curInter;
     }, [curInter]);
     
+    useEffect(() => {
+        const getWaka = async () => {
+            const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/f7304135-94b0-4569-9868-b9fd49d82b60.json");
+            var minutes = 0;
+            data.data.forEach(element => {
+                minutes+= element.grand_total.minutes;
+            });
+            const hours = Math.ceil(minutes / 60.0);
+            setCodeTime(hours);
+        };
+        const getCommit = async () => {
+            var today = new Date();
+            var weekago = new Date(today - (7 * 86400000));
+            const {data} = await axios.get(`https://api.github.com/search/commits?q=author:LuaBerry+committer-date:${weekago.toISOString()}..${today.toISOString()}`);
+            setCommit(data.total_count);
+        }
+        const getRepo = async () => {
+            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos');
+            setRepo(data.length);
+        }
+        getWaka();
+        getCommit();
+        getRepo();
+    }, [])
+
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
         const handleScroll = (event) => {
             event.preventDefault();
             if(curInterRef.current) return;
-            setMenu((prevMenu) => {
-                if(event.deltaY > 0) {
-                    return (prevMenu < 3) ? prevMenu + 1 : 3
-                } else {
-                    return (prevMenu > 0) ? prevMenu - 1 : 0
-                }
+            setMenu(() => {
+                return(event.deltaY > 0 ? 1 : 0)
             })
         }
         window.addEventListener('wheel', handleScroll, {passive: false});
@@ -61,28 +87,23 @@ const HomePage = () => {
         (
             <section className="home">
                 <img className="video" src={`/assets/anim/leojpg/${frame}.jpg`}/>
+                <div className="bgoverlay"/>
                 <ul className="menu">
                     <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
                         ? "lightaccent" : "lightgray"}>Overview</button></li>
                     <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
                         ? "lightaccent" : "lightgray"}>Link</button></li>
                 </ul>
-                <Overviews menu={menu} frame={frame}/>
+                <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
+                    <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
+                    <LinkUI></LinkUI>
+                </div>
             </section>
         )
     );
 }
 
-const Overviews = ({menu, frame}) => {
-    return (
-    <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw + ${(menu * 30)}px))`}}>
-        <ResumeUI></ResumeUI>
-        <LinkUI></LinkUI>
-    </div>
-    )
-}
-
-const ResumeUI = () => {
+const ResumeUI = ({codeTime, commit, repo}) => {
     return (
     <div className="resumeui">
         <div className="resumeimg">
@@ -107,22 +128,22 @@ const ResumeUI = () => {
             <div>
                 <img></img>
                 <span>Weekly Commit</span>
-                <h1>12</h1>
+                <h1>{commit}</h1>
             </div>
         </div>
         <hr/>
         <div className="resumesummary">
             <div>
                 <span>Repositories</span>
-                <h1>33</h1>
+                <h1>{repo}</h1>
             </div>
             <div>
                 <span>GPA</span>
                 <h1>3.52/4.0</h1>
             </div>
             <div>
-                <span>Resume</span>
-                <h1>Download Here</h1>
+                <span>Weekly Coding</span>
+                <h1>{codeTime} Hour</h1>
             </div>
         </div>
         <a className="pagelink" href="/resume">
@@ -133,56 +154,18 @@ const ResumeUI = () => {
     )
 }
 
-const InsightsUI = () => {
-    return (
-    <div className="insightsui">
-        <div className="question">
-            <h1>My Favorite classics are...</h1>
-        </div>
-        <hr/>
-        <div className="answers">
-            <h1>Prelude: A l'apres midi d'une faune</h1>
-        </div>
-    </div>
-    )
-}
-
-const ProjectsUI = () => {
-    return (
-    <div className="projectsui">
-        <img src="/assets/img/wetubeOpt.jpg?v=1"></img>
-        <div className="overlay"></div>
-        <div className="projecttype">
-            <span className="web bar" style={{width:`calc(${4/5} * 100% - 20px)`}}>WEB</span>
-            <span className="game bar" style={{width:`calc(${1/5} * 100% - 20px)`}}>GAME</span>
-            {/* <span className="cloud bar" style={{width:`calc(${0/5} * 100% -60px)`}}>CLOUD</span> */}
-        </div>
-        <hr/>
-        <div className="projecttype">
-            {/* <span className="company bar" style={{width:`calc(${0/5} * 100%)`}}>COMPANY</span> */}
-            <span className="commission bar" style={{width:`calc(${1/5} * 100% - 20px)`}}>COMMISSION</span>
-            <span className="personal bar" style={{width:`calc(${4/5} * 100% - 20px)`}}>PERSONAL</span>
-        </div>
-    </div>
-    )
-}
-
 const LinkUI = () => {
     return (
         <div className="linkui">
-            <div>
-                <img></img>
+            <div onClick={()=>{window.open('https://luaberry.tistory.com/')}}>
+                <img src="/assets/img/tistory_logo.svg"></img>
                 <span>Blog</span>
                 <h1>자기계발소</h1>
             </div>
-            <div>
-                <img></img>
+            <div onClick={()=>{window.open('https://www.youtube.com/@LuaB3rry')}}>
+                <img src="/assets/img/youtube_logo.png"></img>
                 <span>YouTube</span>
                 <h1>LUABERRY</h1>
-            </div>
-            <div>
-                <span>Further</span>
-                <h1>Click Here</h1>
             </div>
         </div>
     )
