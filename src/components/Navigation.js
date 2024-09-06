@@ -7,38 +7,18 @@ const Navigation = () => {
     const currentPath = location.pathname;
     return (
         <header>
-
-                    {currentPath === "/" ? (
-                        <HomeNavigation />
-                    ) : (
-                        <DefaultNavigation />
-                    )}
-
+            <DefaultNavigation loc={currentPath}></DefaultNavigation>
         </header>
     );
 };
 
-const HomeNavigation = () => {
+const DefaultNavigation = ({loc}) => {
     return (
-        <div className="container">
-            <nav className="homenav">
-                <div className="logo">
-                    <a href="/">
-                        <img src="/assets/img/new_logo_white.png" alt="logo" height="50px" />
-                    </a>
-                </div>
-            </nav>
-        </div>
-    )
-}
-
-const DefaultNavigation = () => {
-    return (
-        <div className="container">
+        <div className={loc==="/" ? "homenav":"defnav"}>
             <nav>
                 <div className="logo">
                 <a href="/">
-                    <img src="/assets/img/new_logo.webp" alt="logo" height="50px" />
+                    <img src={loc==="/" ? "/assets/img/new_logo_white.png":"/assets/img/new_logo.webp"}  alt="logo" height="50px" />
                 </a>
                 </div>
                 <ul>

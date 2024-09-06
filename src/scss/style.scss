@@ -60,57 +60,41 @@ small {
 /* ========================= Main part =========================*/
 /* =============================================================*/
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
 nav {
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-
     width: 100%;
-    background-color: white;
     padding: 10px 0;
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        li {
+            list-style: none;
+            padding: 0 10px;
+        }
+    }
+}
+
+.defnav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
     border-bottom: 1px solid #bbbbbb;
 }
 
 .homenav {
     background-color: #00000000;
     border-bottom: none;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    height:80px;
-    padding-top: 20px;
 }
-.homenav .logo {
-    height: 100%;
-    padding-left: 30px;
-}
-.homenav .logo a img {
-    height: 60px;
-}
-
 
 .logo {
     height: 50px;
     padding-left: 10px;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    list-style: none;
-    padding: 0 10px;
 }
 
 main {

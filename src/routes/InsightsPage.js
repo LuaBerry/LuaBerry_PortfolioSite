@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../css/resumeStyle.css';
+import '../scss/resumeStyle.scss';
 
 const InsightsPage = () => {
     return (

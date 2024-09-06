@@ -45,12 +45,12 @@ const HomePage = () => {
     useEffect(()=> {
         const interval = setInterval(() => {
             setFrame((prevFrame) => {
-                if(prevFrame === (menuRef.current * 12)) {
+                if(prevFrame === (menuRef.current * 10)) {
                     setCurInter(null);
                     clearInterval(interval);
                     return prevFrame;
                 } else {
-                    return prevFrame + ((menuRef.current * 12 - prevFrame) >= 0 ? 1 : -1);
+                    return prevFrame + ((menuRef.current * 10 - prevFrame) >= 0 ? 1 : -1);
                 }
             });
         }, 30);
@@ -63,19 +63,11 @@ const HomePage = () => {
                 <img className="video" src={`/assets/anim/leojpg/${frame}.jpg`}/>
                 <ul className="menu">
                     <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
-                        ? "lightaccent" : "lightgray"}>Resume</button></li>
+                        ? "lightaccent" : "lightgray"}>Overview</button></li>
                     <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
-                        ? "lightaccent" : "lightgray"}>Insights</button></li>
-                    <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
-                        ? "lightaccent" : "lightgray"}>Projects</button></li>
-                    <li><button onClick={()=>{setMenu(3);}} className={(menu === 3) 
                         ? "lightaccent" : "lightgray"}>Link</button></li>
                 </ul>
                 <Overviews menu={menu} frame={frame}/>
-                <a className="pagelink" href={`/${menuText[menu]}`}>
-                <div><span>&rsaquo;</span></div>
-                Click Here for detail &rarr;
-                </a>
             </section>
         )
     );
@@ -85,8 +77,6 @@ const Overviews = ({menu, frame}) => {
     return (
     <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw + ${(menu * 30)}px))`}}>
         <ResumeUI></ResumeUI>
-        <InsightsUI></InsightsUI>
-        <ProjectsUI></ProjectsUI>
         <LinkUI></LinkUI>
     </div>
     )
@@ -131,10 +121,14 @@ const ResumeUI = () => {
                 <h1>3.52/4.0</h1>
             </div>
             <div>
-                <span>Further</span>
-                <h1>Click Here</h1>
+                <span>Resume</span>
+                <h1>Download Here</h1>
             </div>
         </div>
+        <a className="pagelink" href="/resume">
+                <div><span>&rsaquo;</span></div>
+                Click Here for detail &rarr;
+        </a>
     </div>
     )
 }

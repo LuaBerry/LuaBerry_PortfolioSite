@@ -2,7 +2,7 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faMap } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import '../css/sidebarStyle.css';
+import '../scss/sidebarStyle.scss';
 
 const Sidebar = () => (
     <div className="sidebar">

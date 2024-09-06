@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ProjectComp from "../components/ProjectComp";
-import "../css/projectsStyle.css";
+import "../scss/projectsStyle.scss";
 const ProjectsPage = () => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
