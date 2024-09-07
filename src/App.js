@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import './scss/style.scss';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
 
 const HomePage = lazy(() => import ('./routes/HomePage'));
 const ProjectsPage = lazy(() => import ('./routes/ProjectsPage'));

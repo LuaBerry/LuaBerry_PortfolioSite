@@ -3,30 +3,29 @@ import '../scss/homeStyle.scss';
 import axios from "axios";
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const menuText = [
-    "resume", "insights", "projects", "blog"
-]
-
 const HomePage = () => {
+    //For bg animation
     const [frame, setFrame] = useState(0);
     const [menu, setMenu] = useState(0);
     const [curInter, setCurInter] = useState(null);
-
+    const imageCount = 15;
+    //For realtime info
     const [commit, setCommit] = useState(0);
     const [repo, setRepo] = useState(0);
     const [codeTime, setCodeTime] = useState(0);
-
+    //For bg animation
     const menuRef = useRef(menu);
     const curInterRef = useRef(curInter);
 
+    //Sync menu, curInter
     useEffect(() => {
         menuRef.current = menu;
       }, [menu]);
-    
     useEffect(() => {
     curInterRef.current = curInter;
     }, [curInter]);
     
+    //Get real time info from Waka, Github
     useEffect(() => {
         const getWaka = async () => {
             const {data} = await axios.get(process.env.REACT_APP_WAKA_LINK);
@@ -52,10 +51,8 @@ const HomePage = () => {
         getRepo();
     }, [])
 
-
-    
+    //Handle scroll, touch event
     var startX = 0, startY = 0;
-    
     const handleTouchStart = (event) => {
         startX = event.touches[0].clientX;
         startY = event.touches[0].clientY;
@@ -90,6 +87,8 @@ const HomePage = () => {
             document.body.style.overflowX = "auto";
         }
     }, []);
+
+    //Load image
     const preloadImage = (src) => {
         return new Promise((resolve) => {
             const img = new Image();
@@ -99,32 +98,34 @@ const HomePage = () => {
     }
     useEffect(() => {
         window.onload = () => {
-            preloadImage("/assets/anim/leo2jpg/10.jpg").then(() => {
-                for (let i = 1; i < 10; i++) {
-                    preloadImage(`/assets/anim/leo2jpg/${i}.jpg`);
+            preloadImage(`/assets/anim/leo50/${imageCount}.jpg`).then(() => {
+                for (let i = 1; i < imageCount; i++) {
+                    preloadImage(`/assets/anim/leo50/${i}.jpg`);
                 }
             })
         }
     }, [])
 
+    //BG animation
     useEffect(()=> {
         const interval = setInterval(() => {
             setFrame((prevFrame) => {
-                if(prevFrame === (menuRef.current * 10)) {
+                if(prevFrame === (menuRef.current * imageCount)) {
                     setCurInter(null);
                     clearInterval(interval);
                     return prevFrame;
                 } else {
-                    return prevFrame + ((menuRef.current * 10 - prevFrame) >= 0 ? 1 : -1);
+                    return prevFrame + (((menuRef.current * imageCount) - prevFrame) >= 0 ? 1 : -1);
                 }
             });
-        }, 33);
+        }, 20);
         setCurInter(interval);
         return () => clearInterval(interval); 
     }, [menu]);
+
     return (   
         <section className="home">
-            <img className="video" src={`/assets/anim/leo2jpg/${frame}.jpg`}/>
+            <img className="video" src={`/assets/anim/leo50/${frame}.jpg`} alt="background"/>
             <div className="bgoverlay"/>
             <ul className="menu">
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
@@ -144,7 +145,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
     return (
     <div className="resumeui">
         <div className="resumeimg">
-            <img src="assets/img/profileLeo.jpg">
+            <img src="assets/img/profileLeo.jpg" alt="profile">
             </img>
             <div className="overlay"/>
             <div className="text">
