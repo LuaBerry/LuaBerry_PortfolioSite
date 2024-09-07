@@ -1,5 +1,5 @@
 {
     "watch": ["./src"],
     "exec": "react-scripts build&&babel-node src/init.js",
-    "ext": "css, js, json"
+    "ext": "css, js, json, scss"
 }

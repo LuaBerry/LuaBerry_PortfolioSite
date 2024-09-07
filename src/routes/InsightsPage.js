@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../css/resumeStyle.css';
+import '../scss/resumeStyle.scss';
 
 const InsightsPage = () => {
     return (
@@ -49,6 +49,11 @@ const InsightsPage = () => {
                         <li>Principles by Ray dalio</li>
                         <li>라틴어 수업 by 한동일</li>
                         <br/>
+                        <h4>Games</h4>
+                        <li>Lost Ark</li> (used to be) Founder of Rank 7 Guild
+                        <li>Sound Voltex</li> 2500+ credit ($1,000)
+                        <li>Battlefield</li> 14 year Fan
+                        
                     </span>
                     {/* <h3 className="subhead">Life Experiences</h3>
                     <span>
