@@ -29,7 +29,7 @@ const HomePage = () => {
     
     useEffect(() => {
         const getWaka = async () => {
-            const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/f7304135-94b0-4569-9868-b9fd49d82b60.json");
+            const {data} = await axios.get(process.env.REACT_APP_WAKA_LINK);
             var minutes = 0;
             data.data.forEach(element => {
                 minutes+= element.grand_total.minutes;
