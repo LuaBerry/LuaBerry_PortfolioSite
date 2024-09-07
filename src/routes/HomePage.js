@@ -101,15 +101,17 @@ const HomePage = () => {
         setIsTouch(false);
     }
     const handleScroll = (event) => {
-        event.preventDefault();
-        if(curInterRef.current) return;
-        setMenu(() => {
-            return(event.deltaY > 0 ? 1 : 0)
-        })
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+        if(Math.abs(delta) > 30) {
+            event.preventDefault();
+            if(curInterRef.current) return;
+            setMenu(() => {
+                return(delta > 0 ? 1 : 0)
+            })
+        }
     }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
-        document.body.style.height = `${window.innerHeight}px`;
         document.body.style.overflowY = "auto";
         window.addEventListener('wheel', handleScroll, {passive: false});
         window.addEventListener('touchstart', handleTouchStart);
