@@ -30,10 +30,12 @@ const HomePage = () => {
         const getWaka = async () => {
             const {data} = await axios.get(process.env.REACT_APP_WAKA_LINK);
             var minutes = 0;
+            var hours = 0;
             data.data.forEach(element => {
-                minutes+= element.grand_total.minutes;
+                hours += element.grand_total.hours; 
+                minutes += element.grand_total.minutes;
             });
-            const hours = Math.ceil(minutes / 60.0);
+            hours += Math.ceil(minutes / 60.0);
             setCodeTime(hours);
         };
         const getCommit = async () => {
