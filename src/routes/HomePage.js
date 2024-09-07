@@ -52,21 +52,60 @@ const HomePage = () => {
         getRepo();
     }, [])
 
+
+    
+    var startX = 0, startY = 0;
+    
+    const handleTouchStart = (event) => {
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+    }
+    const handleTouchMove = (event) => {
+        
+        const diffX = event.touches[0].clientX - startX;
+        const diffY = event.touches[0].clientY - startY;
+
+        if(Math.abs(diffX) > Math.abs(diffY)) {
+            event.preventDefault();
+            if (diffX > 50)  setMenu(0);
+            else if (diffX < -50) setMenu(1);
+        }
+    }
+    const handleScroll = (event) => {
+        event.preventDefault();
+        if(curInterRef.current) return;
+        setMenu(() => {
+            return(event.deltaY > 0 ? 1 : 0)
+        })
+    }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
-        const handleScroll = (event) => {
-            event.preventDefault();
-            if(curInterRef.current) return;
-            setMenu(() => {
-                return(event.deltaY > 0 ? 1 : 0)
-            })
-        }
         window.addEventListener('wheel', handleScroll, {passive: false});
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchmove', handleTouchMove, {passive: false});
         return () => {
             window.removeEventListener('wheel', handleScroll);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
             document.body.style.overflowX = "auto";
         }
     }, []);
+    const preloadImage = (src) => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+        }) 
+    }
+    useEffect(() => {
+        window.onload = () => {
+            preloadImage("/assets/anim/leo2jpg/10.jpg").then(() => {
+                for (let i = 1; i < 10; i++) {
+                    preloadImage(`/assets/anim/leo2jpg/${i}.jpg`);
+                }
+            })
+        }
+    }, [])
 
     useEffect(()=> {
         const interval = setInterval(() => {
@@ -79,27 +118,25 @@ const HomePage = () => {
                     return prevFrame + ((menuRef.current * 10 - prevFrame) >= 0 ? 1 : -1);
                 }
             });
-        }, 30);
+        }, 33);
         setCurInter(interval);
         return () => clearInterval(interval); 
     }, [menu]);
-    return (
-        (
-            <section className="home">
-                <img className="video" src={`/assets/anim/leojpg/${frame}.jpg`}/>
-                <div className="bgoverlay"/>
-                <ul className="menu">
-                    <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
-                        ? "lightaccent" : "lightgray"}>Overview</button></li>
-                    <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
-                        ? "lightaccent" : "lightgray"}>Link</button></li>
-                </ul>
-                <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
-                    <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
-                    <LinkUI></LinkUI>
-                </div>
-            </section>
-        )
+    return (   
+        <section className="home">
+            <img className="video" src={`/assets/anim/leo2jpg/${frame}.jpg`}/>
+            <div className="bgoverlay"/>
+            <ul className="menu">
+                <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
+                    ? "lightaccent" : "lightgray"}>Overview</button></li>
+                <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
+                    ? "lightaccent" : "lightgray"}>Link</button></li>
+            </ul>
+            <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
+                <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
+                <LinkUI></LinkUI>
+            </div>
+        </section>
     );
 }
 

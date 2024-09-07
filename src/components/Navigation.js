@@ -27,9 +27,6 @@ const DefaultNavigation = ({loc}) => {
                     <li><Link to="/resume">Resume</Link></li>
                     <li><Link to="/insights">Personal Insights</Link></li>
                     <li><Link to="/projects">Projects</Link></li>
-                    <li><a href="https://luaberry.tistory.com/" target="_blank" rel="noopener noreferrer">
-                        Blog<i className="fa fa-external-link" style={{ fontSize: '10px' }} />
-                    </a></li>
                 </ul>
             </nav>
         </div>

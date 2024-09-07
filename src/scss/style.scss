@@ -71,3 +71,42 @@ footer {
     background-color: lightgray;
     padding: 10px;
 }
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(174, 174, 174);
+    transition: opacity 1s ease;
+    z-index: 10;
+    &.fade-out {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.spinner {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(from 270deg, #1EB7D9, #D90D58 25%, #1EB7D9 50%); /* 그라데이션 적용 */
+    animation: spin 2s ease-in-out infinite;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        background-color: white; /* 중앙을 투명하게 만듦 */
+        border-radius: 50%;
+        z-index: 1;
+      }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

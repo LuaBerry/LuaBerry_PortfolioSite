@@ -41,12 +41,11 @@
         height: 100%;
         top:0;
         right:0;
-        position: absolute;
         z-index: -2;
     }
     .bgoverlay {
         position: absolute;
-        width: 100%;
+        width: 101%;
         height: 100%;
         top:0;
         right:0;
@@ -247,11 +246,19 @@
 
 
 @media screen and (max-width: 767px) {
-    .menu {
-        margin-left:20px;
-    }
-    .home .bgoverlay {
-        background-color: rgba(0, 0, 0, 0.4);
+    .home {
+        .video {
+            object-position: top 0 right -100px;
+            width: calc(100% + 100px);
+            right:-1px;
+        }
+        .bgoverlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            
+        }
+        .menu {
+            margin-left:20px;
+        }
     }
     .overviews{
         margin-top:10px;
@@ -261,15 +268,24 @@
         width: calc(100% - 60px);
     }
     .resumeui {
-        .resumesummary div h1{
-            margin: 0;
-            font-size: 22px;
+        .resumeimg {
+            margin-top:30px;
         }
-        .resumesummary span {
-            height: 50px;
+        .resumesummary {
+            grid-template-rows: 10vh;
+            div h1{
+                margin: 0;
+                font-size: 22px;
+            }
+            span {
+                height: 50px;
+            }
+            img {
+                display: none;
+            }
         }
-        .resumesummary img {
-            display: none;
+        .pagelink {
+            margin-top:40px;
         }
     }
     .linkui{
