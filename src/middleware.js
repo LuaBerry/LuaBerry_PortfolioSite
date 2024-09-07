@@ -11,7 +11,7 @@ export const localsMiddleware = (req, res, next) => {
 }
 
 export const cacheMiddleware = (req, res, next) => {
-    const cacheDuration = 60 * 60 * 24 * 7
+    const cacheDuration = 60 * 60 * 24
 
     if (req.method == 'GET') {
         res.set('Cache-control', `public, max-age=${cacheDuration}`)

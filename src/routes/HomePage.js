@@ -3,19 +3,25 @@ import '../scss/homeStyle.scss';
 import axios from "axios";
 //pi < 21.99115 / 7 < pi + 0.0000003
 
+const imageCount = 16;
+
 const HomePage = () => {
     //For bg animation
     const [frame, setFrame] = useState(0);
     const [menu, setMenu] = useState(0);
     const [curInter, setCurInter] = useState(null);
-    const imageCount = 15;
+    const [images, setImages] = useState([]);
+
     //For realtime info
     const [commit, setCommit] = useState(0);
     const [repo, setRepo] = useState(0);
     const [codeTime, setCodeTime] = useState(0);
     //For bg animation
+    const canvasRef = useRef(null);
     const menuRef = useRef(menu);
     const curInterRef = useRef(curInter);
+    const imagesRef = useRef([]);
+    const frameRef = useRef(0);
 
     //Sync menu, curInter
     useEffect(() => {
@@ -24,6 +30,12 @@ const HomePage = () => {
     useEffect(() => {
     curInterRef.current = curInter;
     }, [curInter]);
+    useEffect(() => {
+    imagesRef.current = images;
+    }, [images]);
+    useEffect(() => {
+    frameRef.current = frame;
+    }, [frame]);
     
     //Get real time info from Waka, Github
     useEffect(() => {
@@ -91,33 +103,53 @@ const HomePage = () => {
     }, []);
 
     //Load image
-    const preloadImage = (src) => {
-        return new Promise((resolve) => {
+    const imageLoader = (arr, callback) => {
+        var imgs = [];
+        var loadedImages = 0;
+        const imageLoaded = () => {
+            loadedImages++;
+            if (loadedImages >= arr.length) {
+                callback(imgs);
+            }
+        }
+        for (var i = 0; i < arr.length; i++) {
             const img = new Image();
-            img.src = src;
-            img.onload = resolve;
-        }) 
+            img.onload = imageLoaded;
+            img.src = arr[i];
+            imgs.push(img);
+        }
+    }
+    const resizeCanvas = () => {
+        const canvas = canvasRef.current;
+        if (canvas) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawCanvas(frameRef.current);
+        }
     }
     useEffect(() => {
-        window.onload = () => {
-            preloadImage(`/assets/anim/leo50/${imageCount}.jpg`).then(() => {
-                for (let i = 1; i < imageCount; i++) {
-                    preloadImage(`/assets/anim/leo50/${i}.jpg`);
-                }
-            })
-        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leo50/${index}.jpg`);
+        imageLoader(imageArray, (imgs) => {setImages(imgs); drawCanvas(frameRef.current);});
     }, [])
+
+    useEffect(() => {
+        if (images.length > 0) {
+            drawCanvas(frameRef.current);
+        }
+    }, [images]);
 
     //BG animation
     useEffect(()=> {
         const interval = setInterval(() => {
             setFrame((prevFrame) => {
-                if(prevFrame === (menuRef.current * imageCount)) {
+                if(prevFrame === (menuRef.current * (imageCount - 1))) {
                     setCurInter(null);
                     clearInterval(interval);
                     return prevFrame;
                 } else {
-                    return prevFrame + (((menuRef.current * imageCount) - prevFrame) >= 0 ? 1 : -1);
+                    return prevFrame + (((menuRef.current * (imageCount - 1)) - prevFrame) >= 0 ? 1 : -1);
                 }
             });
         }, 20);
@@ -125,9 +157,56 @@ const HomePage = () => {
         return () => clearInterval(interval); 
     }, [menu]);
 
+    const drawCanvas = (frame) => {
+        const canvas = canvasRef.current;
+        const images = imagesRef.current;
+        if (!canvas || !images[frame]) {
+            console.log(canvas, images, frame);
+            return;
+        }
+        if(images.length === imageCount) {
+            console.log(images[frame].complete);
+            const canvas = canvasRef.current;
+            const ctx = canvas.getContext('2d');
+
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
+            const imgWidth = images[frame].width;
+            const imgHeight = images[frame].height;
+
+            const canvasAspect = canvasWidth / canvasHeight;
+            const imgAspect = imgWidth / imgHeight;
+
+            let sx, sy, sWidth, sHeight;
+
+            if (imgAspect > canvasAspect) {
+                // 이미지 높이를 맞추고 좌우를 잘라낸다 (object-fit: cover 효과)
+                sHeight = imgHeight;
+                sWidth = imgHeight * canvasAspect;
+                sx = imgWidth - sWidth; // object-position: right
+                sy = 0; // object-position: top
+            } else {
+                // 이미지 너비를 맞추고 상하를 잘라낸다 (object-fit: cover 효과)
+                sWidth = imgWidth;
+                sHeight = imgWidth / canvasAspect;
+                sx = 0;
+                sy = 0; // object-position: top
+            }
+        
+            // 캔버스의 크기에 맞춰 이미지 그리기
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            ctx.drawImage(images[frame], sx, sy, sWidth, sHeight, 0, 0, canvasWidth, canvasHeight);
+        }
+    }
+    
+    useEffect(() => {
+        drawCanvas(frameRef.current);
+    }, [frame]);
+
     return (   
         <section className="home">
-            <img className="video" src={`/assets/anim/leo50/${frame}.jpg`} alt="background"/>
+            <canvas ref={canvasRef} width={500} height={500}></canvas>
+            {/* <img className="video" src={`/assets/anim/leo50/${frame}.jpg`} alt="background"/> */}
             <div className="bgoverlay"/>
             <ul className="menu">
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
