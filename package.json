@@ -1,7 +1,7 @@
 {
-    "name": "baskin",
-    "version": "1.0.0",
-    "description": "Baskin's page",
+    "name": "luaberry",
+    "version": "2.0.0",
+    "description": "Luaberry's Portfolio page",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,6 +31,7 @@
         "@testing-library/user-event": "^13.5.0",
         "assert": "^2.1.0",
         "axios": "^1.7.4",
+        "body-scroll-lock": "^4.0.0-beta.0",
         "buffer": "^6.0.3",
         "connect-mongo": "^5.0.0",
         "dotenv": "^16.0.3",

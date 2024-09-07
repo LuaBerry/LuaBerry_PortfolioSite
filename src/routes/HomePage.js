@@ -11,6 +11,7 @@ const HomePage = () => {
     const [menu, setMenu] = useState(0);
     const [curInter, setCurInter] = useState(null);
     const [images, setImages] = useState([]);
+    const [isTouch, setIsTouch] = useState(false);
 
     //For realtime info
     const [commit, setCommit] = useState(0);
@@ -68,19 +69,36 @@ const HomePage = () => {
     //Handle scroll, touch event
     var startX = 0, startY = 0;
     const handleTouchStart = (event) => {
-        startX = event.touches[0].clientX;
-        startY = event.touches[0].clientY;
+        if (event.touches.length > 1) {
+            event.preventDefault();
+            return;
+        }
+        if(!isTouch) {
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+            setIsTouch(true);
+        } else {
+            event.preventDefault();
+        }
     }
     const handleTouchMove = (event) => {
         
         const diffX = event.touches[0].clientX - startX;
         const diffY = event.touches[0].clientY - startY;
-
+        if (event.touches.length > 1) {
+            event.preventDefault();
+            return;
+        }
         if(Math.abs(diffX) > Math.abs(diffY)) {
             event.preventDefault();
             if (diffX > 50)  setMenu(0);
             else if (diffX < -50) setMenu(1);
+        } else {
+            document.body.scrollLeft=0;
         }
+    }
+    const handleTouchEnd = (event) => {
+        setIsTouch(false);
     }
     const handleScroll = (event) => {
         event.preventDefault();
@@ -91,9 +109,12 @@ const HomePage = () => {
     }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
+        document.body.style.height = `${window.innerHeight}px`;
+        document.body.style.overflowY = "auto";
         window.addEventListener('wheel', handleScroll, {passive: false});
         window.addEventListener('touchstart', handleTouchStart);
         window.addEventListener('touchmove', handleTouchMove, {passive: false});
+        window.addEventListener('touchend', handleTouchEnd);
         return () => {
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchstart', handleTouchStart);
@@ -119,11 +140,12 @@ const HomePage = () => {
             imgs.push(img);
         }
     }
+    //Canvas resizer
     const resizeCanvas = () => {
         const canvas = canvasRef.current;
         if (canvas) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = document.documentElement.clientWidth;
+            canvas.height = document.documentElement.clientHeight;
             drawCanvas(frameRef.current);
         }
     }
@@ -133,13 +155,12 @@ const HomePage = () => {
         const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leo50/${index}.jpg`);
         imageLoader(imageArray, (imgs) => {setImages(imgs); drawCanvas(frameRef.current);});
     }, [])
-
+    //BG animation (Init)
     useEffect(() => {
         if (images.length > 0) {
             drawCanvas(frameRef.current);
         }
     }, [images]);
-
     //BG animation
     useEffect(()=> {
         const interval = setInterval(() => {
@@ -156,7 +177,6 @@ const HomePage = () => {
         setCurInter(interval);
         return () => clearInterval(interval); 
     }, [menu]);
-
     const drawCanvas = (frame) => {
         const canvas = canvasRef.current;
         const images = imagesRef.current;
@@ -180,33 +200,27 @@ const HomePage = () => {
             let sx, sy, sWidth, sHeight;
 
             if (imgAspect > canvasAspect) {
-                // 이미지 높이를 맞추고 좌우를 잘라낸다 (object-fit: cover 효과)
                 sHeight = imgHeight;
                 sWidth = imgHeight * canvasAspect;
-                sx = imgWidth - sWidth; // object-position: right
-                sy = 0; // object-position: top
+                sx = imgWidth - sWidth;
+                sy = 0;
             } else {
-                // 이미지 너비를 맞추고 상하를 잘라낸다 (object-fit: cover 효과)
                 sWidth = imgWidth;
                 sHeight = imgWidth / canvasAspect;
                 sx = 0;
-                sy = 0; // object-position: top
+                sy = 0;
             }
-        
-            // 캔버스의 크기에 맞춰 이미지 그리기
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
             ctx.drawImage(images[frame], sx, sy, sWidth, sHeight, 0, 0, canvasWidth, canvasHeight);
         }
     }
-    
     useEffect(() => {
         drawCanvas(frameRef.current);
     }, [frame]);
 
     return (   
         <section className="home">
-            <canvas ref={canvasRef} width={500} height={500}></canvas>
-            {/* <img className="video" src={`/assets/anim/leo50/${frame}.jpg`} alt="background"/> */}
+            <canvas ref={canvasRef} width={"100vw"} height={"100vh"}></canvas>
             <div className="bgoverlay"/>
             <ul className="menu">
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
