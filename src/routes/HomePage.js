@@ -303,8 +303,6 @@ const ResumeUI = ({codeTime, commit, repo}) => {
     )
 }
 
-
-
 const getElementPosition = (element, isMobile) => {
     if(!element) return {top: 0, left: 0, width: 0, height: 0};
     const rect = element.getBoundingClientRect();

@@ -5,6 +5,7 @@ import morgan from "morgan";
 import path from "path";
 import Project from "./Project";
 import { cacheMiddleware, localsMiddleware } from "./middleware";
+import Link from "./Link";
 
 const app = express();
 
@@ -26,6 +27,10 @@ app.get("/projects/json", async (req, res) => {
     return res.json(projects);
 })
 app.use("/assets", cacheMiddleware, express.static("assets"));
+app.get("/links/json", async (req, res) => {
+    const links = await Link.find({});
+    return res.json(links);
+})
 app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 });

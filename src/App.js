@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import './scss/style.scss';
 import { lazy, Suspense } from 'react';
+import LinksPage from './routes/LinksPage';
 
 const HomePage = lazy(() => import ('./routes/HomePage'));
 const ProjectsPage = lazy(() => import ('./routes/ProjectsPage'));
@@ -23,6 +24,7 @@ function App() {
             <Route path="/resumekr" element = {<ResumeKRPage/>}/>
             <Route path="/projects" element = {<ProjectsPage/>}/>
             <Route path="/insights" element = {<InsightsPage/>}/>
+            <Route path="/links" element = {<LinksPage/>}/>
           </Routes>
         </Suspense>
         <Footer />
