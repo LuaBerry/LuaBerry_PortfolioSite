@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 import axios from "axios";
+import Modal from "react-modal";
 //pi < 21.99115 / 7 < pi + 0.0000003
 
 const imageCount = 16;
@@ -42,13 +43,7 @@ const HomePage = () => {
     useEffect(() => {
         const getWaka = async () => {
             const {data} = await axios.get(process.env.REACT_APP_WAKA_LINK);
-            var minutes = 0;
-            var hours = 0;
-            data.data.forEach(element => {
-                hours += element.grand_total.hours; 
-                minutes += element.grand_total.minutes;
-            });
-            hours += Math.ceil(minutes / 60.0);
+            const hours =  Math.round(data.data.grand_total.total_seconds / 3600);
             setCodeTime(hours);
         };
         const getCommit = async () => {
@@ -69,6 +64,8 @@ const HomePage = () => {
     //Handle scroll, touch event
     var startX = 0, startY = 0;
     const handleTouchStart = (event) => {
+        document.body.scrollLeft=0;
+        document.body.scrollTop=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
@@ -82,9 +79,10 @@ const HomePage = () => {
         }
     }
     const handleTouchMove = (event) => {
-        
         const diffX = event.touches[0].clientX - startX;
         const diffY = event.touches[0].clientY - startY;
+        document.body.scrollTop=0;
+        document.body.scrollLeft=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
@@ -93,8 +91,6 @@ const HomePage = () => {
             event.preventDefault();
             if (diffX > 50)  setMenu(0);
             else if (diffX < -50) setMenu(1);
-        } else {
-            document.body.scrollLeft=0;
         }
     }
     const handleTouchEnd = (event) => {
@@ -114,9 +110,9 @@ const HomePage = () => {
         document.body.style.overflowX = "hidden";
         document.body.style.overflowY = "auto";
         window.addEventListener('wheel', handleScroll, {passive: false});
-        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchstart', handleTouchStart, {passive: false});
         window.addEventListener('touchmove', handleTouchMove, {passive: false});
-        window.addEventListener('touchend', handleTouchEnd);
+        window.addEventListener('touchend', handleTouchEnd, {passive: false});
         return () => {
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchstart', handleTouchStart);
@@ -183,11 +179,9 @@ const HomePage = () => {
         const canvas = canvasRef.current;
         const images = imagesRef.current;
         if (!canvas || !images[frame]) {
-            console.log(canvas, images, frame);
             return;
         }
         if(images.length === imageCount) {
-            console.log(images[frame].complete);
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
@@ -239,6 +233,18 @@ const HomePage = () => {
 }
 
 const ResumeUI = ({codeTime, commit, repo}) => {
+    const [hover, setHover] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const timeRef = useRef(null);
+    const updateMobile = () => {
+        setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    }
+    useEffect(() => {
+        updateMobile();
+        window.addEventListener('resize', updateMobile);
+        return () => {window.removeEventListener('resize', updateMobile);}
+    })
+    
     return (
     <div className="resumeui">
         <div className="resumeimg">
@@ -277,8 +283,16 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <h1>3.52/4.0</h1>
             </div>
             <div>
-                <span>Weekly Coding</span>
+                <span ref={timeRef} id="codeTime" onMouseOver={()=>{setHover(true);}}
+                onMouseLeave={() => {setHover(false)}}>Coding Time* 
+                </span>
+                
+                <Modal isOpen={hover} style={customStyles(timeRef.current, isMobile)} onRequestClose={()=>{setHover(false)}} >
+                    From 2024 Sep
+                </Modal>
+                
                 <h1>{codeTime} Hour</h1>
+
             </div>
         </div>
         <a className="pagelink" href="/resume">
@@ -287,6 +301,43 @@ const ResumeUI = ({codeTime, commit, repo}) => {
         </a>
     </div>
     )
+}
+
+
+
+const getElementPosition = (element, isMobile) => {
+    if(!element) return {top: 0, left: 0, width: 0, height: 0};
+    const rect = element.getBoundingClientRect();
+    if (isMobile) return {
+        top: rect.top + window.scrollY + 20,
+        left: rect.left - 50,
+        width: rect.width,
+        height: rect.height
+    }
+    return {
+      top: rect.top + window.scrollY,
+      left: rect.left + window.scrollX,
+      width: rect.width,
+      height: rect.height
+    };
+};
+
+const customStyles = (element, isMobile) => {
+    const pos = getElementPosition(element, isMobile);
+    return {
+    content: {
+      top: `${pos.top - pos.height}px`,
+      left: `${pos.left + pos.width}px`,
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+    overlay: {
+        backgroundColor: 'transparent',
+        pointerEvents: 'none',
+    }
+  };
 }
 
 const LinkUI = () => {
@@ -305,5 +356,6 @@ const LinkUI = () => {
         </div>
     )
 }
+
 
 export default HomePage;
