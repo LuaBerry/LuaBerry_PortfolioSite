@@ -75,7 +75,7 @@ const ResumeKRPage = () => {
                         영어
                         <li className='lang-kr'>고급 (C1)</li>
                         <li className='lang-kr'>업무 의사소통 가능</li>
-                        <li>GRE V:153 Q:169 AW:TBD</li>
+                        <li>GRE V:153 Q:169 AW:3.0</li>
                         <br/>
                     </span>
                 </div>

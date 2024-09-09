@@ -82,7 +82,7 @@ const ResumePage = () => {
                         English
                         <li>Advanced (C1)</li>
                         <li>Professional proficiency</li>
-                        <li>GRE V:153 Q:169 AW:TBD</li>
+                        <li>GRE V:153 Q:169 AW:3.0 </li>
                         <br/>
                     </span>
                 </div>
