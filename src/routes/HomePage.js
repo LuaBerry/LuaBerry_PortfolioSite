@@ -264,7 +264,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             <div>
                 <img></img>
                 <span>Interest</span>
-                <h1>Cloud</h1>
+                <h1>Cloud System</h1>
             </div>
             <div>
                 <img></img>
