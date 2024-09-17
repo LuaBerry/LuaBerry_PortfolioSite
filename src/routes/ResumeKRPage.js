@@ -16,7 +16,7 @@ const ResumeKRPage = () => {
                     </div>
                 </div>
                 <Link to="/resume" className="langLink">
-                    <small className="gray">For English version →</small>
+                    <small className="blackgray englink">For English version →</small>
                 </Link>
                 <hr className="titleLine"/>
                 <div id="personal_info">

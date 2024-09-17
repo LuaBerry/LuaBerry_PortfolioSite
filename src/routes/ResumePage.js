@@ -16,7 +16,7 @@ const ResumePage = () => {
                     </div>
                 </div>
                 <Link to="/resumekr" className="langLink">
-                    <small className="gray lang-kr">한국어 버전은 이쪽으로 →</small>
+                    <small className="blackgray lang-kr">한국어 버전은 이쪽으로 →</small>
                 </Link>
                 <hr className="titleLine"/>
                 <div id="personal_info">
