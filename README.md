@@ -1,6 +1,6 @@
-# Baskin's page
+# LuaBerry's page
 
 Portfolio website
-Blog, Project, Resume
+Project, Resume, Insights
 
-Website Link - https://baskin-lazpberry.github.io/
+Website Link - https://luaberry.com/
