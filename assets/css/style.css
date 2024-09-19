@@ -1,5 +1,5 @@
 /* Base stylesheet */
-/* Version 2.0 */
+/* Version 1.2 */
 
 /* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
 
@@ -12,7 +12,7 @@
 * {
     
     font-family:'Times New Roman', Times, serif;
-    font-size: 18px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
@@ -27,6 +27,7 @@ html {
 a {
     color: inherit;
     text-decoration: inherit;
+
     transition: all 0.2s ease-in-out;
 }
 
@@ -47,22 +48,47 @@ small {
     color:#aaaaaa;
 }
 
-.blackgray {
-    color:rgb(71, 71, 71)
-}
-
 .accent {
     color:#D90D58;
-}
-
-.inactive *{
-    display: none;
-    background-color: #00000000;
 }
 
 /* =============================================================*/
 /* ========================= Main part =========================*/
 /* =============================================================*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.logo {
+    height: 50px;
+    padding-left: 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 0 10px;
+}
 
 main {
     width: 100%;
@@ -76,41 +102,15 @@ footer {
     padding: 10px;
 }
 
-.loading {
-    width: 100vw;
-    height: calc(100vh - 150px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(174, 174, 174);
-    transition: opacity 1s ease;
-    z-index: 10;
-    &.fade-out {
-        opacity: 0;
-        visibility: hidden;
+@media screen and (max-width: 767px) {
+    nav {
+        flex-direction: column;
     }
-}
-
-.spinner {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: conic-gradient(from 270deg, #1EB7D9, #D90D58 25%, #1EB7D9 50%); /* 그라데이션 적용 */
-    animation: spin 2s ease-in-out infinite;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        background-color: white; /* 중앙을 투명하게 만듦 */
-        border-radius: 50%;
-        z-index: 1;
-      }
-}
-  
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    .logo {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    nav ul {
+        padding-left: 0;
+    }
 }
