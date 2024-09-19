@@ -19,7 +19,7 @@ h1, .index h3, .contact h3{
 /* =============================================================*/
 
 .projects {
-    padding:20px;
+    padding:40px 150px;
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(500px, 1fr));
     grid-auto-rows: 700px;
