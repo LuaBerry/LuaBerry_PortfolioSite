@@ -1,0 +1,167 @@
+/* Resume stylesheet */
+/* Version 1.2 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, .index h3, .contact h3{
+    font-family: Helvetica, sans-serif
+}
+
+.lang-kr {
+    font-family: "Helvetica Neue";
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+.contents {
+    width: calc(100% - 280px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#name {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #dedede;
+    color: white;
+    padding-top: 5px;
+    margin-left: 0;
+}
+
+#name h1{
+    font-size: 36px;
+    margin: 15px 0px 12px;
+    font-weight: 600;
+}
+
+#name h1.lang-kr{
+    font-size: 36px;
+    margin: 15px 0px 8px;
+    font-weight: 600;
+}
+
+#name .bg{
+    background: linear-gradient(to right, #D90D58, #1EB7D9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#name hr{
+    width: 10em;
+    border: 0;
+    border-top: 1px solid darkgray
+}
+
+#name h3{
+    font-weight: 400;
+    margin: 12px 0px 15px;
+}
+
+#personal_info, #education, #experience, #skills, #references {
+    text-align: start;
+    margin-left: 20px;
+}
+
+.subhead{
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.subsubhead{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.langLink {
+    width: 100%;
+    padding: 3px 20px;
+    background-color: #bbbbbb;
+}
+
+hr.titleLine {
+    width: 100%;
+    height: 1px;
+    color: #bbbbbb;
+    margin: 0;
+}
+
+.subhead::after{
+    content: "";
+    display: block;
+    width:100%;
+    height: 1px;
+    border-bottom: 1px solid black;
+}
+
+.italic {
+    font-style:italic;
+}
+
+.contents div {
+    margin-left: 10px;
+}
+
+#references span{
+    display: block;
+    margin-bottom: 150px;
+}
+
+.gray {
+    color:#555555;
+}
+
+.accent {
+    color:#D90D58;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    height: 150%;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+    main {
+        flex-direction: column;
+    }
+    .index {
+        display: none;
+    }
+    .contents {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+    #personal_info, #education, #experience, #skills, #references {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #name h1 {
+        margin-top: 35px;
+        font-size: 28px;
+    }
+}

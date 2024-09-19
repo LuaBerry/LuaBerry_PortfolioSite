@@ -2,43 +2,24 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
-import './scss/style.scss';
-import { lazy, Suspense } from 'react';
-import LinksPage from './routes/LinksPage';
-
-const HomePage = lazy(() => import ('./routes/HomePage'));
-const ProjectsPage = lazy(() => import ('./routes/ProjectsPage'));
-const ResumePage = lazy(() => import ('./routes/ResumePage'));
-const ResumeKRPage = lazy(() => import ('./routes/ResumeKRPage'));
-const InsightsPage = lazy(() => import ('./routes/InsightsPage'));
+import './css/style.css';
+import HomePage from './routes/HomePage';
+import ProjectsPage from './routes/ProjectsPage';
+import ResumePage from './routes/ResumePage';
 
 function App() {
   return (
     <BrowserRouter>
-
-        <Navigation />
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
-            <Route exact path = "/" element = {<HomePage/>}/>
-            <Route path="/resume" element = {<ResumePage/>}/>
-            <Route path="/resumekr" element = {<ResumeKRPage/>}/>
-            <Route path="/projects" element = {<ProjectsPage/>}/>
-            <Route path="/insights" element = {<InsightsPage/>}/>
-            <Route path="/links" element = {<LinksPage/>}/>
-          </Routes>
-        </Suspense>
-        <Footer />
+      <Navigation />
+      <Routes>
+        <Route exact path = "/" element = {<HomePage/>}/>
+        <Route path="/resume" element = {<ResumePage/>}/>
+        <Route path="/projects" element = {<ProjectsPage/>}/>
+      </Routes>
+      <Footer />
     </BrowserRouter>
+
   )
 }
-
-const LoadingScreen = () => {
-  return (
-    <div className='loading'>
-      <div className='spinner'></div>
-    </div>
-  )
-}
-
 
 export default App;

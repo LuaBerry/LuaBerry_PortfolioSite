@@ -14,11 +14,11 @@ const ProjectComp = ({project}) => {
                         )
                 }
             </h2>
-            <p className="description">{project.description}</p>
-            <img className="thumbnail" src={project.image} alt="Project thumbnail"></img>
+            <p className="description lang-kr">{project.description}</p>
+            <img className="thumbnail" src={`${process.env.PUBLIC_URL}${project.image}`} alt="Project thumbnail"></img>
             <ul className="skills">
                 {project.skills.map((s) => {
-                    return <li className="skill">{s}</li>
+                    return <li className="skill lang-kr">{s}</li>
                 })}
             </ul>
             <small className="time">{project.time}</small>
