@@ -11,7 +11,7 @@
 
 * {
     
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Helvetica Neue', sans-serif;
     font-size: 18px;
     box-sizing: border-box;
 }
@@ -58,6 +58,10 @@ small {
 .inactive *{
     display: none;
     background-color: #00000000;
+}
+
+.lang-kr {
+    font-family: "Helvetica Neue";
 }
 
 /* =============================================================*/

@@ -39,7 +39,6 @@ const ResumePage = () => {
                         <span className="italic">Undergraduate Student</span>
                         <li>Bachelor of Science in <span className="accent">Computer Science</span></li>
                         <li>Current Total GPA of 3.52/4.0</li>
-
                     </span>
                 </div>
                 <div id="experience">

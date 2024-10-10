@@ -252,7 +252,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </img>
             <div className="overlay"/>
             <div className="text">
-                <h1>LUABERRY</h1>
+                <h1>LuaBerry</h1>
             </div>
         </div>
         <div className="resumesummary">
@@ -341,15 +341,15 @@ const customStyles = (element, isMobile) => {
 const LinkUI = () => {
     return (
         <div className="linkui">
-            <div onClick={()=>{window.open('https://luaberry.tistory.com/')}}>
-                <img src="/assets/img/tistory_logo.svg"></img>
+            <div onClick={()=>{window.open('https://blog.naver.com/luaberry')}}>
+                <img src="/assets/img/naverblog_logo.png"></img>
                 <span>Blog</span>
-                <h1>자기계발소</h1>
+                <h1 className="lang-kr">개발자의 자기개발소</h1>
             </div>
             <div onClick={()=>{window.open('https://www.youtube.com/@LuaB3rry')}}>
                 <img src="/assets/img/youtube_logo.png"></img>
                 <span>YouTube</span>
-                <h1>LUABERRY</h1>
+                <h1 className="lang-kr">LUABERRY</h1>
             </div>
         </div>
     )
