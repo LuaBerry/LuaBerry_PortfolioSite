@@ -273,16 +273,19 @@
     .resumeui {
         .resumeimg {
             margin-top:30px;
+            margin-bottom: 7vh;
         }
         .resumesummary {
-            grid-template-rows: 10vh;
-            div h1{
-                margin: 0;
-                font-size: 22px;
-                height: 50px;
-            }
-            span {
-                height: 50px;
+            grid-template-rows: 12vh;
+            div {
+                h1{
+                    margin: 0;
+                    font-size: 22px;
+                    height: 60px;
+                }
+                span {
+                    height: 60px;
+                }
             }
             img {
                 display: none;

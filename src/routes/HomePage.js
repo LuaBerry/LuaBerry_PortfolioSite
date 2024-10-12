@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import '../scss/homeStyle.scss';
 import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
+import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
 const imageCount = 16;
@@ -275,7 +275,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
         <hr/>
         <div className="resumesummary">
             <div>
-                <span>Repositories</span>
+                <span>Repo</span>
                 <h1>{repo}</h1>
             </div>
             <div>
