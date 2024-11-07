@@ -43,7 +43,7 @@ const HomePage = () => {
     useEffect(() => {
         const getWaka = async () => {
             const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/b3d47b8d-5a54-4de6-86f4-be99036231bd.json");
-            const hours =  Math.round(data.data.grand_total.total_seconds / 3600);
+            const hours =  Math.round(data.data.grand_total.total_seconds_including_other_language / 3600);
             setCodeTime(hours);
         };
         const getCommit = async () => {
