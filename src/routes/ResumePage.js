@@ -44,8 +44,12 @@ const ResumePage = () => {
                 <div id="experience">
                     <h3 className="subhead">Experience</h3>
                     <span>
+                        Undergraduate Researcher
+                        <li className='lang-kr'><span className="accent">System Security Lab</span>, Hanyang University</li>
+                        <li>2024.09 ~ Current</li>
+                        <br/>
                         OOPArts
-                        <li>Game Dev Society <span className="accent">President</span></li>
+                        <li>Game Dev Club <span className="accent">President</span></li>
                         <li>Swift COVID response with online tutoring &amp; showcase</li>
                         <li>2020.01 ~ 2021.05</li>
                         <br/>

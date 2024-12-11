@@ -40,6 +40,10 @@ const ResumeKRPage = () => {
                 <div id="experience">
                     <h3 className="subhead">Experience</h3>
                     <span className='lang-kr'>
+                    학부연구생
+                    <li className='lang-kr'>한양대학교 시스템 보안 연구실</li>
+                    <li>2024.09 ~ 현재</li>
+                    <br/>
                     오파츠 OOPArts
                     <li className='lang-kr'>게임 개발 동아리 <span className="accent lang-kr">회장</span></li>
                     <li className='lang-kr'>코로나 상황 대응 - 온라인 개발 수업 및 멘토링 &amp; 게임 발표회</li>
