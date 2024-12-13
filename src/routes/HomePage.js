@@ -297,7 +297,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
         </div>
         <a className="pagelink" href="/resume">
                 <div><span>&rsaquo;</span></div>
-                Click Here for detail &rarr;
+                Click Here for detail
         </a>
     </div>
     )
