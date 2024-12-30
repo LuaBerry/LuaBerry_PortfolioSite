@@ -47,27 +47,6 @@ section.resume {
     }
 }
 
-.profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
-    margin-bottom: 60px;
-    img {
-        width: 150px;
-    
-    }
-}
-
-.profile_outline{
-    border: 1px solid gray;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .sidebar_line {
     width: 200px;
     margin: 0;

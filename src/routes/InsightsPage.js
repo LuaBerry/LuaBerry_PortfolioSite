@@ -2,65 +2,78 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import '../scss/resumeStyle.scss';
 
-const InsightsPage = () => {
+const InsightsPage = ({lang}) => {
+    if (lang == 0) return FAQ();
+    else return FAQKR();
+};
+
+const FAQ = () => {
     return (
-        <section className='resume'>
+    <section className='resume'>
             <Sidebar />
             <article className="contents">
-                <div id="interests">
-                    <h3 className="subhead">Interests</h3>
+                {/* about this website */}
+                <div className="bodygroup">
+                    <h3 className="subhead">What is this website? Why did you built it?</h3>
                     <span>
-                        I used to be a hardcore gamer but now I only enjoy watching gameplays.<br/>
-                        These days, I read books or watch documentaries on YouTube or Netflix.<br/>
-                        I always have music playing - usually classical, but sometimes hip hop, EDM, or whatever trending.<br/>
-                        I also like to party and cook for my friends. It's really rewarding when my friends find new flavors through my dishes.
+                        Learning web dev, portfolio website, can be expended as CS blog at the future.
                     </span>
                 </div>
-                <div id="passions">
-                    <h3 className="subhead">Passions</h3>
+                <div className="bodygroup">
+                    <h3 className="subhead">What did you use?</h3>
                     <span>
-                        I am an encyclopedic learner, eager to explore all kinds of new knowledge.<br/>
-                        I am mainly intrigued by Physics, Philosophy, Theology, Medicine and Foreign languages.<br/>
-                        I learn these things through YouTube videos, books and occasionally academic papers.<br/>
-                        I also enjoy sharing these knowledge with my friends and family, mostly to correct psuedoscience or misconception.
+                        Node.js, React.js, Express.js, MongoDB
                     </span>
                 </div>
-                <div id="motto">
-                    <h3 className="subhead">Life Motto</h3>
+                <div className="bodygroup">
+                    <h3 className="subhead">I want to make one of these</h3>
                     <span>
-                        My motto is: "Live like a child, with resilience and a sense of wonder."<br/>
-                        Purity towards the humanity and the nature is what I value the most.<br/>
+                        Nomadcoder, Fireship, or contact me via email.
                     </span>
                 </div>
-                <div id="Favorites">
-                    <h3 className="subhead">Favorites</h3>
+                {/* about me */}
+                <div className="bodygroup">
+                    <h3 className="subhead">You seem to have decent experience in Webdev & game dev, why did you choose system?</h3>
                     <span>
-                        <h4>Classical music</h4>
-                        Composers:
-                        <li>Claude Debussy</li>
-                        <li>Pyotr Tchaikovsky</li>
-                        <li>Maurice Ravel</li>
-                        Pieces:
-                        <li><a href="https://youtu.be/Y9iDOt2WbjY?feature=shared&t=37" target="_blank" rel="noopener noreferrer">"Prelude: A l'apres midi d'une faune" by Debussy</a></li>
-                        <li><a href="https://youtu.be/LcJBKZqb-68?feature=shared" target="_blank" rel="noopener noreferrer">"Goldberg Variations" by Bach</a></li>
-                        <li><a href="https://youtu.be/n_yIgrkSNzE?feature=shared" target="_blank" rel="noopener noreferrer">"Gaspard de la nuit: Ondine" by Ravel</a></li>
-                        <h4>Books</h4>
-                        <li>Herztöne by Martin schlesche</li>
-                        <li>Principles by Ray dalio</li>
-                        <li>라틴어 수업 by 한동일</li>
-                        <br/>
-                        <h4>Games</h4>
-                        <li>Lost Ark</li> (used to be) Founder of Rank 7 Guild
-                        <li>Sound Voltex</li> 2500+ credit ($1,000)
-                        <li>Battlefield</li> 14 year Fan
-                        
+                        didn't like professional experience, many company requires fast dev not engineering virtue.
                     </span>
-                    {/* <h3 className="subhead">Life Experiences</h3>
+                </div>
+                <br/><br/>
+            </article>
+        </section>
+    );
+};
+
+const FAQKR = () => {
+    return(
+    <section className='resume'>
+            <Sidebar />
+            <article className="contents">
+                {/* about this website */}
+                <div className="bodygroup">
+                    <h3 className="subhead">그래서 이거 뭐임? 왜만듬?</h3>
                     <span>
-                        <a>Traveling japan</a><br/>
-                        <a>My sister; The Frontier</a><br/>
-                        <a>From atheist to catholic</a>
-                    </span> */}
+                        웹개발 공부용으로 만든 포폴 사이트. 전공 수업 정리한거 추가할수도 있음.
+                    </span>
+                </div>
+                <div className="bodygroup">
+                    <h3 className="subhead">뭘로 만듬?</h3>
+                    <span>
+                        Node.js, React.js, Express.js, MongoDB
+                    </span>
+                </div>
+                <div className="bodygroup">
+                    <h3 className="subhead">나도 만들고 싶음</h3>
+                    <span>
+                        노마드코더, 생활코딩등 유튭 아니면 컨택 주셈
+                    </span>
+                </div>
+                {/* about me */}
+                <div className="bodygroup">
+                    <h3 className="subhead">웹개발, 겜개발 꽤 한거같은데 왜 클라우드 시스템 함?</h3>
+                    <span>
+                        외주 경험이 맘에 안듦, 기업들이 공학적 우수성보다 빠른 템포 개발을 더 좋아했음.
+                    </span>
                 </div>
                 <br/><br/>
             </article>

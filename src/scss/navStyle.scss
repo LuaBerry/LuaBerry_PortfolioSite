@@ -23,6 +23,38 @@ nav {
             padding: 0 10px;
         }
     }
+    label {
+        position:absolute;
+        right: 5vw;
+
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        input[type="checkbox"] {
+            position: relative;
+            appearance: none;
+            width: 2em;
+            height: 1em;
+            border: 1px solid black;
+            border-radius: 10px;
+
+
+        }
+        input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 0.9em;
+            height: 0.9em;
+            border-radius: 50%;
+            background-color: #D90D58;
+            transition: left 250ms ease, background-color 250ms linear;
+        }
+        input[type="checkbox"]:checked::before {
+                left: 1em;
+                background-color: #1EB7D9;
+        }
+    }
 }
 
 .defnav {
@@ -48,15 +80,39 @@ nav {
 @media screen and (max-width: 767px) {
     nav {
         flex-direction: column;
+        label {
+            right: 40px;
+            top: 20px;
+            span {
+                font-size: 12px;
+            }
+            input[type="checkbox"] {
+                width:1.5em;
+                height:0.75em;
+            }
+            input[type="checkbox"]::before {
+                width:0.65em;
+                height:0.65em;
+            }
+            input[type="checkbox"]:checked::before {
+                left: 0.75em;
+            }
+        }
+        ul {
+            padding-left: 0;
+            justify-content: center;
+    
+            margin:5px 0;
+        }
     }
     .logo {
         padding: 0;
         margin-bottom: 10px;
-    }
-    nav ul {
-        padding-left: 0;
-        justify-content: center;
-
-        margin:5px 0;
+        height: 40px;
+        align-self: first baseline;
+        margin-left: 30px;
+        a img {
+            height: 40px;
+        }
     }
 }

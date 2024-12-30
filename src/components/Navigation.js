@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import '../scss/navStyle.scss'
+import '../scss/navStyle.scss';
 
-const Navigation = () => {
+const Navigation = ({changeLang}) => {
 
     const location = useLocation();
     const currentPath = location.pathname;
     return (
         <header>
-            <DefaultNavigation loc={currentPath}></DefaultNavigation>
+            <DefaultNavigation loc={currentPath} changeLang={changeLang}></DefaultNavigation>
         </header>
     );
 };
 
-const DefaultNavigation = ({loc}) => {
+const DefaultNavigation = ({loc, changeLang}) => {
+    
     return (
         <div className={loc==="/" ? "homenav":"defnav"}>
             <nav>
@@ -24,10 +25,17 @@ const DefaultNavigation = ({loc}) => {
                 </a>
                 </div>
                 <ul>
-                    <li><Link to="/resume">Resume</Link></li>
-                    <li><Link to="/insights">Personal Insights</Link></li>
                     <li><Link to="/projects">Projects</Link></li>
+                    <li><Link to="/insights">Vault</Link></li>
+                    <li><Link to="/insights">FAQ</Link></li>
+                    <li><Link to="/resume">About</Link></li>
+                    
                 </ul>
+                <label>
+                    <span>EN</span>
+                    <input role="switch" type="checkbox" onChange={changeLang}/>
+                    <span>KR</span>
+                </label>
             </nav>
         </div>
     )

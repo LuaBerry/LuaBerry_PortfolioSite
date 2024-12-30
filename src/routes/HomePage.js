@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import Modal from "react-modal";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
 const imageCount = 16;
 
-const HomePage = () => {
+const HomePage = (lang) => {
     //For bg animation
     const [frame, setFrame] = useState(0);
     const [menu, setMenu] = useState(0);
@@ -233,7 +232,6 @@ const HomePage = () => {
 }
 
 const ResumeUI = ({codeTime, commit, repo}) => {
-    const [hover, setHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const timeRef = useRef(null);
     const updateMobile = () => {
@@ -280,18 +278,13 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </div>
             <div>
                 <span>GPA</span>
-                <h1>3.52/4.0</h1>
+                <h1>3.44/4.0</h1>
             </div>
             <div>
-                <span ref={timeRef} id="codeTime" onMouseOver={()=>{setHover(true);}}
-                onMouseLeave={() => {setHover(false)}}>Coding Time* 
+                <span ref={timeRef} id="codeTime">Coding Time
                 </span>
                 
-                <Modal isOpen={hover} style={customStyles(timeRef.current, isMobile)} onRequestClose={()=>{setHover(false)}} >
-                    From 2024 Sep
-                </Modal>
-                
-                <h1>{codeTime} Hour</h1>
+                <h1>{codeTime + 1200} Hour</h1> {/* expected code time from 2015 to 2024 (code time for 3-2 is 180h) */}
 
             </div>
         </div>

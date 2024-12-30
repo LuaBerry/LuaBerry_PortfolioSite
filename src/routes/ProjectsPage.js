@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ProjectComp from "../components/ProjectComp";
+import Sidebar from '../components/Sidebar';
 import "../scss/projectsStyle.scss";
-const ProjectsPage = () => {
+const ProjectsPage = ({lang}) => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         const getProjects = async () => {
@@ -12,7 +13,8 @@ const ProjectsPage = () => {
         getProjects();
     }, [])
     return (
-        <section className="projects">
+        <>
+        <section className="projects">  
             {
                 projects.map(
                     (project) => {
@@ -21,6 +23,8 @@ const ProjectsPage = () => {
                 )
             }
         </section>
+        <Sidebar />
+        </>
     );
 }
 
