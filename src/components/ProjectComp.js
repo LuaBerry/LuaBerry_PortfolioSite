@@ -3,6 +3,7 @@ import React from "react";
 const ProjectComp = ({project}) => {
     return (
         <div className="box">
+            <img className="thumbnail" src={project.image} alt="Project thumbnail"></img>
             <h2 className="title">
                 {
                     (project.link !== "") ? (
@@ -15,7 +16,6 @@ const ProjectComp = ({project}) => {
                 }
             </h2>
             <p className="description">{project.description}</p>
-            <img className="thumbnail" src={project.image} alt="Project thumbnail"></img>
             <ul className="skills">
                 {project.skills.map((s) => {
                     return <li className="skill">{s}</li>

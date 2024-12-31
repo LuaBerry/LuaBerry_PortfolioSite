@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const imageCount = 16;
+const imageCount = 46;
 
 const HomePage = (lang) => {
     //For bg animation
@@ -24,6 +24,8 @@ const HomePage = (lang) => {
     const imagesRef = useRef([]);
     const frameRef = useRef(0);
 
+
+
     //Sync menu, curInter
     useEffect(() => {
         menuRef.current = menu;
@@ -37,13 +39,15 @@ const HomePage = (lang) => {
     useEffect(() => {
     frameRef.current = frame;
     }, [frame]);
+
+
     
     //Get real time info from Waka, Github
     useEffect(() => {
         const getWaka = async () => {
             const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/b3d47b8d-5a54-4de6-86f4-be99036231bd.json");
             const hours =  Math.round(data.data.grand_total.total_seconds_including_other_language / 3600);
-            setCodeTime(hours);
+            setCodeTime(hours + 1200); {/* Estimated code time from 2015 to 2024 is 1200h (code time for one semester is 180h) */}
         };
         const getCommit = async () => {
             var today = new Date();
@@ -59,6 +63,8 @@ const HomePage = (lang) => {
         getCommit();
         getRepo();
     }, [])
+
+
 
     //Handle scroll, touch event
     var startX = 0, startY = 0;
@@ -88,8 +94,14 @@ const HomePage = (lang) => {
         }
         if(Math.abs(diffX) > Math.abs(diffY)) {
             event.preventDefault();
-            if (diffX > 50)  setMenu(0);
-            else if (diffX < -50) setMenu(1);
+            if(Math.abs(diffX) > 50) {
+                setMenu((prevMenu) => {
+                    const d = ((diffX > 0) ? 1 : -1);
+                    let m = prevMenu + d;
+                    if (m > 3) m = 3; else if (m < 0) m = 0;
+                    return m;
+                })
+            }
         }
     }
     const handleTouchEnd = (event) => {
@@ -100,8 +112,11 @@ const HomePage = (lang) => {
         if(Math.abs(delta) > 30) {
             event.preventDefault();
             if(curInterRef.current) return;
-            setMenu(() => {
-                return(delta > 0 ? 1 : 0)
+            setMenu((prevMenu) => {
+                const d = ((delta > 0) ? 1 : -1);
+                let m = prevMenu + d;
+                if (m > 3) m = 3; else if (m < 0) m = 0;
+                return m;
             })
         }
     }
@@ -120,13 +135,15 @@ const HomePage = (lang) => {
         }
     }, []);
 
+
+
     //Load image
     const imageLoader = (arr, callback) => {
         var imgs = [];
         var loadedImages = 0;
         const imageLoaded = () => {
             loadedImages++;
-            if (loadedImages >= arr.length) {
+            if (loadedImages >= 16) {//arr.length) {
                 callback(imgs);
             }
         }
@@ -137,6 +154,7 @@ const HomePage = (lang) => {
             imgs.push(img);
         }
     }
+
     //Canvas resizer
     const resizeCanvas = () => {
         const canvas = canvasRef.current;
@@ -152,28 +170,31 @@ const HomePage = (lang) => {
         const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leo50/${index}.jpg`);
         imageLoader(imageArray, (imgs) => {setImages(imgs); drawCanvas(frameRef.current);});
     }, [])
+
     //BG animation (Init)
     useEffect(() => {
         if (images.length > 0) {
             drawCanvas(frameRef.current);
         }
     }, [images]);
+
     //BG animation
     useEffect(()=> {
         const interval = setInterval(() => {
             setFrame((prevFrame) => {
-                if(prevFrame === (menuRef.current * (imageCount - 1))) {
+                if(prevFrame === (menuRef.current * 15)) {
                     setCurInter(null);
                     clearInterval(interval);
                     return prevFrame;
                 } else {
-                    return prevFrame + (((menuRef.current * (imageCount - 1)) - prevFrame) >= 0 ? 1 : -1);
+                    return prevFrame + (((menuRef.current * 15) - prevFrame) >= 0 ? 1 : -1);
                 }
             });
         }, 20);
         setCurInter(interval);
         return () => clearInterval(interval); 
     }, [menu]);
+
     const drawCanvas = (frame) => {
         const canvas = canvasRef.current;
         const images = imagesRef.current;
@@ -209,9 +230,13 @@ const HomePage = (lang) => {
             ctx.drawImage(images[frame], sx, sy, sWidth, sHeight, 0, 0, canvasWidth, canvasHeight);
         }
     }
+    
     useEffect(() => {
         drawCanvas(frameRef.current);
     }, [frame]);
+
+
+
 
     return (   
         <section className="home">
@@ -222,9 +247,15 @@ const HomePage = (lang) => {
                     ? "lightaccent" : "lightgray"}>Overview</button></li>
                 <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
                     ? "lightaccent" : "lightgray"}>Link</button></li>
+                <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
+                    ? "lightaccent" : "lightgray"}>Link</button></li>
+                <li><button onClick={()=>{setMenu(3);}} className={(menu === 3) 
+                    ? "lightaccent" : "lightgray"}>Link</button></li>
             </ul>
             <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
                 <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
+                <LinkUI></LinkUI>
+                <LinkUI></LinkUI>
                 <LinkUI></LinkUI>
             </div>
         </section>
@@ -284,7 +315,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <span ref={timeRef} id="codeTime">Coding Time
                 </span>
                 
-                <h1>{codeTime + 1200} Hour</h1> {/* expected code time from 2015 to 2024 (code time for 3-2 is 180h) */}
+                <h1>{codeTime} Hour</h1>
 
             </div>
         </div>

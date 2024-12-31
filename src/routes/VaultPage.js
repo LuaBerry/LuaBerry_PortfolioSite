@@ -11,12 +11,14 @@ const LinksPage = () => {
         getProjects();
     }, []);
     return (
-        <section>
+        <section id='vault'>
                         {
                 links.map(
                     (link) => {
-                        return (
-                        <><a href={link.link} target="_blank" rel="noopener noreferrer">{link.name}</a><br></br></>);
+                        return (<>
+                        <a href={link.link} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                        <br></br>
+                        </>);
                     }
                 )
             }

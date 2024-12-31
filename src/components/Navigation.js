@@ -25,10 +25,10 @@ const DefaultNavigation = ({loc, changeLang}) => {
                 </a>
                 </div>
                 <ul>
+                    <li><Link to="/vault">Vault</Link></li>
                     <li><Link to="/projects">Projects</Link></li>
-                    <li><Link to="/insights">Vault</Link></li>
-                    <li><Link to="/insights">FAQ</Link></li>
-                    <li><Link to="/resume">About</Link></li>
+                    <li><Link to="/faq">FAQ</Link></li>
+                    <li><Link to="/about">About</Link></li>
                     
                 </ul>
                 <label>

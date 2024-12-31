@@ -7,8 +7,9 @@ import './scss/style.scss';
 
 const HomePage = lazy(() => import ('./routes/HomePage'));
 const ProjectsPage = lazy(() => import ('./routes/ProjectsPage'));
-const ResumePage = lazy(() => import ('./routes/ResumePage'));
-const InsightsPage = lazy(() => import ('./routes/InsightsPage'));
+const AboutPage = lazy(() => import ('./routes/AboutPage'));
+const FAQPage = lazy(() => import ('./routes/FAQPage'));
+const VaultPage = lazy(() => import ('./routes/VaultPage'));
 
 function App() {
   const [lang, setLang] = useState(0);
@@ -22,9 +23,10 @@ function App() {
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route exact path = "/" element = {<HomePage lang={lang}/>}/>
-            <Route path="/resume" element = {<ResumePage lang={lang}/>}/>
+            <Route path="/about" element = {<AboutPage lang={lang}/>}/>
+            <Route path="/faq" element = {<FAQPage lang={lang}/>}/>
             <Route path="/projects" element = {<ProjectsPage lang={lang}/>}/>
-            <Route path="/insights" element = {<InsightsPage lang={lang}/>}/>
+            <Route path="/vault" element = {<VaultPage lang={lang}/>}/>
           </Routes>
         </Suspense>
         <Footer />

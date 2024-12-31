@@ -198,16 +198,16 @@
             background-color: white;
             height: 30px;
             width: 30px;
-            line-height: 1em;
             text-align: center;
             vertical-align: middle;
             margin-right: 10px;
             transition: all 0.2s ease-in-out;
             span {
-                position: relative;
-                top:2px;
                 font-size:36px;
+                line-height: 0;
                 color:#000000;
+                text-align: left;
+                white-space: nowrap;
             }
         }
         &:hover {
