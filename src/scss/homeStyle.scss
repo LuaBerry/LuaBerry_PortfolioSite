@@ -93,7 +93,7 @@
     transition: transform 0.4s ease-in-out;
 }
 
-.resumeui, .linkui {
+.resumeui, #activityui {
     width: 60vw;
     margin-left: 30px;
     margin-right: calc(40vw - 30px);
@@ -219,7 +219,7 @@
     }
 }
 
-.linkui{
+#activityui{
     height: 64vh;
     display: flex;
     flex-direction: row;
@@ -266,7 +266,7 @@
     .overviews{
         margin-top:10px;
     }
-    .resumeui, .linkui {
+    .resumeui, #activityui {
         margin:0 30px;
         width: calc(100% - 60px);
     }
@@ -296,7 +296,7 @@
             margin-top:40px;
         }
     }
-    .linkui{
+    #activityui{
         height: 64vh;
         display: flex;
         flex-direction: column;

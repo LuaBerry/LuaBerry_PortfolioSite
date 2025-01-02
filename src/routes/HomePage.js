@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const imageCount = 46;
+const imageCount = 16;
 
 const HomePage = (lang) => {
     //For bg animation
@@ -15,7 +15,8 @@ const HomePage = (lang) => {
 
     //For realtime info
     const [commit, setCommit] = useState(0);
-    const [repo, setRepo] = useState(0);
+    const [repos, setRepos] = useState(null);
+    const [repoLength, setRepoLength] = useState(0);
     const [codeTime, setCodeTime] = useState(0);
     //For bg animation
     const canvasRef = useRef(null);
@@ -56,8 +57,10 @@ const HomePage = (lang) => {
             setCommit(data.total_count);
         }
         const getRepo = async () => {
-            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos');
-            setRepo(data.length);
+            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos?sort=updated');
+            console.log(data);
+            setRepos(data);
+            setRepoLength(data.length);
         }
         getWaka();
         getCommit();
@@ -246,17 +249,17 @@ const HomePage = (lang) => {
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
                     ? "lightaccent" : "lightgray"}>Overview</button></li>
                 <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
-                    ? "lightaccent" : "lightgray"}>Link</button></li>
+                    ? "lightaccent" : "lightgray"}>Activity</button></li>
                 <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
-                    ? "lightaccent" : "lightgray"}>Link</button></li>
+                    ? "lightaccent" : "lightgray"}>Skills</button></li>
                 <li><button onClick={()=>{setMenu(3);}} className={(menu === 3) 
                     ? "lightaccent" : "lightgray"}>Link</button></li>
             </ul>
             <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
-                <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
-                <LinkUI></LinkUI>
-                <LinkUI></LinkUI>
-                <LinkUI></LinkUI>
+                <ResumeUI codeTime={codeTime} commit={commit} repo={repoLength}></ResumeUI>
+                <ActivityUI repos={repos}></ActivityUI>
+                <ActivityUI></ActivityUI>
+                <ActivityUI></ActivityUI>
             </div>
         </section>
     );
@@ -362,22 +365,47 @@ const customStyles = (element, isMobile) => {
   };
 }
 
-const LinkUI = () => {
+const ActivityUI = ({repos}) => {
     return (
-        <div className="linkui">
-            <div onClick={()=>{window.open('https://blog.naver.com/luaberry')}}>
+        <div id="activityui">
+            {
+                (repos) ?
+                (<div onClick={()=>{window.open(repos[0].html_url)}}>
                 <img src="/assets/img/naverblog_logo.png"></img>
-                <span>Blog</span>
-                <h1 className="lang-kr">개발자의 자기개발소</h1>
+                <span>Recent working Repository</span>
+                <h1 className="lang-kr">{repos[0].name}</h1>
+                </div>) : (
+                    <></>
+                )
+            }
+            <div onClick={()=>{}}>
+                <img src="/assets/img/naverblog_logo.png"></img>
+                <span>Recent Study session</span>
+                <h1 className="lang-kr"></h1>
             </div>
-            <div onClick={()=>{window.open('https://www.youtube.com/@LuaB3rry')}}>
-                <img src="/assets/img/youtube_logo.png"></img>
-                <span>YouTube</span>
-                <h1 className="lang-kr">LUABERRY</h1>
+            <div onClick={()=>{}}>
+                <img src="/assets/img/naverblog_logo.png"></img>
+                <span>Recent Posting</span>
+                <h1 className="lang-kr"></h1>
             </div>
         </div>
     )
 }
 
+const StackUI = ({}) => {
+    return (
+        <div className="stackui">
+
+        </div>
+    )
+}
+
+const LinkUI = ({}) => {
+    return (
+        <div className="stackui">
+
+        </div>
+    )
+}
 
 export default HomePage;
