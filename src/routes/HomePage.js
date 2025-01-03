@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const imageCount = 16;
+const imageCount = 46;
 
 const HomePage = (lang) => {
     //For bg animation
@@ -170,7 +170,7 @@ const HomePage = (lang) => {
     useEffect(() => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leo50/${index}.jpg`);
+        const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leov2/${index.toString().padStart(4, '0')}.jpg`);
         imageLoader(imageArray, (imgs) => {setImages(imgs); drawCanvas(frameRef.current);});
     }, [])
 
