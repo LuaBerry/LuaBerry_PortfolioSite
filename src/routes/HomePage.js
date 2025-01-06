@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const imageCount = 46;
+const imageCount = 31;
 
 const HomePage = (lang) => {
     //For bg animation
@@ -98,10 +98,11 @@ const HomePage = (lang) => {
         if(Math.abs(diffX) > Math.abs(diffY)) {
             event.preventDefault();
             if(Math.abs(diffX) > 50) {
+                if(curInterRef.current) return;
                 setMenu((prevMenu) => {
-                    const d = ((diffX > 0) ? 1 : -1);
+                    const d = ((diffX > 0) ? -1 : 1);
                     let m = prevMenu + d;
-                    if (m > 3) m = 3; else if (m < 0) m = 0;
+                    if (m > 2) m = 2; else if (m < 0) m = 0;
                     return m;
                 })
             }
@@ -118,7 +119,7 @@ const HomePage = (lang) => {
             setMenu((prevMenu) => {
                 const d = ((delta > 0) ? 1 : -1);
                 let m = prevMenu + d;
-                if (m > 3) m = 3; else if (m < 0) m = 0;
+                if (m > 2) m = 2; else if (m < 0) m = 0;
                 return m;
             })
         }
@@ -251,15 +252,12 @@ const HomePage = (lang) => {
                 <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
                     ? "lightaccent" : "lightgray"}>Activity</button></li>
                 <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
-                    ? "lightaccent" : "lightgray"}>Skills</button></li>
-                <li><button onClick={()=>{setMenu(3);}} className={(menu === 3) 
                     ? "lightaccent" : "lightgray"}>Link</button></li>
             </ul>
             <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
                 <ResumeUI codeTime={codeTime} commit={commit} repo={repoLength}></ResumeUI>
                 <ActivityUI repos={repos}></ActivityUI>
-                <ActivityUI></ActivityUI>
-                <ActivityUI></ActivityUI>
+                <LinkUI></LinkUI>
             </div>
         </section>
     );
@@ -322,10 +320,10 @@ const ResumeUI = ({codeTime, commit, repo}) => {
 
             </div>
         </div>
-        <a className="pagelink" href="/resume">
+        {/* <a className="pagelink" href="/resume">
                 <div><span>&rsaquo;</span></div>
                 Click Here for detail
-        </a>
+        </a> */}
     </div>
     )
 }
@@ -368,18 +366,39 @@ const customStyles = (element, isMobile) => {
 const ActivityUI = ({repos}) => {
     return (
         <div id="activityui">
-            {
-                (repos) ?
-                (<div onClick={()=>{window.open(repos[0].html_url)}}>
-                <img src="/assets/img/naverblog_logo.png"></img>
-                <span>Recent working Repository</span>
-                <h1 className="lang-kr">{repos[0].name}</h1>
-                </div>) : (
-                    <></>
-                )
-            }
+            {(repos) ?
+            (<div onClick={()=>{window.open(repos[0].html_url)}}>
+                <img src="/assets/img/github_white_logo.png"></img>
+                <div className="detailtext">
+                    <span>Recent update</span>
+                    <p>{repos[0].name}</p>
+                </div>
+            </div>) : (
+                <></>
+            )}
+            <div onClick={()=>{}}>
+                <img src="/assets/img/youtube_logo.png"></img>
+                <div className="detailtext">
+                    <span>Recent Upload</span>
+                    <p></p>
+                </div>
+            </div>
             <div onClick={()=>{}}>
                 <img src="/assets/img/naverblog_logo.png"></img>
+                <div className="detailtext">
+                    <span>Recent Post</span>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const LinkUI = ({}) => {
+    return (
+        <div id="activityui">
+            <div onClick={()=>{}}>
+                <img src="/assets/img/youtube_logo.png"></img>
                 <span>Recent Study session</span>
                 <h1 className="lang-kr"></h1>
             </div>
@@ -388,22 +407,6 @@ const ActivityUI = ({repos}) => {
                 <span>Recent Posting</span>
                 <h1 className="lang-kr"></h1>
             </div>
-        </div>
-    )
-}
-
-const StackUI = ({}) => {
-    return (
-        <div className="stackui">
-
-        </div>
-    )
-}
-
-const LinkUI = ({}) => {
-    return (
-        <div className="stackui">
-
         </div>
     )
 }

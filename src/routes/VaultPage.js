@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import VaultComp from '../components/VaultComp';
+import '../scss/vaultStyle.scss';
 
-const LinksPage = () => {
-    const [links, setLinks] = useState([]);
+const VaultPage = () => {
+    const [vault, setVault] = useState([]);
     useEffect(() => {
-        const getProjects = async () => {
-            const {data} = await axios.get("/links/json");
-            setLinks(data);
+        const getVault = async () => {
+            const {data} = await axios.get("/vault/json");
+            setVault(data);
         };
-        getProjects();
+        getVault();
     }, []);
     return (
         <section id='vault'>
                         {
-                links.map(
-                    (link) => {
-                        return (<>
-                        <a href={link.link} target="_blank" rel="noopener noreferrer">{link.name}</a>
-                        <br></br>
-                        </>);
+                vault.map(
+                    (v) => {
+                        return (<VaultComp vault={v}/>)
                     }
                 )
             }
@@ -26,4 +25,4 @@ const LinksPage = () => {
     );
 };
 
-export default LinksPage;
+export default VaultPage;

@@ -42,15 +42,13 @@ const Resume = () => {
                 <div className="bodygroup" id="experience">
                     <h3 className="subhead">I am...</h3>
                     <span>
-                        Undergraduate Researcher, HYU System Security Lab 
+                        Undergraduate Researcher
                         <br/>
-                        Former President, HYU Game Dev club "OOPArts"
+                        HYU System Security Lab 
                         <br/>
-                        Former S1 Clerk, KATUSA
+                        Former President
                         <br/>
-                        Founder, High school Computer club "컴맹전기"
-                        <br/>
-                        Guild Founder, LostArk "나란히"
+                        HYU Game Dev club "OOPArts"
                         <br/>
                     </span>
                 </div>

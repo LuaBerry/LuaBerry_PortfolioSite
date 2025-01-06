@@ -14,7 +14,7 @@ const ProjectsPage = ({lang}) => {
     }, [])
     return (
         <>
-        <section className="projects">  
+        <section id="projects">  
             {
                 projects.map(
                     (project) => {
