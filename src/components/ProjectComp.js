@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProjectComp = ({project}) => {
+const ProjectComp = ({project, setProjModal}) => {
     return (
-        <div className="box" onClick={() => {if(project.link !== "") window.location.href = project.link;}}>
+        <div className="box" onClick={() => {setProjModal(project)}}>
             <img className="thumbnail" src={project.image} alt="Project thumbnail"></img>
             <h2 className="title">
                 {project.title}
@@ -13,9 +13,11 @@ const ProjectComp = ({project}) => {
                     return <li className="skill">{s}</li>
                 })}
             </ul>
-            <small className="time">{project.time}</small>
+            {/* <small className="time">{project.time}</small> */}
         </div>
     )
 }
+
+
 
 export default ProjectComp;
