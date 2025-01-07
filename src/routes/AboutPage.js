@@ -39,32 +39,6 @@ const Resume = () => {
                     Since then, I am studying system development and preparing for the US grads school.
                     </p>
                 </div>
-                <div className="bodygroup" id="experience">
-                    <h3 className="subhead">I am...</h3>
-                    <span>
-                        Undergraduate Researcher
-                        <br/>
-                        HYU System Security Lab 
-                        <br/>
-                        Former President
-                        <br/>
-                        HYU Game Dev club "OOPArts"
-                        <br/>
-                    </span>
-                </div>
-                <div className="bodygroup" id="skills">
-                    <h3 className="subhead">I can use...</h3>
-                    <span>
-                        <span className='title'>Developing Tools</span>
-                        Unity Engine, Unreal Engine, Blender 3D<br/>
-                        React.js, Pug, Express.js, Node.js, MongoDB
-                        <span className='title'>Programming Language</span>
-                        C, C++
-                        C#, JavaScript, Python
-                        <span className='title'>Language</span>
-                        Korean, English, Japanese
-                    </span>
-                </div>
                 <div className="bodygroup" id="CV">
                     <a href="/assets/file/Leo_CV.pdf" download><h3 className="subhead">Download CV</h3></a>
                 </div>
@@ -105,35 +79,9 @@ const ResumeKR = () => {
                     현재 저는 시스템 개발을 공부하며 미국 석사를 준비하고 있습니다.
                     </span>
                 </div>
-                <div className="bodygroup" id="experience">
-                    <h3 className="subhead">I am ...</h3>
-                    <span>
-                        학부연구생,한양대학교 시스템 보안 연구실
-                        <br/>
-                        전 회장, 한양대학교 게임 개발 동아리 "OOPArts"
-                        <br/>
-                    </span>
-                </div>
-                <div className="bodygroup" id="skills">
-                    <h3 className="subhead">I can use ...</h3>
-                    <span>
-                        <span className='title'>개발 도구들</span>
-                        Unity Engine, Unreal Engine, Blender 3D<br/>
-                        React.js, Pug, Express.js, Node.js, MongoDB
-                        <span className='title'>프로그래밍 언어들</span>
-                        C, C++
-                        C#, JavaScript, Python
-                        <span className='title'>언어들</span>
-                        한국어, 영어, 일본어
-                    </span>
-                </div>
                 <div className="bodygroup" id="CV">
                     <a href="/assets/file/Leo_CV.pdf" download><h3 className="subhead">Download Resume</h3></a>
                 </div>
-                {/* <div className="bodygroup" id="references">
-                    <h3 className="subhead">References</h3>
-                        <span></span>
-                </div> */}
                 <br/>
                 <br/>
                 <br/>

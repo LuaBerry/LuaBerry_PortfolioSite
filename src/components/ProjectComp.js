@@ -7,7 +7,7 @@ const ProjectComp = ({project}) => {
             <h2 className="title">
                 {project.title}
             </h2>
-            <p className="description">{project.description}</p>
+            {/* <p className="description">{project.description}</p> */}
             <ul className="skills">
                 {project.skills.map((s) => {
                     return <li className="skill">{s}</li>

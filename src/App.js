@@ -24,7 +24,7 @@ function App() {
           <Routes>
             <Route exact path = "/" element = {<HomePage lang={lang}/>}/>
             <Route path="/about" element = {<AboutPage lang={lang}/>}/>
-            <Route path="/faq" element = {<FAQPage lang={lang}/>}/>
+            {/* <Route path="/faq" element = {<FAQPage lang={lang}/>}/> */}
             <Route path="/projects" element = {<ProjectsPage lang={lang}/>}/>
             <Route path="/vault" element = {<VaultPage lang={lang}/>}/>
           </Routes>

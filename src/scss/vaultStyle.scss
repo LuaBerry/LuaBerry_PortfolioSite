@@ -57,9 +57,12 @@ h1, .index h3, .contact h3{
 }
 
 /* mobile */
-@media screen and (max-width: 960px) {
-
-    .thumbnail {
-        display: none;
+@media screen and (max-width: 768px) {
+    #vault {
+        display: flex;
+        flex-direction: column;
+        .thumbnail {
+            display: none;
+        }
     }
 }
