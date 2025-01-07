@@ -35,6 +35,7 @@ const ProjectsPage = ({lang}) => {
 const ProjectModal = ({projModal, setProjModal}) => {
     return (
         <ReactModal
+        id="projmodal"
         isOpen={projModal !== null}
         onRequestClose={() => setProjModal(null)}
         style={customModalStyles}
@@ -45,7 +46,7 @@ const ProjectModal = ({projModal, setProjModal}) => {
         {(projModal !== null) ? (
             <>
             <span>{projModal.title}</span>
-            <img src={projModal.thumbnail}>
+            <img src={projModal.image}>
             </img>
             </>) : (<></>)}
         </ReactModal>
@@ -63,8 +64,8 @@ const customModalStyles = {
       left: "0",
     },
     content: {
-      width: "360px",
-      height: "180px",
+      width: "70%",
+      height: "70%",
       zIndex: "150",
       position: "absolute",
       top: "50%",
