@@ -4,6 +4,7 @@ import ReactModal from "react-modal";
 import ProjectComp from "../components/ProjectComp";
 import Sidebar from '../components/Sidebar';
 import "../scss/projectsStyle.scss";
+
 const ProjectsPage = ({lang}) => {
     const [projects, setProjects] = useState([]);
     const [projModal, setProjModal] = useState(null);
@@ -41,13 +42,14 @@ const ProjectModal = ({projModal, setProjModal}) => {
         style={customModalStyles}
         ariaHideApp={false}
         contentLabel="Pop up Message"
-        shouldCloseOnOverlayClick={false}
+        shouldCloseOnOverlayClick={true}
         >
         {(projModal !== null) ? (
             <>
-            <span>{projModal.title}</span>
-            <img src={projModal.image}>
-            </img>
+            <button onClick={() => {setProjModal(null)}}></button>
+            <h2>{projModal.title}</h2>
+            <video src={projModal.video} type="video/mp4" controls autoPlay loop></video>
+            <p>{projModal.description}</p>
             </>) : (<></>)}
         </ReactModal>
     )
@@ -65,7 +67,9 @@ const customModalStyles = {
     },
     content: {
       width: "70%",
+      maxWidth: "500px",
       height: "70%",
+      maxHeight: "700px",
       zIndex: "150",
       position: "absolute",
       top: "50%",

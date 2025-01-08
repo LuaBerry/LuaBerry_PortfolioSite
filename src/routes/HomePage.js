@@ -297,7 +297,6 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <h1>Cloud System</h1>
             </div>
             <div>
-                <img></img>
                 <span>Weekly Commit</span>
                 <h1>{commit}</h1>
             </div>

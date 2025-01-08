@@ -87,34 +87,6 @@ const FAQ = () => {
                     <br/>
                     <br/>
                 </div>
-                {/* about me */}
-                <div className="bodygroup">
-                    <h3 className="subhead">About Me</h3>
-                    <br/>
-                    <hr/>
-                    <br/>
-                    <br/>
-                    <span className='title'>Why did you choose Cloud System, not Web or Game?</span>
-                    <br/>
-                    <p>
-                        didn't like professional experience, many company requires fast dev not engineering virtue.
-                    </p>
-                    <br/>
-                    <hr/>
-                    <br/>
-                    <br/>
-                    <span className='title'>Then why are you putting this much effort to this website?</span>
-                    <br/>
-                    <p>
-                        I am perfectionist & still enjoy this instant feedback. And it looks cool isn't it?
-                        I will integrate some backend, server feature later.
-                        Also, I will share good resources here too!
-                    </p>
-                    <br/>
-                    <hr/>
-                    <br/>
-                    <br/>
-                </div>
                 <br/><br/>
             </article>
         </section>
@@ -126,33 +98,6 @@ const FAQKR = () => {
     <section className='resume'>
             <Sidebar />
             <article className="contents">
-                {/* about this website */}
-                <div className="bodygroup">
-                    <span className='title'>그래서 이거 뭐임? 왜만듬?</span>
-                    <span>
-                        웹개발 공부용으로 만든 포폴 사이트. 전공 수업 정리한거 추가할수도 있음.
-                    </span>
-                </div>
-                <div className="bodygroup">
-                    <span className='title'>뭘로 만듬?</span>
-                    <span>
-                        Node.js, React.js, Express.js, MongoDB
-                    </span>
-                </div>
-                <div className="bodygroup">
-                    <span className='title'>나도 만들고 싶음</span>
-                    <span>
-                        노마드코더, 생활코딩등 유튭 아니면 컨택 주셈
-                    </span>
-                </div>
-                {/* about me */}
-                <div className="bodygroup">
-                    <span className='title'>웹개발, 겜개발 꽤 한거같은데 왜 클라우드 시스템 함?</span>
-                    <span>
-                        외주 경험이 맘에 안듦, 기업들이 공학적 우수성보다 빠른 템포 개발을 더 좋아했음.
-                    </span>
-                </div>
-                <br/><br/>
             </article>
         </section>
     );
