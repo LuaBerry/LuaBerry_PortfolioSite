@@ -116,3 +116,14 @@ nav {
         }
     }
 }
+
+@media screen and (max-width: 270px) {
+    nav {
+        label {
+            right: 10px;
+            span {
+                display: none;
+            }
+        }
+    }
+}

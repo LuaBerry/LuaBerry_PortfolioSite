@@ -8,11 +8,7 @@ const ProjectComp = ({project, setProjModal}) => {
                 {project.title}
             </h2>
             {/* <p className="description">{project.description}</p> */}
-            <ul className="skills">
-                {project.skills.map((s) => {
-                    return <li className="skill">{s}</li>
-                })}
-            </ul>
+            <span className={"skill " + project.field}>{project.field}</span>
             {/* <small className="time">{project.time}</small> */}
         </div>
     )
