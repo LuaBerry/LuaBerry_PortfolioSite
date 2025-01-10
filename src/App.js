@@ -10,6 +10,7 @@ const ProjectsPage = lazy(() => import ('./routes/ProjectsPage'));
 const AboutPage = lazy(() => import ('./routes/AboutPage'));
 const FAQPage = lazy(() => import ('./routes/FAQPage'));
 const VaultPage = lazy(() => import ('./routes/VaultPage'));
+const VaultDetailPage = lazy(() => import ('./routes/VaultDetailPage'));
 
 function App() {
   const [lang, setLang] = useState(0);
@@ -27,6 +28,7 @@ function App() {
             {/* <Route path="/faq" element = {<FAQPage lang={lang}/>}/> */}
             <Route path="/projects" element = {<ProjectsPage lang={lang}/>}/>
             <Route path="/vault" element = {<VaultPage lang={lang}/>}/>
+            <Route path="/vault/detail" element = {<VaultDetailPage lang={lang}/>}/>
           </Routes>
         </Suspense>
         <Footer />

@@ -29,7 +29,6 @@ const DefaultNavigation = ({loc, changeLang}) => {
                     <li><Link to="/projects">Projects</Link></li>
                     {/* <li><Link to="/faq">FAQ</Link></li> */}
                     <li><Link to="/about">About</Link></li>
-                    
                 </ul>
                 <label>
                     <span>EN</span>

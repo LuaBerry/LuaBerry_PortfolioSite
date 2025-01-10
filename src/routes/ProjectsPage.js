@@ -47,9 +47,15 @@ const ProjectModal = ({projModal, setProjModal}) => {
         {(projModal !== null) ? (
             <>
             <button onClick={() => {setProjModal(null)}}></button>
-            <h2>{projModal.title}</h2>
             <video src={projModal.video} type="video/mp4" controls autoPlay loop></video>
+            <h2>{projModal.title}</h2>
             <p>{projModal.description}</p>
+            <ul className="skills">
+            {projModal.skills.map((skill) => {
+                return(<li>{skill}</li>);
+            })}
+            </ul>
+            <span>{projModal.time}</span>
             </>) : (<></>)}
         </ReactModal>
     )

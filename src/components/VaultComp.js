@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const VaultComp = ({vault}) => {
+    const navigate = useNavigate();
+    console.log(vault._id);
     return (
-        <div className="box" onClick={() => {window.open(vault.link);}}>
+        <div className="box" onClick={() => {navigate("/vault/detail", {state: {vault}})}}>
             <img className="thumbnail" src={vault.image} alt="vault thumbnail"></img>
             <span className="title">
                 {vault.title}
