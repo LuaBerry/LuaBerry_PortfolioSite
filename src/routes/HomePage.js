@@ -277,7 +277,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
     
     return (
     <div className="resumeui">
-        <div className="resumeimg">
+        <div id="resumeimg">
             <img src="assets/img/profileLeo.jpg" alt="profile">
             </img>
             <div className="overlay"/>

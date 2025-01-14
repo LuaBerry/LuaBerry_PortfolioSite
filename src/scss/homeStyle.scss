@@ -100,13 +100,14 @@
 }
 
 .resumeui{
-    .resumeimg {
+    #resumeimg {
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-bottom: 2vh;
+        animation: starting 1s ease-in-out 0s;
         img {
             width: max(min(21vh, 12vw), 150px);
             height: max(min(21vh, 12vw), 150px);
@@ -201,7 +202,7 @@
             text-align: center;
             vertical-align: middle;
             margin-right: 10px;
-            transition: all 0.2s ease-in-out;
+            transition: all 1s ease-in-out;
             span {
                 font-size:36px;
                 line-height: 0;
@@ -258,6 +259,31 @@
     }
 }
 
+@keyframes starting {
+    0% {
+        transform: scale(0.1) rotate((15deg));
+        opacity: 0.5;
+    }
+
+    30% {
+        transform: rotate(-35deg);
+        
+    }
+    50% {
+        opacity: 1.0;
+    }
+
+    80% {
+        transform: rotate(5deg);
+        
+        
+    }
+
+    100% {
+        transform: scale(1.0) rotate(0deg);
+    }
+}
+
 @media screen and (max-width: 768px) {
     .home {
         .bgoverlay {
@@ -276,7 +302,7 @@
         width: calc(100% - 60px);
     }
     .resumeui {
-        .resumeimg {
+        #resumeimg {
             margin-top:30px;
             margin-bottom: 5vh;
         }
