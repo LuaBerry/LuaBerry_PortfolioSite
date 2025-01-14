@@ -91,7 +91,7 @@
     transition: transform 0.4s ease-in-out;
 }
 
-.resumeui, #activityui {
+.resumeui, #activityui, #linkui {
     width: 60vw;
     margin-left: 30px;
     margin-right: calc(40vw - 30px);
@@ -259,6 +259,36 @@
     }
 }
 
+#linkui{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    h2 {
+        color: white;
+        text-align: center;
+        font-size: max(min(4vh, 2vw), 22px);
+    }
+    #contactlinks{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        padding: 5px 15px;
+
+        background-color: rgba(0, 0, 0, 0.6);
+        img.contact {
+            height: 28px;
+            margin: 10px;
+        }
+        img.contact:hover {
+            cursor: pointer;
+        }
+    }
+}
+
 @keyframes starting {
     0% {
         transform: scale(0.1) rotate((15deg));
@@ -297,7 +327,7 @@
     .overviews{
         margin-top:10px;
     }
-    .resumeui, #activityui {
+    .resumeui, #activityui, #linkui {
         margin:0 30px;
         width: calc(100% - 60px);
     }

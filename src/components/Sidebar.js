@@ -11,9 +11,9 @@ const Sidebar = () => (
             <hr className="sidebar_line" />
             <ul>
                 <li>
-                    <a href="mailto:jeong.i.yeo.kr@gmail.com">
+                    <a href="mailto:lazpberry1012@gmail.com">
                         <FontAwesomeIcon icon={faEnvelope} fixedWidth/>
-                        <span> jeong.i.yeo.kr@gmail.com</span>
+                        <span> lazpberry1012@gmail.com</span>
                     </a>
                 </li>
                 <li>

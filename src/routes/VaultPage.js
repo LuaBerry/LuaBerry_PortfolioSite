@@ -13,15 +13,13 @@ const VaultPage = () => {
         getVault();
     }, []);
     return (
+        <>
+        <h1 style={{textAlign:"center", fontSize:"24px"}}>Page contents are under development.</h1>
         <section id='vault'>
-                        {
-                vault.map(
-                    (v) => {
-                        return (<VaultComp vault={v}/>)
-                    }
-                )
-            }
+            { vault.map((v) => { return (<VaultComp vault={v}/>); }) }
         </section>
+        </>
+
     );
 };
 

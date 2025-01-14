@@ -17,7 +17,7 @@ const ProjectsPage = ({lang}) => {
     }, [])
     return (
         <>
-        <ProjectModal projModal={projModal} setProjModal={setProjModal}>
+        <ProjectModal projModal={projModal} setProjModal={setProjModal} lang={lang}>
         </ProjectModal>
         <section id="projects">  
             {
@@ -33,7 +33,7 @@ const ProjectsPage = ({lang}) => {
     );
 }
 
-const ProjectModal = ({projModal, setProjModal}) => {
+const ProjectModal = ({projModal, setProjModal, lang}) => {
     return (
         <ReactModal
         id="projmodal"
@@ -46,10 +46,10 @@ const ProjectModal = ({projModal, setProjModal}) => {
         >
         {(projModal !== null) ? (
             <>
-            <button onClick={() => {setProjModal(null)}}></button>
-            <video src={projModal.video} type="video/mp4" autoPlay loop muted></video>
+            <button id="closebutton" onClick={() => {setProjModal(null)}}></button>
+            <video src={projModal.video} type="video/mp4" autoPlay loop muted playsInline></video>
             <h2>{projModal.title}</h2>
-            <p>{projModal.description}</p>
+            <p>{(lang) ? projModal.descriptionKR : projModal.description}</p>
             <ul className="skills">
             {projModal.skills.map((skill) => {
                 return(<li>{skill}</li>);
@@ -72,10 +72,10 @@ const customModalStyles = {
       left: "0",
     },
     content: {
-      width: "75%",
+      width: "85%",
       maxWidth: "680px",
-      height: "75%",
-      maxHeight: "756px",
+      height: "85%",
+      maxHeight: "fit-content",
       zIndex: "150",
       position: "absolute",
       top: "50%",

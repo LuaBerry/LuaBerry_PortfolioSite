@@ -71,9 +71,15 @@ const HomePage = (lang) => {
 
     //Handle scroll, touch event
     var startX = 0, startY = 0;
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [])
+
     const handleTouchStart = (event) => {
-        document.body.scrollLeft=0;
-        document.body.scrollTop=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
@@ -89,8 +95,6 @@ const HomePage = (lang) => {
     const handleTouchMove = (event) => {
         const diffX = event.touches[0].clientX - startX;
         const diffY = event.touches[0].clientY - startY;
-        document.body.scrollTop=0;
-        document.body.scrollLeft=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
@@ -124,6 +128,10 @@ const HomePage = (lang) => {
             })
         }
     }
+
+    const xScrollLock = () => {
+        window.scrollTo(0,window.scrollY);
+    }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
         document.body.style.overflowY = "auto";
@@ -131,10 +139,13 @@ const HomePage = (lang) => {
         window.addEventListener('touchstart', handleTouchStart, {passive: false});
         window.addEventListener('touchmove', handleTouchMove, {passive: false});
         window.addEventListener('touchend', handleTouchEnd, {passive: false});
+        window.addEventListener('scroll', xScrollLock);
         return () => {
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchstart', handleTouchStart);
             window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('scroll', xScrollLock);
             document.body.style.overflowX = "auto";
         }
     }, []);
@@ -147,7 +158,7 @@ const HomePage = (lang) => {
         var loadedImages = 0;
         const imageLoaded = () => {
             loadedImages++;
-            if (loadedImages >= 16) {//arr.length) {
+            if (loadedImages >= 16) { //arr.length) {
                 callback(imgs);
             }
         }
@@ -395,16 +406,13 @@ const ActivityUI = ({repos}) => {
 
 const LinkUI = ({}) => {
     return (
-        <div id="activityui">
-            <div onClick={()=>{}}>
-                <img src="/assets/img/youtube_logo.png"></img>
-                <span>Recent Study session</span>
-                <h1 className="lang-kr"></h1>
-            </div>
-            <div onClick={()=>{}}>
-                <img src="/assets/img/naverblog_logo.png"></img>
-                <span>Recent Posting</span>
-                <h1 className="lang-kr"></h1>
+        <div id="linkui">
+            <h2>Find Me On</h2>
+            <div id="contactlinks">
+                <img className="contact" src="/assets/img/gmail_logo.png" onClick={() => {window.location.href = "mailto:lazpberry1012@gmail.com"}}/>
+                <img className="contact" src="/assets/img/github_white_logo.png" onClick={() => {window.open("https://github.com/LuaBerry")}}/>
+                <img className="contact" src="/assets/img/linkedin_logo.png" onClick={() => {window.open("https://www.linkedin.com/in/ji-yeo/")}}/>
+                <img className="contact" src="/assets/img/youtube_logo.png" onClick={() => {window.open("https://www.youtube.com/@LuaB3rry")}}/>
             </div>
         </div>
     )
