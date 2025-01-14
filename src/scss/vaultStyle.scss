@@ -1,0 +1,68 @@
+/* vault stylesheet */
+/* Version 2.0 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.scss";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, .index h3, .contact h3{
+    font-family: Helvetica, sans-serif
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+#vault {
+    
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 245px);
+    gap:10px;
+
+    max-width: 1090px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 40px;
+    .box {
+        width: 100%;
+        margin: 0 0;
+        transition: background-color .2s;
+        padding: 10px;
+    }
+    
+    .box:hover {
+        cursor: pointer;
+        background-color: #b3e5fc;
+    }
+    
+    .title {
+        display: inline-block;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .thumbnail {
+        width: 225px;
+        height: 125px;
+        object-fit: cover;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+    #vault {
+        display: flex;
+        flex-direction: column;
+        .thumbnail {
+            display: none;
+        }
+    }
+}

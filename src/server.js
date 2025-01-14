@@ -6,6 +6,7 @@ import path from "path";
 import Project from "./Project";
 import { cacheMiddleware, localsMiddleware } from "./middleware";
 import Link from "./Link";
+import Vault from "./Vault";
 
 const app = express();
 
@@ -24,6 +25,10 @@ app.use(express.static(path.join(__dirname, '../build')));
 
 app.get("/projects/json", async (req, res) => {
     const projects = await Project.find({}).sort([['time', -1]]);
+    return res.json(projects);
+})
+app.get("/vault/json", async (req, res) => {
+    const projects = await Vault.find({}).sort([['time', -1]]);
     return res.json(projects);
 })
 app.use("/assets", cacheMiddleware, express.static("assets"));

@@ -6,19 +6,14 @@ import '../scss/sidebarStyle.scss';
 
 const Sidebar = () => (
     <div className="sidebar">
-        <div className="profile">
-            <div className="profile_outline">
-                <img src="assets/img/profile3.webp" alt="Profile" />
-            </div>
-        </div>
         <div className="contact">
             <h3>CONTACT</h3>
             <hr className="sidebar_line" />
             <ul>
                 <li>
-                    <a href="mailto:jeong.i.yeo.kr@gmail.com">
+                    <a href="mailto:lazpberry1012@gmail.com">
                         <FontAwesomeIcon icon={faEnvelope} fixedWidth/>
-                        <span> jeong.i.yeo.kr@gmail.com</span>
+                        <span> lazpberry1012@gmail.com</span>
                     </a>
                 </li>
                 <li>

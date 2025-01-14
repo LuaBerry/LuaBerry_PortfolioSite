@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import Modal from "react-modal";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
-const imageCount = 16;
+const imageCount = 31;
 
-const HomePage = () => {
+const HomePage = (lang) => {
     //For bg animation
     const [frame, setFrame] = useState(0);
     const [menu, setMenu] = useState(0);
@@ -16,7 +15,8 @@ const HomePage = () => {
 
     //For realtime info
     const [commit, setCommit] = useState(0);
-    const [repo, setRepo] = useState(0);
+    const [repos, setRepos] = useState(null);
+    const [repoLength, setRepoLength] = useState(0);
     const [codeTime, setCodeTime] = useState(0);
     //For bg animation
     const canvasRef = useRef(null);
@@ -24,6 +24,8 @@ const HomePage = () => {
     const curInterRef = useRef(curInter);
     const imagesRef = useRef([]);
     const frameRef = useRef(0);
+
+
 
     //Sync menu, curInter
     useEffect(() => {
@@ -38,13 +40,15 @@ const HomePage = () => {
     useEffect(() => {
     frameRef.current = frame;
     }, [frame]);
+
+
     
     //Get real time info from Waka, Github
     useEffect(() => {
         const getWaka = async () => {
             const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/b3d47b8d-5a54-4de6-86f4-be99036231bd.json");
             const hours =  Math.round(data.data.grand_total.total_seconds_including_other_language / 3600);
-            setCodeTime(hours);
+            setCodeTime(hours + 1200); {/* Estimated code time from 2015 to 2024 is 1200h (code time for one semester is 180h) */}
         };
         const getCommit = async () => {
             var today = new Date();
@@ -53,19 +57,29 @@ const HomePage = () => {
             setCommit(data.total_count);
         }
         const getRepo = async () => {
-            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos');
-            setRepo(data.length);
+            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos?sort=updated');
+            console.log(data);
+            setRepos(data);
+            setRepoLength(data.length);
         }
         getWaka();
         getCommit();
         getRepo();
     }, [])
 
+
+
     //Handle scroll, touch event
     var startX = 0, startY = 0;
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [])
+
     const handleTouchStart = (event) => {
-        document.body.scrollLeft=0;
-        document.body.scrollTop=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
@@ -81,16 +95,21 @@ const HomePage = () => {
     const handleTouchMove = (event) => {
         const diffX = event.touches[0].clientX - startX;
         const diffY = event.touches[0].clientY - startY;
-        document.body.scrollTop=0;
-        document.body.scrollLeft=0;
         if (event.touches.length > 1) {
             event.preventDefault();
             return;
         }
         if(Math.abs(diffX) > Math.abs(diffY)) {
             event.preventDefault();
-            if (diffX > 50)  setMenu(0);
-            else if (diffX < -50) setMenu(1);
+            if(Math.abs(diffX) > 50) {
+                if(curInterRef.current) return;
+                setMenu((prevMenu) => {
+                    const d = ((diffX > 0) ? -1 : 1);
+                    let m = prevMenu + d;
+                    if (m > 2) m = 2; else if (m < 0) m = 0;
+                    return m;
+                })
+            }
         }
     }
     const handleTouchEnd = (event) => {
@@ -101,10 +120,17 @@ const HomePage = () => {
         if(Math.abs(delta) > 30) {
             event.preventDefault();
             if(curInterRef.current) return;
-            setMenu(() => {
-                return(delta > 0 ? 1 : 0)
+            setMenu((prevMenu) => {
+                const d = ((delta > 0) ? 1 : -1);
+                let m = prevMenu + d;
+                if (m > 2) m = 2; else if (m < 0) m = 0;
+                return m;
             })
         }
+    }
+
+    const xScrollLock = () => {
+        window.scrollTo(0,window.scrollY);
     }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
@@ -113,13 +139,18 @@ const HomePage = () => {
         window.addEventListener('touchstart', handleTouchStart, {passive: false});
         window.addEventListener('touchmove', handleTouchMove, {passive: false});
         window.addEventListener('touchend', handleTouchEnd, {passive: false});
+        window.addEventListener('scroll', xScrollLock);
         return () => {
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchstart', handleTouchStart);
             window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('scroll', xScrollLock);
             document.body.style.overflowX = "auto";
         }
     }, []);
+
+
 
     //Load image
     const imageLoader = (arr, callback) => {
@@ -127,7 +158,7 @@ const HomePage = () => {
         var loadedImages = 0;
         const imageLoaded = () => {
             loadedImages++;
-            if (loadedImages >= arr.length) {
+            if (loadedImages >= 16) { //arr.length) {
                 callback(imgs);
             }
         }
@@ -138,6 +169,7 @@ const HomePage = () => {
             imgs.push(img);
         }
     }
+
     //Canvas resizer
     const resizeCanvas = () => {
         const canvas = canvasRef.current;
@@ -150,31 +182,34 @@ const HomePage = () => {
     useEffect(() => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leo50/${index}.jpg`);
+        const imageArray = Array.from({ length: imageCount }, (_, index) => `/assets/anim/leov2/${index.toString().padStart(4, '0')}.jpg`);
         imageLoader(imageArray, (imgs) => {setImages(imgs); drawCanvas(frameRef.current);});
     }, [])
+
     //BG animation (Init)
     useEffect(() => {
         if (images.length > 0) {
             drawCanvas(frameRef.current);
         }
     }, [images]);
+
     //BG animation
     useEffect(()=> {
         const interval = setInterval(() => {
             setFrame((prevFrame) => {
-                if(prevFrame === (menuRef.current * (imageCount - 1))) {
+                if(prevFrame === (menuRef.current * 15)) {
                     setCurInter(null);
                     clearInterval(interval);
                     return prevFrame;
                 } else {
-                    return prevFrame + (((menuRef.current * (imageCount - 1)) - prevFrame) >= 0 ? 1 : -1);
+                    return prevFrame + (((menuRef.current * 15) - prevFrame) >= 0 ? 1 : -1);
                 }
             });
         }, 20);
         setCurInter(interval);
         return () => clearInterval(interval); 
     }, [menu]);
+
     const drawCanvas = (frame) => {
         const canvas = canvasRef.current;
         const images = imagesRef.current;
@@ -210,9 +245,13 @@ const HomePage = () => {
             ctx.drawImage(images[frame], sx, sy, sWidth, sHeight, 0, 0, canvasWidth, canvasHeight);
         }
     }
+    
     useEffect(() => {
         drawCanvas(frameRef.current);
     }, [frame]);
+
+
+
 
     return (   
         <section className="home">
@@ -222,10 +261,13 @@ const HomePage = () => {
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
                     ? "lightaccent" : "lightgray"}>Overview</button></li>
                 <li><button onClick={()=>{setMenu(1);}} className={(menu === 1) 
+                    ? "lightaccent" : "lightgray"}>Activity</button></li>
+                <li><button onClick={()=>{setMenu(2);}} className={(menu === 2) 
                     ? "lightaccent" : "lightgray"}>Link</button></li>
             </ul>
             <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
-                <ResumeUI codeTime={codeTime} commit={commit} repo={repo}></ResumeUI>
+                <ResumeUI codeTime={codeTime} commit={commit} repo={repoLength}></ResumeUI>
+                <ActivityUI repos={repos}></ActivityUI>
                 <LinkUI></LinkUI>
             </div>
         </section>
@@ -233,7 +275,6 @@ const HomePage = () => {
 }
 
 const ResumeUI = ({codeTime, commit, repo}) => {
-    const [hover, setHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const timeRef = useRef(null);
     const updateMobile = () => {
@@ -247,7 +288,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
     
     return (
     <div className="resumeui">
-        <div className="resumeimg">
+        <div id="resumeimg">
             <img src="assets/img/profileLeo.jpg" alt="profile">
             </img>
             <div className="overlay"/>
@@ -267,7 +308,6 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <h1>Cloud System</h1>
             </div>
             <div>
-                <img></img>
                 <span>Weekly Commit</span>
                 <h1>{commit}</h1>
             </div>
@@ -280,25 +320,20 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </div>
             <div>
                 <span>GPA</span>
-                <h1>3.52/4.0</h1>
+                <h1>3.44/4.0</h1>
             </div>
             <div>
-                <span ref={timeRef} id="codeTime" onMouseOver={()=>{setHover(true);}}
-                onMouseLeave={() => {setHover(false)}}>Coding Time* 
+                <span ref={timeRef} id="codeTime">Coding Time
                 </span>
-                
-                <Modal isOpen={hover} style={customStyles(timeRef.current, isMobile)} onRequestClose={()=>{setHover(false)}} >
-                    From 2024 Sep
-                </Modal>
                 
                 <h1>{codeTime} Hour</h1>
 
             </div>
         </div>
-        <a className="pagelink" href="/resume">
+        {/* <a className="pagelink" href="/resume">
                 <div><span>&rsaquo;</span></div>
                 Click Here for detail
-        </a>
+        </a> */}
     </div>
     )
 }
@@ -338,22 +373,49 @@ const customStyles = (element, isMobile) => {
   };
 }
 
-const LinkUI = () => {
+const ActivityUI = ({repos}) => {
     return (
-        <div className="linkui">
-            <div onClick={()=>{window.open('https://blog.naver.com/luaberry')}}>
-                <img src="/assets/img/naverblog_logo.png"></img>
-                <span>Blog</span>
-                <h1 className="lang-kr">개발자의 자기개발소</h1>
-            </div>
-            <div onClick={()=>{window.open('https://www.youtube.com/@LuaB3rry')}}>
+        <div id="activityui">
+            {(repos) ?
+            (<div onClick={()=>{window.open(repos[0].html_url)}}>
+                <img src="/assets/img/github_white_logo.png"></img>
+                <div className="detailtext">
+                    <span>Recent update</span>
+                    <p>{repos[0].name}</p>
+                </div>
+            </div>) : (
+                <></>
+            )}
+            <div onClick={()=>{}}>
                 <img src="/assets/img/youtube_logo.png"></img>
-                <span>YouTube</span>
-                <h1 className="lang-kr">LUABERRY</h1>
+                <div className="detailtext">
+                    <span>Recent Upload</span>
+                    <p></p>
+                </div>
+            </div>
+            <div onClick={()=>{}}>
+                <img src="/assets/img/naverblog_logo.png"></img>
+                <div className="detailtext">
+                    <span>Recent Post</span>
+                    <p></p>
+                </div>
             </div>
         </div>
     )
 }
 
+const LinkUI = ({}) => {
+    return (
+        <div id="linkui">
+            <h2>Find Me On</h2>
+            <div id="contactlinks">
+                <img className="contact" src="/assets/img/gmail_logo.png" onClick={() => {window.location.href = "mailto:lazpberry1012@gmail.com"}}/>
+                <img className="contact" src="/assets/img/github_white_logo.png" onClick={() => {window.open("https://github.com/LuaBerry")}}/>
+                <img className="contact" src="/assets/img/linkedin_logo.png" onClick={() => {window.open("https://www.linkedin.com/in/ji-yeo/")}}/>
+                <img className="contact" src="/assets/img/youtube_logo.png" onClick={() => {window.open("https://www.youtube.com/@LuaB3rry")}}/>
+            </div>
+        </div>
+    )
+}
 
 export default HomePage;
