@@ -87,7 +87,7 @@ h1, .index h3, .contact h3{
         margin-top: 20px;
         width: 100%;
         max-height: 50%;
-        aspect-ratio: 4/3;
+        aspect-ratio: 16/9;
         object-fit: cover;
         border: 1px solid black;
     }
@@ -126,5 +126,10 @@ h1, .index h3, .contact h3{
     #projects {
         grid-template-columns: 1fr;
         padding:40px 40px;
+    }
+    #projmodal {
+        video {
+            aspect-ratio: 4/3;
+        }
     }
 }

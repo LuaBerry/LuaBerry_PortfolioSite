@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import '../scss/vaultStyle.scss';
+import '../scss/vaultDetailStyle.scss';
 
 const VaultPage = () => {
     const location = useLocation();
@@ -16,12 +16,17 @@ const VaultPage = () => {
             <h1 className="title">
                 {vault.title}
             </h1>
-            <p>
-                In this course, we learn the
-            </p>
             <span>
                 {vault.time}
             </span>
+            <p>
+            Preparing page
+            </p>
+
+            <a href={vault.link} ><h2>
+            Cram Sheet
+            </h2></a>
+
         </section>
     );
 };

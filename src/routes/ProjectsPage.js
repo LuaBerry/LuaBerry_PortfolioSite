@@ -47,7 +47,7 @@ const ProjectModal = ({projModal, setProjModal}) => {
         {(projModal !== null) ? (
             <>
             <button onClick={() => {setProjModal(null)}}></button>
-            <video src={projModal.video} type="video/mp4" controls autoPlay loop></video>
+            <video src={projModal.video} type="video/mp4" autoPlay loop muted></video>
             <h2>{projModal.title}</h2>
             <p>{projModal.description}</p>
             <ul className="skills">
@@ -72,10 +72,10 @@ const customModalStyles = {
       left: "0",
     },
     content: {
-      width: "70%",
-      maxWidth: "500px",
-      height: "70%",
-      maxHeight: "700px",
+      width: "75%",
+      maxWidth: "680px",
+      height: "75%",
+      maxHeight: "756px",
       zIndex: "150",
       position: "absolute",
       top: "50%",
