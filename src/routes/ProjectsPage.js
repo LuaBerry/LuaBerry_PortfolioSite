@@ -47,7 +47,7 @@ const ProjectModal = ({projModal, setProjModal, lang}) => {
         {(projModal !== null) ? (
             <>
             <button id="closebutton" onClick={() => {setProjModal(null)}}></button>
-            <video src={projModal.video} type="video/mp4" autoPlay loop muted playsInline></video>
+            <video src={projModal.video} type="video/mp4" poster={projModal.image} autoPlay loop muted playsInline></video>
             <h2>{projModal.title}</h2>
             <p>{(lang) ? projModal.descriptionKR : projModal.description}</p>
             <ul className="skills">

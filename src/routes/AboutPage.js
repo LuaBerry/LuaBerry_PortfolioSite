@@ -1,7 +1,8 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import '../scss/resumeStyle.scss';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 const ResumePage = ({lang}) => {
     if(lang == 0) {
@@ -40,7 +41,9 @@ const Resume = () => {
                     </p>
                 </div>
                 <div className="bodygroup" id="CV">
-                    <a href="/assets/file/Leo_CV.pdf" download><h3 className="subhead">Download CV</h3></a>
+                    <a href="/assets/file/Leo_CV.pdf" download>
+                        <h3 id="cvlink">Download CV<FontAwesomeIcon icon={faPaperclip}/></h3>
+                    </a>
                 </div>
                 
                 <br/>
@@ -80,7 +83,9 @@ const ResumeKR = () => {
                     </span>
                 </div>
                 <div className="bodygroup" id="CV">
-                    <a href="/assets/file/Leo_CV.pdf" download><h3 className="subhead">Download Resume</h3></a>
+                    <a href="/assets/file/Leo_CV.pdf" download>
+                        <h3 id="cvlink">Download Resume<FontAwesomeIcon icon={faPaperclip}/></h3>
+                    </a>
                 </div>
                 <br/>
                 <br/>

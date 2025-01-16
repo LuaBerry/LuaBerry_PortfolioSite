@@ -58,7 +58,6 @@ const HomePage = (lang) => {
         }
         const getRepo = async () => {
             const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos?sort=updated');
-            console.log(data);
             setRepos(data);
             setRepoLength(data.length);
         }
