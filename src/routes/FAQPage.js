@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../scss/resumeStyle.scss';
+import '../scss/aboutStyle.scss';
 
 const InsightsPage = ({lang}) => {
     if (lang == 0) return FAQ();

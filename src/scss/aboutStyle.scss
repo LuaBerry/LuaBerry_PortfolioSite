@@ -1,5 +1,5 @@
-/* Resume stylesheet */
-/* Version 2.0 */
+/* About stylesheet */
+/* Version 3.0 */
 
 /* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
 
@@ -141,21 +141,23 @@ hr.titleLine {
 }
 
 #cvlink{
-    padding-left: 10px;
-    font-size: 24px;
-    font-weight: 600;
-    text-align: center;
-    color:#D90D58;
-    transition: color 0.2s ease-in-out;
-    .fa-paperclip {
-        position:relative;
-        font-size: 12px;
-        bottom:10px;
+    h3{
+        font-size: 20px;
+        font-weight: 400;
+        color:#D90D58;
+        text-align: center;
+        width: fit-content;
+        transition: color 0.2s ease-in-out;
     }
+    display: block;
+    margin:0 auto;
+    width: fit-content;
 }
 
 #cvlink:hover{
-    color:#1EB7D9;
+    h3 {
+        color:#1EB7D9;
+    }
 }
 
 footer {

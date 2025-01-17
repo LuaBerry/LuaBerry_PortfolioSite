@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../scss/resumeStyle.scss';
+import '../scss/aboutStyle.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
@@ -41,8 +41,8 @@ const Resume = () => {
                     </p>
                 </div>
                 <div className="bodygroup" id="CV">
-                    <a href="/assets/file/Leo_CV.pdf" download>
-                        <h3 id="cvlink">Download CV<FontAwesomeIcon icon={faPaperclip}/></h3>
+                    <a href="/assets/file/Leo_CV.pdf" id="cvlink" download>
+                        <h3><FontAwesomeIcon icon={faPaperclip}/>Download CV</h3>
                     </a>
                 </div>
                 
@@ -83,8 +83,8 @@ const ResumeKR = () => {
                     </span>
                 </div>
                 <div className="bodygroup" id="CV">
-                    <a href="/assets/file/Leo_CV.pdf" download>
-                        <h3 id="cvlink">Download Resume<FontAwesomeIcon icon={faPaperclip}/></h3>
+                    <a href="/assets/file/Leo_CV.pdf" id="cvlink" download>
+                        <h3><FontAwesomeIcon icon={faPaperclip}/>Download Resume</h3>
                     </a>
                 </div>
                 <br/>
