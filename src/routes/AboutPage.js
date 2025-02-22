@@ -42,7 +42,7 @@ const Resume = () => {
                 </div>
                 <div className="bodygroup" id="CV">
                     <a href="/assets/file/Leo_CV.pdf" id="cvlink" download>
-                        <h3><FontAwesomeIcon icon={faPaperclip}/>Download CV</h3>
+                        <h3><FontAwesomeIcon icon={faDownload}/>Download CV</h3>
                     </a>
                 </div>
                 
@@ -84,7 +84,7 @@ const ResumeKR = () => {
                 </div>
                 <div className="bodygroup" id="CV">
                     <a href="/assets/file/Leo_CV.pdf" id="cvlink" download>
-                        <h3><FontAwesomeIcon icon={faPaperclip}/>Download Resume</h3>
+                        <h3><FontAwesomeIcon icon={faDownload}/>Download Resume</h3>
                     </a>
                 </div>
                 <br/>

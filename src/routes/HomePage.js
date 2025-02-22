@@ -299,7 +299,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             <div>
                 <img></img>
                 <span>Grade</span>
-                <h1>Junior</h1>
+                <h1>Senior</h1>
             </div>
             <div>
                 <img></img>
@@ -319,7 +319,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </div>
             <div>
                 <span>GPA</span>
-                <h1>3.44/4.0</h1>
+                <h1>3.3/4.0</h1>
             </div>
             <div>
                 <span ref={timeRef} id="codeTime">Coding Time

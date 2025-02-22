@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../scss/vaultDetailStyle.scss';
+import { marked } from 'marked';
+import Markdown from 'marked-react';
 
 const VaultPage = () => {
     const location = useLocation();
@@ -19,9 +21,12 @@ const VaultPage = () => {
             <span>
                 {vault.time}
             </span>
-            <p>
-            Preparing page
-            </p>
+            {
+                vault.paragraphs.map((p)=> {
+                    console.log(p);
+                    return (<Markdown>{p}</Markdown>);
+                })
+            }
 
             <a href={vault.link} ><h2>
             Cram Sheet
