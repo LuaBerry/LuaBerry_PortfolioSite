@@ -47,8 +47,13 @@ const ProjectModal = ({projModal, setProjModal, lang}) => {
         {(projModal !== null) ? (
             <>
             <button id="closebutton" onClick={() => {setProjModal(null)}}></button>
-            <video src={projModal.video} type="video/mp4" poster={projModal.image} autoPlay loop muted playsInline controls></video>
-            <h2>{projModal.title}</h2>
+            {(projModal.preview.slice(0, 5) === "https") ?
+            (<iframe className="preview" src={projModal.preview}></iframe>)
+            : (<video className="preview" src={projModal.preview} type="video/mp4" poster={projModal.image} autoPlay loop muted playsInline controls></video>)}
+
+            {(projModal.link) ? <h2><a href={projModal.link} target="_blank">{projModal.title}</a></h2>
+                : <h2>{projModal.title}</h2>}
+            
             <p>{(lang) ? projModal.descriptionKR : projModal.description}</p>
             <ul className="skills">
             {projModal.skills.map((skill) => {
