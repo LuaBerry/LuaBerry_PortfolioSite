@@ -112,6 +112,7 @@ const HomePage = (lang) => {
         }
     }
     const handleTouchEnd = (event) => {
+        xScrollLock();
         setIsTouch(false);
     }
     const handleScroll = (event) => {
@@ -129,7 +130,7 @@ const HomePage = (lang) => {
     }
 
     const xScrollLock = () => {
-        window.scrollTo(0,window.scrollY);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
     useEffect(()=> {
         document.body.style.overflowX = "hidden";
@@ -254,7 +255,7 @@ const HomePage = (lang) => {
 
     return (   
         <section className="home">
-            <canvas ref={canvasRef} width={"100vw"} height={"100vh"}></canvas>
+            <canvas ref={canvasRef}></canvas>
             <div className="bgoverlay"/>
             <ul className="menu">
                 <li><button onClick={()=>{setMenu(0);}} className={(menu === 0) 
@@ -304,7 +305,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             <div>
                 <img></img>
                 <span>Interest</span>
-                <h1>Cloud System</h1>
+                <h1>Kernel · VM · Cloud</h1>
             </div>
             <div>
                 <span>Weekly Commit</span>

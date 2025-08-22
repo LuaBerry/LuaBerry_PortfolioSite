@@ -26,6 +26,12 @@
 /* ======================= Main Contents =======================*/
 /* =============================================================*/
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .home {
     margin: 10px 0;
     display: flex;
@@ -221,7 +227,6 @@
 }
 
 #activityui{
-    height: 64vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
