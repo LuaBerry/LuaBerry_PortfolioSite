@@ -8,10 +8,7 @@ import "./db";
 import app from "./server";
 
 
-const HTTPS_PORT = process.env.HTTPS_PORT || 8443;
-
-const handleListening = () =>
-    console.log(`Server listening on port http://localhost:${HTTP_PORT}`);
+const HTTPS_PORT = process.argv[2] || process.env.HTTPS_PORT || 8443;
 
 const handleListeningHttps = () =>
     console.log(`Server listening on port https://localhost:${HTTPS_PORT}`);
