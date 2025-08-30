@@ -1,10 +1,21 @@
-import React from 'react';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import '../scss/aboutStyle.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 const ResumePage = ({lang}) => {
+    useEffect(() => {
+        document.body.classList.add('has-fixed-bg');
+        const img_url = new URL('/assets/img/xenophone2.jpg', window.location.origin).href;
+        document.documentElement.style.setProperty('--bg-img', `url('${img_url}')`);
+        document.documentElement.style.setProperty('--bg-pos', '86% 0%');
+        document.documentElement.style.setProperty('--blur', '4px');
+        return () => {
+        document.body.classList.remove('has-fixed-bg');
+        };
+    }, []);
+
     if(lang == 0) {
         return Resume();
     } else {
@@ -13,6 +24,7 @@ const ResumePage = ({lang}) => {
 }
 
 const Resume = () => {
+
     return (
         <section className='resume'>
             <Sidebar />
@@ -24,7 +36,6 @@ const Resume = () => {
                         <h3>Hanyang University Student</h3>
                     </div>
                 </div>
-                <hr className="titleLine"/>
                 <div className="bodygroup" id="about_me">
                     <h3 className="subhead">About Me</h3>
                     <div className="profile">
@@ -66,7 +77,6 @@ const ResumeKR = () => {
                         <h3 className='lang-kr'>한양대학교 학부생</h3>
                     </div>
                 </div>
-                <hr className="titleLine"/>
                 <div className="bodygroup" id="about_me">
                     <h3 className="subhead">About Me</h3>
                     <div className="profile">
@@ -75,11 +85,11 @@ const ResumeKR = () => {
                         </div>
                     </div>
                     <span className='lang-kr'>
-                    저는 여정인 입니다. 현재 한양대학교 컴퓨터소프트웨어학부에 4학년으로 재학중입니다.
+                    저는 한양대학교 컴퓨터소프트웨어학부 4학년생 여정인입니다.
                    	카투사의 복무 경험으로, 제 꿈은 "미국에서 사는 것" 이 되었습니다.
                     그래서 전도유망하고 경쟁력 있는 컴퓨터 공학 분야를 찾기로 결심했습니다.
                     전역 후, 저는 시스템 아키텍쳐와 클라우드 서비스에 관심을 가지게 되었고,
-                    현재 저는 시스템 개발을 공부하며 미국 석사를 준비하고 있습니다.
+                    현재 저는 시스템 개발을 공부하며 미국 박사를 준비하고 있습니다.
                     </span>
                 </div>
                 <div className="bodygroup" id="CV">

@@ -10,6 +10,7 @@
 @import "./style.scss";
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
 
+
 .banner {
     font-family: Helvetica, sans-serif;
 }
@@ -141,12 +142,11 @@ html, body {
             z-index: 3;
             h1 {
                 text-align: center;
-                text-transform: uppercase;
                 font-size: max(min(5vh, 3vw), 24px);
                 font-weight: 400;
                 line-height: 1.1;
-                letter-spacing: 0;
-                font-family: 'Times New Roman', Times, serif ;
+                letter-spacing: 2px;
+                font-family: 'Roboto', 'Noto Sans', sans-serif
             }
         }
     }

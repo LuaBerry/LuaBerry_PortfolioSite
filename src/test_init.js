@@ -1,8 +1,6 @@
 import "dotenv/config";
-import "./Chat";
-import "./Project";
 import "./db";
-import app from "./test_server";
+import app from "./server";
 
 
 const TEST_HTTP_PORT = process.argv[2] || 4004;

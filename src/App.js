@@ -27,8 +27,10 @@ function App() {
             <Route path="/about" element = {<AboutPage lang={lang}/>}/>
             {/* <Route path="/faq" element = {<FAQPage lang={lang}/>}/> */}
             <Route path="/projects" element = {<ProjectsPage lang={lang}/>}/>
-            <Route path="/vault" element = {<VaultPage lang={lang}/>}/>
-            <Route path="/vault/detail" element = {<VaultDetailPage lang={lang}/>}/>
+            {/*<Route path="/vault" element = {<VaultPage lang={lang}/>}/>
+            <Route path="/vault/detail" element = {<VaultDetailPage lang={lang}/>}/>*/}
+            {/* <Route path="/projects/edit/:id" element = {<ProjectsEditPage lang={lang}/>}/>
+            <Route path="/projects/create" element = {<ProjectsEditPage lang={lang}/>}/> */}
           </Routes>
         </Suspense>
         <Footer />

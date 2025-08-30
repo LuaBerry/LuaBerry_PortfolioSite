@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import '../scss/homeStyle.scss';
 //pi < 21.99115 / 7 < pi + 0.0000003
 
@@ -293,7 +293,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </img>
             <div className="overlay"/>
             <div className="text">
-                <h1>LuaBerry</h1>
+                <h1>Jeongin Yeo</h1>
             </div>
         </div>
         <div className="resumesummary">
@@ -305,7 +305,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             <div>
                 <img></img>
                 <span>Interest</span>
-                <h1>Kernel · VM · Cloud</h1>
+                <h1>Kernel · Virtualization</h1>
             </div>
             <div>
                 <span>Weekly Commit</span>

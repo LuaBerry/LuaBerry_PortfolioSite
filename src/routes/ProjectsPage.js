@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import ProjectComp from "../components/ProjectComp";
 import Sidebar from '../components/Sidebar';
@@ -15,6 +15,18 @@ const ProjectsPage = ({lang}) => {
         };
         getProjects();
     }, [])
+
+    useEffect(() => {
+        document.body.classList.add('has-fixed-bg');
+        const img_url = new URL('/assets/img/xenophone2.jpg', window.location.origin).href;
+        document.documentElement.style.setProperty('--bg-img', `url('${img_url}')`);
+        document.documentElement.style.setProperty('--bg-pos', '86% 0%');
+        document.documentElement.style.setProperty('--blur', '4px');
+        return () => {
+        document.body.classList.remove('has-fixed-bg');
+        };
+    }, []);
+
     return (
         <>
         <ProjectModal projModal={projModal} setProjModal={setProjModal} lang={lang}>
@@ -23,7 +35,8 @@ const ProjectsPage = ({lang}) => {
             {
                 projects.map(
                     (project) => {
-                        return (<ProjectComp project={project} setProjModal={setProjModal}/>);
+                        return (<ProjectComp key={project.id ?? project.title}
+                            project={project} setProjModal={setProjModal}/>);
                     }
                 )
             }

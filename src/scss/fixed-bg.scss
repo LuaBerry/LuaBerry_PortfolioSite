@@ -1,0 +1,49 @@
+:root {
+  --bg-img: none;                 /* JS에서 url('...') 주입 */
+  --bg-pos: 86% 30%;
+  --figure-size: cover;
+
+  --dim: rgba(0,0,0,.58);         /* 단색 오버레이 농도 */
+  --sat: .95;
+  --bright: .95;                  /* 필요 시 0.9~1.0 사이 */
+  --blur: 0px;
+}
+
+/* 페이지 배경 (반드시 콘텐츠보다 아래 깔림) */
+.has-fixed-bg {
+  position: relative;             /* 스택 컨텍스트 */
+}
+
+/* 1) 이미지 레이어 */
+.has-fixed-bg::before {
+  content: "";
+  position: fixed;
+  inset: -2px;                    /* ← 오버스캔! 경계 1~2px 더 키움 */
+  z-index: 0;
+  pointer-events: none;
+
+  background: var(--bg-img) no-repeat var(--bg-pos) / var(--figure-size);
+
+  /* 블렌드/그라데이션 없이 필터만 */
+  filter: saturate(var(--sat)) brightness(var(--bright)) blur(var(--blur));
+  transform: translateZ(0);
+}
+
+/* 2) 단색 오버레이 (블렌드 사용 안 함) */
+.has-fixed-bg::after {
+  content: "";
+  position: fixed;
+  inset: -2px;                    /* 동일 오버스캔 */
+  z-index: 0;
+  pointer-events: none;
+  background: var(--dim);         /* 반투명 검정 */
+}
+
+/* 실제 콘텐츠가 위에 오도록 */
+#root, .app-root, header, main {
+  position: relative;
+  z-index: 1;
+}
+
+/* 바닥 배경색 */
+html, body { background: #0f0f12; }

@@ -26,15 +26,13 @@ section.resume {
 }
 
 .sidebar {
-    background-color: #f5f5f5;
-    border-right: 1px solid #bbbbbb;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
     width: 100%;
-    padding: 25px;
+    padding: 30px;
     align-self: stretch;
     position:static;
     border:0;
-    border-top: 1px solid #bbbbbb;
     order: 1;
     ul {
         width: 100%;
@@ -52,7 +50,6 @@ section.resume {
     margin: 0;
     height: 1px;
     border: 0;
-    border-bottom: 1px solid black;
     
 }
 .contact h3, .index h3 {
@@ -89,7 +86,6 @@ i{
         position:static;
         width: 100%;
         border:0;
-        border-top: 1px solid #bbbbbb;
         order: 1;
     }
     .index {

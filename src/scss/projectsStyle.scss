@@ -9,7 +9,7 @@
 
 @import "./style.scss";
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
-
+@import "./fixed-bg.scss";
 h1, .index h3, .contact h3{
     font-family: Helvetica, sans-serif
 }
@@ -18,23 +18,41 @@ h1, .index h3, .contact h3{
 /* ======================= Main Contents =======================*/
 /* =============================================================*/
 
+
 #projects {
-    padding:40px 150px;
+    padding:40px clamp(24px, 6vw, 150px);
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(350px, 1fr));
-    gap:20px;
+    gap:24px;
+    .box-wrap {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: opacity .45s ease, transform .45s ease;
+        will-change: opacity, transform;
+    }
+    .box-wrap.in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .box {
         width: 100%;
-        margin: 0 0;
-        margin-bottom: 20px;
+        margin: 0 0 20px 0;
         padding: 20px;
-        border: 1px solid #999999;
-        transition: background-color .2s;
-    }
-    
-    .box:hover {
+        transform: perspective(600px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+        transition: transform 80ms ease-out, background-color .2s, color .2s;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        &:hover {
         cursor:pointer;
-        background-color: #b3e5fc;
+            background-color: rgba(255, 255, 255, 0.75);
+            color: black;
+        }
+        &.tilting {
+            will-change: transform;
+        }
     }
     
     h2.title, h2.title a {
@@ -45,7 +63,6 @@ h1, .index h3, .contact h3{
     .thumbnail {
         width: 100%;
         object-fit: cover;
-        border: 1px solid lightgray;
         background-color: darkgray;
         aspect-ratio: 4/3;
     }
@@ -55,6 +72,7 @@ h1, .index h3, .contact h3{
         border-radius: 5px;
         line-height: 1.05;
         height:fit-content;
+        color:black;
     }
 
     .Game {

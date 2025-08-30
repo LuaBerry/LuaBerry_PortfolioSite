@@ -1,0 +1,74 @@
+/* About stylesheet */
+/* Version 3.0 */
+
+/* Color Theme - #D90D58 - Wine Pink, #1EB7D9 - Bright Cerulean*/
+
+/* =============================================================*/
+/* ==================== Basic configuration ====================*/
+/* =============================================================*/
+
+@import "./style.scss";
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Roboto&display=swap');
+
+h1, .index h3, .contact h3{
+    font-family: Helvetica, sans-serif
+}
+
+.lang-kr {
+    font-family: "Helvetica Neue";
+}
+
+/* =============================================================*/
+/* ======================= Main Contents =======================*/
+/* =============================================================*/
+
+#projectEdit {
+    margin: 10px;
+    form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    input, textarea {
+        width: 100%;
+        margin-bottom: 20px;;
+        }
+    }
+}
+
+
+
+/* mobile */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .index {
+        display: none;
+    }
+    .contents {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+    .bodygroup {
+        margin: 50px 20px 0px;
+        max-width: fit-content;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #name {
+        height: fit-content;
+    }
+    .bg {
+        hr {
+            display: none;
+        }
+        h3 {
+            display: none;
+        }
+    }
+}
