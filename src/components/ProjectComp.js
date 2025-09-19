@@ -22,25 +22,36 @@ const ProjectComp = ({ project, setProjModal }) => {
   };
 
   const handleEnter = () => {
-    const el = boxRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
+    const wrapEl = wrapRef.current;
+    const boxEl  = boxRef.current;
+    if (!wrapEl || !boxEl) return;
+    const r = wrapEl.getBoundingClientRect();
     rectRef.current = { left: r.left, top: r.top, width: r.width, height: r.height };
-    el.classList.add("tilting");     // will-change 활성화
+    boxEl.classList.add("tilting"); // will-change 활성화
     tilting.current = true;
   };
 
-  const handleMove = (e) => {
-    if (!tilting.current) return;
-    const { left, top, width, height } = rectRef.current;
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-    const nx = (x / width) * 2 - 1;
-    const ny = (y / height) * 2 - 1;
-    const maxTilt = 18;
-    nextRot.current = { x: -ny * maxTilt, y: nx * maxTilt };
-    if (!rafId.current) rafId.current = requestAnimationFrame(applyRot);
-  };
+const handleMove = (e) => {
+  if (!tilting.current || !rectRef.current) return;
+
+  // 먼저 꺼내오고
+  const { left, top, width, height } = rectRef.current;
+  const cx = e.clientX;
+  const cy = e.clientY;
+
+  // 좌표 → [-1,1] 정규화
+  const x = cx - left;
+  const y = cy - top;
+  const nx = (x / width) * 2 - 1;
+  const ny = (y / height) * 2 - 1;
+
+  const maxTilt = 15;
+  nextRot.current = { x: -ny * maxTilt, y: nx * maxTilt };
+
+  if (!rafId.current) {
+    rafId.current = requestAnimationFrame(applyRot);
+  }
+};
 
   const handleLeave = () => {
     const el = boxRef.current;
@@ -72,13 +83,13 @@ const ProjectComp = ({ project, setProjModal }) => {
   useEffect(() => { if (isRendered) setOnceRendered(true); }, [isRendered]);
 
   return (
-    <div ref={wrapRef} className={`box-wrap ${onceRendered ? "in" : ""}`}>
+    <div ref={wrapRef} className={`box-wrap ${onceRendered ? "in" : ""}`}
+        onPointerEnter={handleEnter}
+        onPointerMove={handleMove}
+        onPointerLeave={handleLeave}>
       <div
         className="box"
         ref={boxRef}
-        onPointerEnter={handleEnter}
-        onPointerMove={handleMove}
-        onPointerLeave={handleLeave}
         onClick={() => setProjModal(project)}
       >
         <img className="thumbnail" src={project.image} alt="Project thumbnail" />

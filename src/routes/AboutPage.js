@@ -7,7 +7,7 @@ import '../scss/aboutStyle.scss';
 const ResumePage = ({lang}) => {
     useEffect(() => {
         document.body.classList.add('has-fixed-bg');
-        const img_url = new URL('/assets/img/xenophone2.jpg', window.location.origin).href;
+        const img_url = new URL('/assets/img/margarete.jpg', window.location.origin).href;
         document.documentElement.style.setProperty('--bg-img', `url('${img_url}')`);
         document.documentElement.style.setProperty('--bg-pos', '86% 0%');
         document.documentElement.style.setProperty('--blur', '4px');

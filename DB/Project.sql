@@ -5,7 +5,7 @@ CREATE TABLE Projects (
     link TEXT DEFAULT '',
     image TEXT NOT NULL,
     preview TEXT,
-    field TEXT,
+    field TEXT NOT NULL,
     description TEXT NOT NULL,
     descriptionKR TEXT NOT NULL,
     skills TEXT NOT NULL,

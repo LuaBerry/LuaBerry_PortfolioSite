@@ -18,14 +18,14 @@ const HomePage = (lang) => {
     const [repos, setRepos] = useState(null);
     const [repoLength, setRepoLength] = useState(0);
     const [codeTime, setCodeTime] = useState(0);
+    const [youtubeVideo, setYoutubeVideo] = useState({title: null, url: null});
+    const [threadPost, setThreadPost] = useState({title: null, url: null});
     //For bg animation
     const canvasRef = useRef(null);
     const menuRef = useRef(menu);
     const curInterRef = useRef(curInter);
     const imagesRef = useRef([]);
     const frameRef = useRef(0);
-
-
 
     //Sync menu, curInter
     useEffect(() => {
@@ -46,24 +46,27 @@ const HomePage = (lang) => {
     //Get real time info from Waka, Github
     useEffect(() => {
         const getWaka = async () => {
-            const {data} = await axios.get("https://wakatime.com/share/@a3466706-b60d-45c6-89e6-543fb0caf37f/b3d47b8d-5a54-4de6-86f4-be99036231bd.json");
-            const hours =  Math.round(data.data.grand_total.total_seconds_including_other_language / 3600);
-            setCodeTime(hours + 1200); {/* Estimated code time from 2015 to 2024 is 1200h (code time for one semester is 180h) */}
+            const {data: {hours}} = await axios.get("/api/waka");
+            setCodeTime(hours);
         };
-        const getCommit = async () => {
-            var today = new Date();
-            var weekago = new Date(today - (7 * 86400000));
-            const {data} = await axios.get(`https://api.github.com/search/commits?q=author:LuaBerry+committer-date:${weekago.toISOString()}..${today.toISOString()}`);
-            setCommit(data.total_count);
+        const getGithub = async () => {
+            const {data: {repo, commit}} = await axios.get("/api/github");
+            setCommit(commit);
+            setRepos(repo);
+            setRepoLength(repo.length);
         }
-        const getRepo = async () => {
-            const {data} = await axios.get('https://api.github.com/users/LuaBerry/repos?sort=updated');
-            setRepos(data);
-            setRepoLength(data.length);
+        const getYoutube = async () => {
+            const {data} = await axios.get("/api/youtube");
+            setYoutubeVideo(data);
         }
+        const getThread = async () => {
+            const {data} = await axios.get("/api/thread");
+            setThreadPost(data);
+        }
+        getYoutube();
+        getThread();
         getWaka();
-        getCommit();
-        getRepo();
+        getGithub();
     }, [])
 
 
@@ -267,7 +270,7 @@ const HomePage = (lang) => {
             </ul>
             <div className="overviews" style={{transform: `translate(calc(${(menu * -100)}vw))`}}>
                 <ResumeUI codeTime={codeTime} commit={commit} repo={repoLength}></ResumeUI>
-                <ActivityUI repos={repos}></ActivityUI>
+                <ActivityUI repos={repos} youtubeVideo={youtubeVideo} threadPost={threadPost}></ActivityUI>
                 <LinkUI></LinkUI>
             </div>
         </section>
@@ -373,7 +376,7 @@ const customStyles = (element, isMobile) => {
   };
 }
 
-const ActivityUI = ({repos}) => {
+const ActivityUI = ({repos, youtubeVideo, threadPost}) => {
     return (
         <div id="activityui">
             {(repos) ?
@@ -386,18 +389,18 @@ const ActivityUI = ({repos}) => {
             </div>) : (
                 <></>
             )}
-            <div onClick={()=>{}}>
+            <div onClick={()=>{window.open(youtubeVideo.url)}}>
                 <img src="/assets/img/youtube_logo.png"></img>
                 <div className="detailtext">
                     <span>Recent Upload</span>
-                    <p></p>
+                    <p>{youtubeVideo.title}</p>
                 </div>
             </div>
-            <div onClick={()=>{}}>
-                <img src="/assets/img/naverblog_logo.png"></img>
+            <div onClick={()=>{window.open(threadPost.url)}}>
+                <img src="/assets/img/thread_logo.png"></img>
                 <div className="detailtext">
                     <span>Recent Post</span>
-                    <p></p>
+                    <p>{threadPost.title}</p>
                 </div>
             </div>
         </div>
