@@ -46,6 +46,7 @@ process.on('SIGINT', () => {
 })
 
 app.use("/assets", cacheMiddleware, express.static("assets"));
+app.use("/downloads", express.static("files"));
 
 app.use(express.static(path.join(__dirname,  ((process.argv[3] === "test") ? '../test_build' :'../build'))));
 app.get("*", (req,res) => {

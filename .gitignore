@@ -24,6 +24,7 @@
 # DB
 /DB/*.db
 /DB/*.sqlite
+/files
 
 npm-debug.log*
 yarn-debug.log*

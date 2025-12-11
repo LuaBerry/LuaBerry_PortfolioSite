@@ -296,7 +296,7 @@ const ResumeUI = ({codeTime, commit, repo}) => {
             </img>
             <div className="overlay"/>
             <div className="text">
-                <h1>Jeongin Yeo</h1>
+                <h1>Leo Yeo</h1>
             </div>
         </div>
         <div className="resumesummary">
@@ -311,8 +311,8 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <h1>Kernel · Virtualization</h1>
             </div>
             <div>
-                <span>Weekly Commit</span>
-                <h1>{commit}</h1>
+                <span>Affiliation</span>
+                <a className="external_link" href="https://sslab.hanyang.ac.kr" target="_blank" rel="noopener noreferrer"><h1>SSLab</h1></a>
             </div>
         </div>
         <hr/>
@@ -322,8 +322,8 @@ const ResumeUI = ({codeTime, commit, repo}) => {
                 <h1>{repo}</h1>
             </div>
             <div>
-                <span>GPA</span>
-                <h1>3.3/4.0</h1>
+                <span>Current Research</span>
+                <h1>Confidential VM</h1>
             </div>
             <div>
                 <span ref={timeRef} id="codeTime">Coding Time
@@ -412,9 +412,9 @@ const LinkUI = ({}) => {
         <div id="linkui">
             <h2>Find Me On</h2>
             <div id="contactlinks">
-                <img className="contact" src="/assets/img/gmail_logo.png" onClick={() => {window.location.href = "mailto:lazpberry1012@gmail.com"}}/>
+                <img className="contact" src="/assets/img/gmail_logo.png" onClick={() => {window.location.href = "mailto:leo.yeo@luaberry.com"}}/>
                 <img className="contact" src="/assets/img/github_white_logo.png" onClick={() => {window.open("https://github.com/LuaBerry")}}/>
-                <img className="contact" src="/assets/img/linkedin_logo.png" onClick={() => {window.open("https://www.linkedin.com/in/ji-yeo/")}}/>
+                <img className="contact" src="/assets/img/linkedin_logo.png" onClick={() => {window.open("https://www.linkedin.com/in/leoyeo/")}}/>
                 <img className="contact" src="/assets/img/youtube_logo.png" onClick={() => {window.open("https://www.youtube.com/@LuaB3rry")}}/>
             </div>
         </div>

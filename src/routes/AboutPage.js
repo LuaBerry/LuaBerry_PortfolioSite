@@ -31,7 +31,7 @@ const Resume = () => {
             <article className="contents">
                 <div id="name">
                     <div className="bg">
-                        <h1>YEO, JEONG IN</h1>
+                        <h1>LEO YEO</h1>
                         <hr />
                         <h3>Hanyang University Student</h3>
                     </div>
@@ -44,11 +44,11 @@ const Resume = () => {
                         </div>
                     </div>
                     <p>
-                    My name is Jeongin Yeo. I am senior student majoring computer science in Hanyang University.
-                    Through my military service with the US Army, my dream has became "Living in the America".
-                    So I've decided to find promising and competitive CS fields.
-                    After the discharge, My focus has been on the system architectures and cloud service.
-                    Since then, I am studying system development and preparing for the US grads school.
+                    {/* Who are you, What's your interest, Why you like it, What you doing for it. */}
+                    My name is Leo (Jeongin) Yeo. I am a senior student majoring in Computer Science and an undergraduate researcher in the <a href="https://syssec.hanyang.ac.kr/" target="_blank" rel="noopener noreferrer"><u>System Security Lab</u></a> at Hanyang University.<br/><br/>
+                    Studying as an undergraduate researcher, I have developed a strong interest in Linux kernel programming and virtualization technology.<br/><br/>
+                    Currently, I am conducting research on Confidential VM under the supervision of Prof. Youngpil Cho,
+                    and I plan to pursue graduate studies in a kernel related field after graduation.
                     </p>
                 </div>
                 <div className="bodygroup" id="CV">
@@ -84,13 +84,13 @@ const ResumeKR = () => {
                             <img src="assets/img/profile3.webp" alt="Profile" />
                         </div>
                     </div>
-                    <span className='lang-kr'>
-                    저는 한양대학교 컴퓨터소프트웨어학부 4학년생 여정인입니다.
-                   	카투사의 복무 경험으로, 제 꿈은 "미국에서 사는 것" 이 되었습니다.
-                    그래서 전도유망하고 경쟁력 있는 컴퓨터 공학 분야를 찾기로 결심했습니다.
-                    전역 후, 저는 시스템 아키텍쳐와 클라우드 서비스에 관심을 가지게 되었고,
-                    현재 저는 시스템 개발을 공부하며 미국 박사를 준비하고 있습니다.
-                    </span>
+                    <p className='lang-kr'>
+                    {/* Who are you, What's your interest, Why you like it, What you doing for it. */}
+                    저는 한양대학교 컴퓨터소프트웨어학부 4학년생이자 <a href="https://syssec.hanyang.ac.kr/" target="_blank" rel="noopener noreferrer"><u>시스템 보안 연구실</u></a> 학부연구생 여정인입니다.<br/><br/>
+                   	학부연구생을 진행하면서, 리눅스 커널 프로그래밍과 가상화 기술에 관심을 가지게 되었습니다.<br/><br/>
+                    현재, 조영필 교수님의 지도 하에 학부연구생으로 Confidential VM을 연구하고 있으며,
+                    졸업 후에는 커널 관련 분야의 대학원 진학을 계획하고 있습니다.
+                    </p>
                 </div>
                 <div className="bodygroup" id="CV">
                     <a href="/assets/file/Leo_CV.pdf" id="cvlink" download>

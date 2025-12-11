@@ -39,7 +39,6 @@ apiRouter.get("/youtube", async (req, res) => {
     }
     try {
         const channel_id = "UC_vIK-ZGd_CVZDrmXJKvv6Q";
-        console.log(process.env.YOUTUBE_API_KEY);
         const ch = await axios.get("https://www.googleapis.com/youtube/v3/channels", {
             params: { part: "contentDetails", id: channel_id, key: process.env.YOUTUBE_API_KEY },
         });

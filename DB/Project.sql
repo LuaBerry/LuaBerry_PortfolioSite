@@ -14,25 +14,15 @@ CREATE TABLE Projects (
 
 INSERT INTO Projects (title, link, image, preview, field, description, descriptionKR, skills, time)
 VALUES (
-    'Wetube',
-    'https://github.com/Baskin-Lazpberry/FullStack-YouTube_Clone',
-    '/assets/img/wetubeOpt.jpg?v=1',
+    'UPMEM PIM FP Growth',
+    'https://github.com/PhoenixPlanet/pim-fp-growth',
+    '/assets/img/preparing.jpg',
     '/assets/video/preparing.mp4',
-    'Web',
-    'Fullstack YouTube clone website',
-    '유튜브 클론 풀스택 웹사이트',
-    '["MongoDB", "Express", "Pug", "node.js"]',
-    '2023.05'
-), (
-    'Movie Ratings',
-    'https://github.com/LuaBerry/React-MovieReviewWebsite',
-    '/assets/img/movieRatingOpt.jpg?v=1',
-    'https://luaberry.github.io/React-MovieReviewWebsite/',
-    'Web',
-    'Movie Review Website with React',
-    '리액트 영화 리뷰 웹사이트',
-    '["React.js"]',
-    '2022.05'
+    'Algorithm',
+    'FP Growth algorithm implementation on UPMEM PIM architecture',
+    'FP Growth 알고리즘을 UPMEM PIM 아키텍처에 구현',
+    '["UPMEM", "C", "C++", "Parallel Programming"]',
+    '2025.11'
 ), (
     'Side Scroll Game',
     'https://github.com/Baskin-Lazpberry/UE4-SideScrollGame',
@@ -64,3 +54,25 @@ VALUES (
     '["Unity Engine"]',
     '2019.11'
 );
+
+-- (
+--     'Wetube',
+--     'https://github.com/Baskin-Lazpberry/FullStack-YouTube_Clone',
+--     '/assets/img/wetubeOpt.jpg?v=1',
+--     '/assets/video/preparing.mp4',
+--     'Web',
+--     'Fullstack YouTube clone website',
+--     '유튜브 클론 풀스택 웹사이트',
+--     '["MongoDB", "Express", "Pug", "node.js"]',
+--     '2023.05'
+-- ), (
+--     'Movie Ratings',
+--     'https://github.com/LuaBerry/React-MovieReviewWebsite',
+--     '/assets/img/movieRatingOpt.jpg?v=1',
+--     'https://luaberry.github.io/React-MovieReviewWebsite/',
+--     'Web',
+--     'Movie Review Website with React',
+--     '리액트 영화 리뷰 웹사이트',
+--     '["React.js"]',
+--     '2022.05'
+-- ), 
